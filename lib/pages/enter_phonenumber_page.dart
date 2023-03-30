@@ -1,8 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:intl_phone_field/phone_number.dart';
+import 'package:messenger_app/pages/phonenumber_verify.dart';
 
 class EnterPhoneNumberPage extends StatefulWidget {
   const EnterPhoneNumberPage({Key? key}) : super(key: key);
@@ -12,6 +11,7 @@ class EnterPhoneNumberPage extends StatefulWidget {
 }
 
 class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
+  PhoneNumber? phoneNumber;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,8 +48,6 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
 
   Widget _confirmPhoneNumber() {
     return IntlPhoneField(
-      showCountryFlag: true,
-      enabled: true,
       decoration: const InputDecoration(
         labelText: 'Phone Number',
         border: OutlineInputBorder(
@@ -57,8 +55,10 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
         ),
       ),
       initialCountryCode: 'VN',
-      onChanged: (phone) {
-        // print(phone.completeNumber);
+      onSaved: (value) {
+        setState(() {
+          phoneNumber = value;
+        });
       },
     );
   }
@@ -72,7 +72,7 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
         color: const Color(0xFF303030),
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: (() => Navigator.pushNamed(context, 'verify')),
         child: const Center(
             child: Text(
           "Continue",

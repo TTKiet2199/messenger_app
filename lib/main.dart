@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/pages/enter_phonenumber_page.dart';
+import 'package:messenger_app/pages/phonenumber_verify.dart';
 import 'package:messenger_app/pages/start_page.dart';
 
 void main() {
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Messenger App',
-      initialRoute: 'enter',
+      initialRoute: 'verify',
       routes: {
-        'start': ((context) => const StartPage()),
-        'enter':((context) => const EnterPhoneNumberPage())
+        'start': (context) => const StartPage(),
+        'enter':(context) => const EnterPhoneNumberPage(),
+        'verify':(context) => const PhoneNumberVerify(),
 
       },
     );
