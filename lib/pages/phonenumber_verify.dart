@@ -27,7 +27,8 @@ class _PhoneNumberVerifyState extends State<PhoneNumberVerify> {
             ],
           ),
           _enterCode(),
-          _resenCodeText()
+          _resentCodeText(),
+          _continueButton(),
         ],
       ),
     );
@@ -82,7 +83,7 @@ class _PhoneNumberVerifyState extends State<PhoneNumberVerify> {
     );
   }
 
-  Widget _resenCodeText() {
+  Widget _resentCodeText() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -99,6 +100,24 @@ class _PhoneNumberVerifyState extends State<PhoneNumberVerify> {
           ),
         )
       ],
+    );
+  }
+  Widget _continueButton() {
+    return Container(
+      height: 60,
+      width: 360,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(60),
+        color: const Color(0xFF303030),
+      ),
+      child: InkWell(
+        onTap: (() => Navigator.pushNamed(context, 'create')),
+        child: const Center(
+            child: Text(
+          "Continue",
+          style: TextStyle(fontSize: 15, color: Colors.white),
+        )),
+      ),
     );
   }
 }
