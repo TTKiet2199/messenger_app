@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/pages/create_name_page.dart';
 import 'package:messenger_app/pages/enter_phonenumber_page.dart';
-import 'package:messenger_app/pages/phonenumber_verify.dart';
+import 'package:messenger_app/pages/home_page.dart';
+import 'package:messenger_app/pages/new_mess_page.dart';
+import 'package:messenger_app/pages/otp_page.dart';
+import 'package:messenger_app/pages/search_page.dart';
 import 'package:messenger_app/pages/set_image_page.dart';
 import 'package:messenger_app/pages/start_page.dart';
 
@@ -16,13 +19,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Messenger App',
-      initialRoute: 'image',
+      initialRoute: 'search',
       routes: {
         'start': (context) => const StartPage(),
         'enter': (context) => const EnterPhoneNumberPage(),
-        'verify': (context) => const PhoneNumberVerify(),
+        'otp': (context) => const PhoneNumberVerify(),
         'create': (context) => const CreateNamePage(),
         'image': (context) => const SetImagePage(),
+        'home': (context) => const HomePage(),
+        'search':(context) => const SearchPage(),
+        'newMess':(context) => const NewMessagesPage(),
+
       },
     );
   }

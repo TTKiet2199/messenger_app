@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
-import 'package:messenger_app/pages/phonenumber_verify.dart';
 
 class EnterPhoneNumberPage extends StatefulWidget {
   const EnterPhoneNumberPage({Key? key}) : super(key: key);
@@ -72,7 +71,7 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
         color: const Color(0xFF303030),
       ),
       child: InkWell(
-        onTap: (() => Navigator.pushNamed(context, 'verify')),
+        onTap: (() => Navigator.pushNamed(context, 'otp')),
         child: const Center(
             child: Text(
           "Continue",

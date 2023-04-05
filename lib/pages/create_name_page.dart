@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CreateNamePage extends StatefulWidget {
   const CreateNamePage({Key? key}) : super(key: key);
@@ -14,6 +11,15 @@ class _CreateNamePageState extends State<CreateNamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        shadowColor: const Color.fromARGB(0, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+        title: Container(
+          alignment: Alignment.centerRight,
+          child: const Text('1 of 2',
+              style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F))),
+        ),
+      ),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(10),
@@ -22,7 +28,6 @@ class _CreateNamePageState extends State<CreateNamePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
             children: [
-              _pageNumber(),
               Column(
                 children: [
                   _createNameText(),
@@ -36,14 +41,6 @@ class _CreateNamePageState extends State<CreateNamePage> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _pageNumber() {
-    return Container(
-      alignment: Alignment.topRight,
-      child: const Text('1 of 2',
-          style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F))),
     );
   }
 
@@ -76,13 +73,16 @@ class _CreateNamePageState extends State<CreateNamePage> {
           fontSize: 20,
         ),
         decoration: InputDecoration(
-          prefixIcon: const Padding(padding: EdgeInsets.only(left: 0.0),
-          child: Icon(Icons.person),),
+            prefixIcon: const Padding(
+              padding: EdgeInsets.only(left: 0.0),
+              child: Icon(Icons.person),
+            ),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(50))),
       ),
     );
   }
+
   Widget _continueButton() {
     return Container(
       height: 60,

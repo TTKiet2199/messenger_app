@@ -15,19 +15,38 @@ class _SetImagePageState extends State<SetImagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: Container(
+      appBar: AppBar(
+        shadowColor: const Color.fromARGB(0, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              alignment: Alignment.centerLeft,
+              child: GestureDetector(
+                onTap: (() {
+                  Navigator.popAndPushNamed(context, 'create');
+                }),
+                child: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            const Text('2 of 2',
+                style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F))),
+          ],
+        ),
+      ),
+      body: Container(
         padding: const EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            
             Column(
               children: [
-                _pageNumber(),
-                const Padding(padding: EdgeInsets.all(10)),
                 _addPhotoText(),
                 const Padding(padding: EdgeInsets.all(10)),
                 _noteText(),
@@ -37,15 +56,7 @@ class _SetImagePageState extends State<SetImagePage> {
             _nextButton()
           ],
         ),
-      )),
-    );
-  }
-
-  Widget _pageNumber() {
-    return Container(
-      alignment: Alignment.topRight,
-      child: const Text('2 of 2',
-          style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F))),
+      ),
     );
   }
 
@@ -84,11 +95,13 @@ class _SetImagePageState extends State<SetImagePage> {
         height: 140,
         width: 140,
         decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(140),
             image: DecorationImage(
                 fit: BoxFit.cover, image: imageProvider as ImageProvider)),
       ),
     );
   }
+
   Widget _nextButton() {
     return Container(
       height: 60,
@@ -98,7 +111,7 @@ class _SetImagePageState extends State<SetImagePage> {
         color: const Color(0xFF303030),
       ),
       child: InkWell(
-        onTap: (() => Navigator.pushNamed(context, 'image')),
+        onTap: (() => Navigator.pushNamed(context, 'home')),
         child: const Center(
             child: Text(
           "Next",
