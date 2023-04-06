@@ -70,9 +70,9 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
               label: 'Contacts',
               icon: Icon(
-                Icons.contact_page_rounded,
+                Icons.group,
               )),
-          BottomNavigationBarItem(label: 'Calls', icon: Icon(Icons.call)),
+          BottomNavigationBarItem(label: 'Calls', icon: Icon(Icons.phone_in_talk)),
           BottomNavigationBarItem(
               label: 'Profile', icon: Icon(Icons.account_box_outlined)),
         ]);

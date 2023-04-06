@@ -53,6 +53,7 @@ class _SetImagePageState extends State<SetImagePage> {
               ],
             ),
             _profileTmageWidget(),
+            _uploadText(),
             _nextButton()
           ],
         ),
@@ -98,6 +99,15 @@ class _SetImagePageState extends State<SetImagePage> {
             borderRadius: BorderRadius.circular(140),
             image: DecorationImage(
                 fit: BoxFit.cover, image: imageProvider as ImageProvider)),
+      ),
+    );
+  }
+
+  Widget _uploadText() {
+    return const Center(
+      child: Text(
+        'Upload',
+        style: TextStyle(fontSize: 20),
       ),
     );
   }

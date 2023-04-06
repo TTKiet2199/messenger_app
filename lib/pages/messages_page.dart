@@ -44,7 +44,7 @@ class _MessagesPageState extends State<MessagesPage> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           color: const Color.fromARGB(255, 233, 235, 235)),
-      child: const Icon(Icons.person),
+      child: const Icon(Icons.person_outline_outlined),
     );
   }
 

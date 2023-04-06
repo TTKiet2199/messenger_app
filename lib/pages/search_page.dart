@@ -54,7 +54,7 @@ class _SearchPageState extends State<SearchPage> {
             ],
           )),
       body: Column(
-        children: [_listButton()],
+        children: [_listButton(), _recentSearchWidget(), _listRecentSearch()],
       ),
     );
   }
@@ -77,19 +77,90 @@ class _SearchPageState extends State<SearchPage> {
       scrollDirection: Axis.horizontal,
       itemCount: nameButton.length,
       itemBuilder: (BuildContext context, int index) {
-        return Container(
-          margin: const EdgeInsets.all(10),
-          width: 100,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: const Color.fromARGB(255, 233, 235, 235)),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [iconButton[index], Text(nameButton[index])]),
+        return InkWell(
+          onTap: () {},
+          child: Container(
+            margin: const EdgeInsets.all(10),
+            width: 100,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: const Color.fromARGB(255, 233, 235, 235)),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [iconButton[index], Text(nameButton[index])]),
+          ),
         );
       },
+    );
+  }
+
+  Widget _recentSearchWidget() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          const Text(
+            'Resent searches',
+            style: TextStyle(fontSize: 20, color: Colors.black),
+          ),
+          GestureDetector(
+            onTap: (() {
+             
+            }),
+            child: const Text(
+              "Clear all",
+              style: TextStyle(
+                color: Color(0xFF0E9F9F),
+                fontSize: 17,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _listRecentSearch() {
+    return Expanded(
+      child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          child: ListView.builder(
+              itemCount: 3,
+              itemBuilder: ((context, index) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    const Icon(Icons.search),
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      width: 320,
+                      height: 20,
+                      child: const Text(
+                        'Search result history',
+                        style: TextStyle(
+                          color: Color(0xFF0E9F9F),
+                          fontSize: 17,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                        onTap: (() {
+                          setState(() {
+                            
+                          });
+                        }),
+                        child: const Icon(
+                          Icons.cancel_sharp,
+                          color: Colors.black,
+                        ))
+                  ],
+                );
+              }))),
     );
   }
 }

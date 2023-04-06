@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class NewMessagesPage extends StatefulWidget {
-  const NewMessagesPage({Key? key}) : super(key: key);
+class NewGroupPage extends StatefulWidget {
+  const NewGroupPage({Key? key}) : super(key: key);
 
   @override
-  State<NewMessagesPage> createState() => _NewMessagesPageState();
+  State<NewGroupPage> createState() => _NewGroupPageState();
 }
 
-class _NewMessagesPageState extends State<NewMessagesPage> {
+class _NewGroupPageState extends State<NewGroupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +29,7 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
               ),
               Container(
                 padding: const EdgeInsets.only(left: 20),
-                child: const Text('New messages',
+                child: const Text('New group',
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w500,
@@ -52,74 +52,51 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
           ),
         ],
       ),
-      body: Column(
-        children: [_newButton(), _userList()],
+      body: Stack(
+        children: [Column(
+          children: [_groupMemberSelected(), _userList()],
+        ),
+        Container(
+          padding: const EdgeInsets.only(bottom: 30),
+          alignment: Alignment.bottomCenter,
+          child: _nextButton())]
       ),
     );
   }
 
-  Widget _newButton() {
+  Widget _groupMemberSelected() {
     return Container(
-      height: 180,
+      margin: const EdgeInsets.only(top: 20),
+      height: 120,
       decoration: const BoxDecoration(
           border: Border(
-        bottom: BorderSide(width: 10, color: Color.fromARGB(22, 0, 0, 0)),
-      )),
-      child: Column(
-        children: [_newGroup(), _newChannel()],
-      ),
-    );
-  }
-
-  Widget _newGroup() {
-    return InkWell(
-      onTap: (() => Navigator.pushNamed(context, 'newGroup')),
-      child: Container(
-        margin: const EdgeInsets.only(left: 20),
-        width: 410,
-        height: 80,
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(width: 1, color: Color.fromARGB(30, 0, 0, 0)),
+              bottom:
+                  BorderSide(width: 1, color: Color.fromARGB(22, 0, 0, 0)))),
+      child: GridView.builder(
+          itemCount: 5,
+          gridDelegate:  const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 250,
+            childAspectRatio: 144/42,
           ),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.group_outlined),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Text(
-                'New Group',
-                style: TextStyle(fontSize: 20),
+          itemBuilder: ((context, index) {
+            return Container(
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  color: const Color.fromARGB(255, 233, 235, 235)),
+              child: InkWell(
+                onTap: () {},
+                child: const Center(
+                  child: Text(
+                    'User name',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
               ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _newChannel() {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(left: 20),
-        height: 80,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.smart_display_outlined),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Text(
-                'New Channel',
-                style: TextStyle(fontSize: 20),
-              ),
-            )
-          ],
-        ),
-      ),
+            );
+          })),
     );
   }
 
@@ -177,5 +154,23 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
             )
           ],
         ));
+  }
+  Widget _nextButton() {
+    return Container(
+      height: 60,
+      width: 360,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(60),
+        color: const Color(0xFF303030),
+      ),
+      child: InkWell(
+        onTap: (() => Navigator.pushNamed(context, 'setting')),
+        child: const Center(
+            child: Text(
+          "Next",
+          style: TextStyle(fontSize: 15, color: Colors.white),
+        )),
+      ),
+    );
   }
 }

@@ -1,13 +1,17 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-class NewMessagesPage extends StatefulWidget {
-  const NewMessagesPage({Key? key}) : super(key: key);
+class GroupSettingPage extends StatefulWidget {
+  const GroupSettingPage({Key? key}) : super(key: key);
 
   @override
-  State<NewMessagesPage> createState() => _NewMessagesPageState();
+  State<GroupSettingPage> createState() => _GroupSettingPageState();
 }
 
-class _NewMessagesPageState extends State<NewMessagesPage> {
+class _GroupSettingPageState extends State<GroupSettingPage> {
+  File? image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +33,7 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
               ),
               Container(
                 padding: const EdgeInsets.only(left: 20),
-                child: const Text('New messages',
+                child: const Text('New group',
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w500,
@@ -40,11 +44,11 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
         ),
         actions: [
           GestureDetector(
-            onTap: (() => Navigator.pushNamed(context, 'search')),
+            onTap: (() => Navigator.pushNamed(context, '')),
             child: const Padding(
               padding: EdgeInsets.only(left: 8, right: 8),
               child: Icon(
-                Icons.search_rounded,
+                Icons.check,
                 color: Color.fromARGB(170, 0, 0, 0),
                 size: 35,
               ),
@@ -53,73 +57,94 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
         ],
       ),
       body: Column(
-        children: [_newButton(), _userList()],
+        children: [
+          _setImageAndName(),
+          Container(
+            padding: const EdgeInsets.all(20),
+            alignment: Alignment.centerLeft,
+            child: _memberText()),
+          _userList()
+        ],
       ),
     );
   }
 
-  Widget _newButton() {
+  Widget _setImageAndName() {
     return Container(
-      height: 180,
+      height: 350,
       decoration: const BoxDecoration(
           border: Border(
         bottom: BorderSide(width: 10, color: Color.fromARGB(22, 0, 0, 0)),
       )),
       child: Column(
-        children: [_newGroup(), _newChannel()],
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          _profileTmageWidget(),
+          _uploadText(),
+          _enterGroupNameTextFiled()
+        ],
       ),
     );
   }
 
-  Widget _newGroup() {
-    return InkWell(
-      onTap: (() => Navigator.pushNamed(context, 'newGroup')),
+  Widget _profileTmageWidget() {
+    var imageProvider = image != null
+        ? FileImage(image!)
+        : const AssetImage("assets/images/Input Image.png");
+    return GestureDetector(
+      onTap: () {
+        FilePicker.platform.pickFiles(type: FileType.image).then((result) {
+          setState(() {
+            image = File(result!.files.first.path!);
+          });
+        });
+      },
       child: Container(
-        margin: const EdgeInsets.only(left: 20),
-        width: 410,
-        height: 80,
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(width: 1, color: Color.fromARGB(30, 0, 0, 0)),
-          ),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.group_outlined),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Text(
-                'New Group',
-                style: TextStyle(fontSize: 20),
-              ),
-            )
-          ],
-        ),
+        height: 140,
+        width: 140,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(140),
+            image: DecorationImage(
+                fit: BoxFit.cover, image: imageProvider as ImageProvider)),
       ),
     );
   }
 
-  Widget _newChannel() {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(left: 20),
-        height: 80,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.smart_display_outlined),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Text(
-                'New Channel',
-                style: TextStyle(fontSize: 20),
-              ),
-            )
-          ],
-        ),
+  Widget _uploadText() {
+    return const Center(
+      child: Text(
+        'Upload',
+        style: TextStyle(fontSize: 20),
       ),
+    );
+  }
+
+  Widget _enterGroupNameTextFiled() {
+    return SizedBox(
+      height: 60,
+      width: 370,
+      child: TextField(
+        textAlignVertical: TextAlignVertical.center,
+        style: const TextStyle(
+          fontSize: 20,
+        ),
+        decoration: InputDecoration(
+            hintText: 'Group name',
+            prefixIcon: const Padding(
+              padding: EdgeInsets.only(left: 0.0),
+              child: Icon(Icons.groups_outlined),
+            ),
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(50))),
+      ),
+    );
+  }
+
+  Widget _memberText() {
+    return const Text(
+      'Number of member',
+      style: TextStyle(fontSize: 20),
     );
   }
 
