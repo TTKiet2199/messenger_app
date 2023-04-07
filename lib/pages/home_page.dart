@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentPage = 0;
+  int currentPage = 2;
   final List<String> namePages = ['Messages', 'Contacts', 'Calls', 'Profile'];
   final List<Widget> pages = [
     const MessagesPage(),
@@ -35,17 +35,38 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.black)),
         ),
         actions: [
-          GestureDetector(
-            onTap: (() => Navigator.pushNamed(context, 'search')),
-            child: const Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
-              child: Icon(
-                Icons.search_rounded,
-                color: Colors.black,
-                size: 35,
-              ),
-            ),
-          ),
+          currentPage < 3
+              ? (currentPage < 2
+                  ? GestureDetector(
+                      onTap: (() => Navigator.pushNamed(context, 'search')),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 8, right: 8),
+                        child: Icon(
+                          Icons.search_rounded,
+                          color: Colors.black,
+                          size: 35,
+                        ),
+                      ),
+                    )
+                  : Row(
+                    children: [
+                      GestureDetector(
+                        onTap: (() => Navigator.pushNamed(context, 'search')),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 8, right: 8),
+                          child: Icon(
+                            Icons.search_rounded,
+                            color: Colors.black,
+                            size: 35,
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Icon(Icons.more_vert,color: Colors.black,size: 35,),
+                      )
+                    ]))
+              : Container(),
         ],
       ),
       bottomNavigationBar: _bottomNavigationBar(),
@@ -55,7 +76,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _bottomNavigationBar() {
     return BottomNavigationBar(
-      showUnselectedLabels: true,
+        showUnselectedLabels: true,
         selectedItemColor: Colors.black,
         unselectedItemColor: const Color(0xFF0E9F9F),
         currentIndex: currentPage,
@@ -72,7 +93,8 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(
                 Icons.group,
               )),
-          BottomNavigationBarItem(label: 'Calls', icon: Icon(Icons.phone_in_talk)),
+          BottomNavigationBarItem(
+              label: 'Calls', icon: Icon(Icons.phone_in_talk)),
           BottomNavigationBarItem(
               label: 'Profile', icon: Icon(Icons.account_box_outlined)),
         ]);
