@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:messenger_app/items/users_list.dart';
 
 class NewGroupPage extends StatefulWidget {
   const NewGroupPage({Key? key}) : super(key: key);
@@ -54,7 +55,7 @@ class _NewGroupPageState extends State<NewGroupPage> {
       ),
       body: Stack(
         children: [Column(
-          children: [_groupMemberSelected(), _userList()],
+          children: [_groupMemberSelected(), const UsersList()],
         ),
         Container(
           padding: const EdgeInsets.only(bottom: 30),
@@ -100,61 +101,7 @@ class _NewGroupPageState extends State<NewGroupPage> {
     );
   }
 
-  Widget _userList() {
-    return Expanded(
-      child: ListView.builder(
-          itemCount: 10,
-          itemBuilder: ((context, index) {
-            return Container(
-              padding: const EdgeInsets.only(top: 10, left: 20),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  _avataImage(),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: _userText(),
-                  )
-                ],
-              ),
-            );
-          })),
-    );
-  }
-
-  Widget _avataImage() {
-    return Container(
-      height: 70,
-      width: 70,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: const Color.fromARGB(255, 233, 235, 235)),
-      child: const Icon(Icons.person_outline_outlined),
-    );
-  }
-
-  Widget _userText() {
-    return SizedBox(
-        width: 170,
-        height: 50,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text("User name",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400)),
-            SizedBox(
-              width: 150,
-              height: 20,
-              child: Text(
-                "active status",
-                style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F)),
-              ),
-            )
-          ],
-        ));
-  }
+  
   Widget _nextButton() {
     return Container(
       height: 60,
@@ -164,7 +111,7 @@ class _NewGroupPageState extends State<NewGroupPage> {
         color: const Color(0xFF303030),
       ),
       child: InkWell(
-        onTap: (() => Navigator.pushNamed(context, 'setting')),
+        onTap: (() => Navigator.pushNamed(context, 'settingGroup')),
         child: const Center(
             child: Text(
           "Next",

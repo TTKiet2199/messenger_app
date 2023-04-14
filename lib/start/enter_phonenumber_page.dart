@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_field/phone_number.dart';
+import 'package:messenger_app/items/dropdown_item.dart';
 
 class EnterPhoneNumberPage extends StatefulWidget {
   const EnterPhoneNumberPage({Key? key}) : super(key: key);
@@ -10,7 +10,6 @@ class EnterPhoneNumberPage extends StatefulWidget {
 }
 
 class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
-  PhoneNumber? phoneNumber;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +17,16 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [_headTextPage(), _confirmPhoneNumber(), _continueButton()],
+        children: [_headTextPage(),Column(
+          children: [
+            _phoneCountries() ,
+            
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: _confirmPhoneNumber(),
+            ),
+          ],
+        ), _continueButton()],
       ),
     );
   }
@@ -45,20 +53,41 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
     );
   }
 
-  Widget _confirmPhoneNumber() {
-    return IntlPhoneField(
-      decoration: const InputDecoration(
-        labelText: 'Phone Number',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30)),
-        ),
+  Widget _phoneCountries() {
+    return Container(
+      width: 370,
+      height: 60,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(60),
+      color: Colors.white,border: Border.all(width: 1,color: const Color(0xFFDCDCDC))),
+      child: Row(
+        children: [
+          const Padding(
+               padding: EdgeInsets.symmetric(horizontal: 10),
+               child: Icon(Icons.language_outlined, size: 30,),
+             ),
+            DropDownButtonCustom()
+        ],
       ),
-      initialCountryCode: 'VN',
-      onSaved: (value) {
-        setState(() {
-          phoneNumber = value;
-        });
-      },
+    );
+  }
+
+  Widget _confirmPhoneNumber() {
+    return SizedBox(
+      height: 60,
+      width: 370,
+      child: TextField(
+        textAlignVertical: TextAlignVertical.center,
+        style: const TextStyle(
+          fontSize: 20,
+        ),
+        decoration: InputDecoration(
+            prefixIcon: const Padding(
+              padding: EdgeInsets.only(left: 0.0),
+              child: Icon(Icons.call_outlined),
+            ),
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(50))),
+      ),
     );
   }
 

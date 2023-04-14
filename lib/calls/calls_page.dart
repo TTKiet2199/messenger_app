@@ -93,7 +93,7 @@ class _CallsPageState extends State<CallsPage> {
     return SizedBox(
         height: 50,
         width: 50,
-        child: callStatus[callNum++] == false&&callNum<callStatus.length
+        child: callStatus[callNum++] == false && callNum < callStatus.length
             ? const Icon(Icons.video_call)
             : const Icon(Icons.call));
   }

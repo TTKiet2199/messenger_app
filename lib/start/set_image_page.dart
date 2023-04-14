@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +52,6 @@ class _SetImagePageState extends State<SetImagePage> {
               ],
             ),
             _profileTmageWidget(),
-            _uploadText(),
             _nextButton()
           ],
         ),
@@ -84,31 +82,32 @@ class _SetImagePageState extends State<SetImagePage> {
     var imageProvider = image != null
         ? FileImage(image!)
         : const AssetImage("assets/images/Input Image.png");
-    return GestureDetector(
-      onTap: () {
-        FilePicker.platform.pickFiles(type: FileType.image).then((result) {
-          setState(() {
-            image = File(result!.files.first.path!);
-          });
-        });
-      },
-      child: Container(
-        height: 140,
-        width: 140,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(140),
-            image: DecorationImage(
-                fit: BoxFit.cover, image: imageProvider as ImageProvider)),
-      ),
-    );
-  }
-
-  Widget _uploadText() {
-    return const Center(
-      child: Text(
-        'Upload',
-        style: TextStyle(fontSize: 20),
-      ),
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            FilePicker.platform.pickFiles(type: FileType.image).then((result) {
+              setState(() {
+                image = File(result!.files.first.path!);
+              });
+            });
+          },
+          child: Container(
+            height: 140,
+            width: 140,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(140),
+                image: DecorationImage(
+                    fit: BoxFit.cover, image: imageProvider as ImageProvider)),
+          ),
+        ),
+        const Center(
+          child: Text(
+            'Upload',
+            style: TextStyle(fontSize: 20),
+          ),
+        )
+      ],
     );
   }
 

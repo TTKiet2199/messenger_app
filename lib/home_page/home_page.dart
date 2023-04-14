@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/pages/messages_page.dart';
-import 'package:messenger_app/pages/calls_page.dart';
-import 'package:messenger_app/pages/contacts_page.dart';
-import 'package:messenger_app/pages/profile_page.dart';
+
+
+
+import 'package:messenger_app/profile/profile_page.dart';
+
+import '../calls/calls_page.dart';
+import '../contacts/contacts_page.dart';
+import '../messages/messages_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentPage = 2;
+  int currentPage = 3;
   final List<String> namePages = ['Messages', 'Contacts', 'Calls', 'Profile'];
   final List<Widget> pages = [
     const MessagesPage(),

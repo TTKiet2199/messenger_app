@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:messenger_app/app_image/app_image.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class _StartPageState extends State<StartPage> {
   Widget _imageStartPage() {
     return Center(
       child: SvgPicture.asset(
-          '/Users/truongthekiet/dev/messenger_app/assets/images/image_startPage.svg'),
+          AppImage.loginImage),
     );
   }
 
@@ -55,7 +56,7 @@ class _StartPageState extends State<StartPage> {
       color: const Color(0xFF303030),
       ),
       child: InkWell(
-        onTap: () => Navigator.pushNamed(context, 'enter'),
+        onTap: () => Navigator.pushNamed(context, 'phone'),
         child: const Center(
             child: Text(
           "Continue with phone",

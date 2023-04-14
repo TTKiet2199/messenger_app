@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:messenger_app/fake_data/fake_data.dart';
+import 'package:messenger_app/items/user_item.dart';
+import 'package:messenger_app/objects/all_item_objects.dart';
 
 class UsersList extends StatefulWidget {
   const UsersList({Key? key}) : super(key: key);
@@ -12,58 +15,38 @@ class _UsersListState extends State<UsersList> {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-          itemCount: 10,
+          itemCount: userItem.length-1,
           itemBuilder: ((context, index) {
             return Container(
               padding: const EdgeInsets.only(top: 10, left: 20),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  _avataImage(),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: _userText(),
-                  )
-                ],
-              ),
+              child:  UserItem(user: userItem[index+1],),
             );
           })),
     );
   }
-  Widget _avataImage() {
-    return Container(
-      height: 70,
-      width: 70,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: const Color.fromARGB(255, 233, 235, 235)),
-      child: const Icon(
-        Icons.person_outline_outlined,
-        size: 35,
-      ),
-    );
-  }
+  
+}
+class MProfile extends StatefulWidget {
+   MProfile({Key? key, required this.route}) : super(key: key);
+List<String> route=[];
+  @override
+  State<MProfile> createState() => _MProfileState();
+}
 
-  Widget _userText() {
-    return SizedBox(
-        width: 170,
-        height: 50,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text("User name",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400)),
-            SizedBox(
-              width: 150,
-              height: 20,
-              child: Text(
-                "active status",
-                style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F)),
-              ),
-            )
-          ],
-        ));
+class _MProfileState extends State<MProfile> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: 1,
+        itemBuilder: ((context, index) {
+          return InkWell(
+            onTap: ,
+            child: Container(
+              padding: const EdgeInsets.only(top: 10, left: 20),
+              child:  UserItem(user: userItem[0]),
+            ),
+          );
+        }));
   }
+  
 }

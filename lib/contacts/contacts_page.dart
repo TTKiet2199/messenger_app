@@ -19,20 +19,19 @@ class _ContactsPageState extends State<ContactsPage> {
         Column(
           children: [
             OptionButton(
-              iconButton1: Icons.person_add_outlined,
-              iconButton2: Icons.fmd_good_outlined,
-              nameButton1: 'Invite friends',
-              nameButton2: 'Find people nearby',
-              route1: 'invite',
-              route2: 'find',
-            ),
+                height: 170,
+                nameOption: const ['Invite Friends', 'Find people nearby'],
+                iconOption: const [Icons.person_add_outlined,Icons.fmd_good_outlined],
+                route: const ['invite','find'], widthSide: 10,),
             const UsersList()
           ],
         ),
         Container(
           padding: const EdgeInsets.all(20),
           alignment: Alignment.bottomRight,
-          child:  FloatingButton(icon: Icons.person_add_alt_1_outlined,),
+          child: FloatingButton(
+            icon: Icons.person_add_alt_1_outlined,
+          ),
         )
       ],
     ));

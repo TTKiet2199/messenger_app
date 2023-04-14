@@ -1,15 +1,20 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:messenger_app/items/option_button.dart';
+import 'package:messenger_app/fake_data/fake_data.dart';
+import 'package:messenger_app/items/set_image_and_name.dart';
 import 'package:messenger_app/items/users_list.dart';
 
-class NewMessagesPage extends StatefulWidget {
-  const NewMessagesPage({Key? key}) : super(key: key);
+class GroupSettingPage extends StatefulWidget {
+  const GroupSettingPage({Key? key}) : super(key: key);
 
   @override
-  State<NewMessagesPage> createState() => _NewMessagesPageState();
+  State<GroupSettingPage> createState() => _GroupSettingPageState();
 }
 
-class _NewMessagesPageState extends State<NewMessagesPage> {
+class _GroupSettingPageState extends State<GroupSettingPage> {
+  File? image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +36,7 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
               ),
               Container(
                 padding: const EdgeInsets.only(left: 20),
-                child: const Text('New messages',
+                child: const Text('New group',
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w500,
@@ -42,11 +47,11 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
         ),
         actions: [
           GestureDetector(
-            onTap: (() => Navigator.pushNamed(context, 'search')),
+            onTap: (() => Navigator.pushNamed(context, '')),
             child: const Padding(
               padding: EdgeInsets.only(left: 8, right: 8),
               child: Icon(
-                Icons.search_rounded,
+                Icons.check,
                 color: Color.fromARGB(170, 0, 0, 0),
                 size: 35,
               ),
@@ -56,16 +61,22 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
       ),
       body: Column(
         children: [
-          OptionButton(
-              nameButton1: 'New Group',
-              iconButton1: Icons.groups_outlined,
-              nameButton2: 'New Channel',
-              iconButton2: Icons.smart_display_outlined,
-              route1: 'newGroup',
-              route2: 'channel'),
-              const UsersList(),
+           SetImageAndName(hintText: 'Group name', icon: Icons.groups_outlined,),
+          Container(
+            padding: const EdgeInsets.all(20),
+            alignment: Alignment.centerLeft,
+            child: _memberText()),
+          const UsersList()
         ],
       ),
     );
   }
+  Widget _memberText() {
+    return  Text(
+      '${userItem.length} member',
+      style: const TextStyle(fontSize: 20),
+    );
+  }
+
+  
 }
