@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/pages/contacts/fine_people_nearby_page.dart';
 import 'package:messenger_app/pages/contacts/invite_friends_page.dart';
+import 'package:messenger_app/pages/home/home_page.dart';
 
 import 'package:messenger_app/pages/messages/new_mess_page.dart';
 import 'package:messenger_app/pages/profile/my_profile_page.dart';
@@ -12,7 +13,7 @@ import 'package:messenger_app/pages/search/search_page.dart';
 import 'package:messenger_app/pages/set_image/set_image_page.dart';
 import 'package:messenger_app/pages/start/start_page.dart';
 
-import 'home/home_page.dart';
+
 import 'pages/messages/channel_page.dart';
 import 'pages/messages/group/group_setting_page.dart';
 import 'pages/messages/group/new_group_page.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
-      initialRoute: 'phone',
+      initialRoute: 'home',
       routes: {
         'start': (context) => const StartPage(),
         'phone': (context) => const EnterPhoneNumberPage(),

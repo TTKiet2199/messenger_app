@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/items/option_button.dart';
-import 'package:messenger_app/items/users_list.dart';
+import 'package:messenger_app/item_list/users_list.dart';
 
 class NewMessagesPage extends StatefulWidget {
   const NewMessagesPage({Key? key}) : super(key: key);

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/fake_data/fake_data.dart';
-import 'package:messenger_app/items/user_item.dart';
-import 'package:messenger_app/items/users_list.dart';
+import 'package:messenger_app/items/profile_setting_button.dart';
+import 'package:messenger_app/item_list/user_item.dart';
+import 'package:messenger_app/item_list/users_list.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({Key? key}) : super(key: key);
@@ -43,8 +44,16 @@ class _MyProfileState extends State<MyProfile> {
         ),
       ),
       body: Column(children: [
-        UserItem(user: userItem[0]),
-        
+        const MyProfileImage(),
+        ProfileSettingButton(
+          nameOption: [userItem[0].user, 'name of work', 'phone number'],
+          iconOption: const [
+            Icons.person_outline_outlined,
+            Icons.error_outline_outlined,
+            Icons.call_outlined
+          ],
+          underText: const ['Your name', 'Your bio', 'Your phone number'],
+        )
       ]),
     );
   }

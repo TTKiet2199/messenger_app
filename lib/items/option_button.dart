@@ -18,14 +18,14 @@ class OptionButton extends StatefulWidget {
 }
 
 class _OptionButtonState extends State<OptionButton> {
-  // int index = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: widget.height,
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
           border: Border(
-        bottom: BorderSide(width: widget.widthSide, color: Color.fromARGB(22, 0, 0, 0)),
+        bottom: BorderSide(
+            width: widget.widthSide, color: Color.fromARGB(22, 0, 0, 0)),
       )),
       child: Column(
           children: List.generate(
@@ -37,10 +37,12 @@ class _OptionButtonState extends State<OptionButton> {
                       margin: const EdgeInsets.only(left: 20),
                       width: 410,
                       height: 75,
-                      decoration:  BoxDecoration(
+                      decoration: BoxDecoration(
                         border: Border(
-                          bottom: index==widget.nameOption.length-1?const BorderSide(color: Colors.transparent): const BorderSide(
-                              width: 1, color: Color.fromARGB(30, 0, 0, 0)),
+                          bottom: index == widget.nameOption.length - 1
+                              ? const BorderSide(color: Colors.transparent)
+                              : const BorderSide(
+                                  width: 1, color: Color.fromARGB(30, 0, 0, 0)),
                         ),
                       ),
                       child: Row(

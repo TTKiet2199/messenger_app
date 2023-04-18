@@ -1,10 +1,9 @@
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/fake_data/fake_data.dart';
 import 'package:messenger_app/items/set_image_and_name.dart';
-import 'package:messenger_app/items/users_list.dart';
+import 'package:messenger_app/item_list/users_list.dart';
 
 class GroupSettingPage extends StatefulWidget {
   const GroupSettingPage({Key? key}) : super(key: key);

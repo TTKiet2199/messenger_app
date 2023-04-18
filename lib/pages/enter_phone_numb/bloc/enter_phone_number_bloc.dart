@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:intl_phone_field/phone_number.dart';
 import 'package:messenger_app/items/country.dart';
 import 'package:meta/meta.dart';
 
@@ -18,7 +17,6 @@ class EnterPhoneNumberBloc
 
   handleChangeCountryPhoneEvent(
       ChangeCountryPhoneEvent event, Emitter<EnterPhoneNumberState> emit) {
-    print(event.newCountriesPhone.name);
     final newState = state.copyWith(countriesPhone: event.newCountriesPhone);
     emit(newState);
   }

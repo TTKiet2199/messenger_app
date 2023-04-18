@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/items/floating_button.dart';
 import 'package:messenger_app/items/option_button.dart';
-import 'package:messenger_app/items/users_list.dart';
+import 'package:messenger_app/item_list/users_list.dart';
 
 class ContactsPage extends StatefulWidget {
   const ContactsPage({Key? key}) : super(key: key);

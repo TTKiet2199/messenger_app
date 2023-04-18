@@ -1,11 +1,17 @@
-import 'package:flutter/cupertino.dart';
 
 class CallObject {
   String? name;
-  IconData? ava;
+  String? ava;
   bool? isIncomming;
-  DateTime? time;
+  String? time;
   CallType? callType;
+  CallObject({
+    required this.name,
+    required this.ava,
+    required this.isIncomming,
+    required this.time,
+    required this.callType,
+  });
 }
 
 enum CallType { video, voice }

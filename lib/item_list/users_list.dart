@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/fake_data/fake_data.dart';
-import 'package:messenger_app/items/user_item.dart';
+import 'package:messenger_app/item_list/user_item.dart';
 
 
 class UsersList extends StatefulWidget {
