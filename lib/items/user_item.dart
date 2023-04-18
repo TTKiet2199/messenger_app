@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/objects/all_item_objects.dart';
+
+import '../models/user_model.dart';
 
 class UserItem extends StatefulWidget {
   UserItem({Key? key, required this.user}) : super(key: key);
@@ -42,7 +43,8 @@ class _UserItemState extends State<UserItem> {
         width: 70,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            image: DecorationImage(image: AssetImage(widget.user.ava), fit: BoxFit.cover)));
+            image: DecorationImage(
+                image: AssetImage(widget.user.ava), fit: BoxFit.cover)));
   }
 
   Widget _userText() {

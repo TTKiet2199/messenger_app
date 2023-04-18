@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:messenger_app/pages/contacts/fine_people_nearby_page.dart';
+import 'package:messenger_app/pages/contacts/invite_friends_page.dart';
 
-import 'package:messenger_app/start/create_name_page.dart';
-import 'package:messenger_app/start/enter_phonenumber_page.dart';
-import 'package:messenger_app/start/otp_page.dart';
-import 'package:messenger_app/start/search_page.dart';
-import 'package:messenger_app/start/set_image_page.dart';
-import 'package:messenger_app/start/start_page.dart';
+import 'package:messenger_app/pages/messages/new_mess_page.dart';
+import 'package:messenger_app/pages/profile/my_profile_page.dart';
+import 'package:messenger_app/pages/creat_name/create_name_page.dart';
 
-import 'contacts/fine_people_nearby_page.dart';
-import 'contacts/invite_friends_page.dart';
+import 'package:messenger_app/pages/enter_phone_numb/enter_phonenumber_page.dart';
+import 'package:messenger_app/pages/otp/otp_page.dart';
+import 'package:messenger_app/pages/search/search_page.dart';
+import 'package:messenger_app/pages/set_image/set_image_page.dart';
+import 'package:messenger_app/pages/start/start_page.dart';
+
 import 'home/home_page.dart';
-import 'messages/channel_page.dart';
-import 'messages/group/group_setting_page.dart';
-import 'messages/group/new_group_page.dart';
-import 'messages/new_mess_page.dart';
+import 'pages/messages/channel_page.dart';
+import 'pages/messages/group/group_setting_page.dart';
+import 'pages/messages/group/new_group_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
-      initialRoute: 'home',
+      initialRoute: 'phone',
       routes: {
         'start': (context) => const StartPage(),
         'phone': (context) => const EnterPhoneNumberPage(),
@@ -42,6 +44,7 @@ class MyApp extends StatelessWidget {
         'invite': (context) => const InviteFriendsPage(),
         'channel': (context) => const ChannelPage(),
         'find': (context) => const FindPeopleNearbyPage(),
+        'profile': (context) => const MyProfile(),
       },
     );
   }

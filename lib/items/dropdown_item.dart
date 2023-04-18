@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:messenger_app/items/country.dart';
+
+import '../pages/enter_phone_numb/bloc/enter_phone_number_bloc.dart';
 
 class DropDownButtonCustom extends StatefulWidget {
-  DropDownButtonCustom({Key? key}) : super(key: key);
+  const DropDownButtonCustom({Key? key, this.currentValue}) : super(key: key);
+  final CountriesPhone? currentValue;
 
   @override
   State<DropDownButtonCustom> createState() => _DropDownButtonCustomState();
 }
 
 class _DropDownButtonCustomState extends State<DropDownButtonCustom> {
-  
-  List<String> values =["Venezuela", "Afghanistan", "Vietnam"];
-  
   @override
   Widget build(BuildContext context) {
-    String currentValue = values.first;
-    return DropdownButton(
-      value: currentValue,
-      onChanged: (String? value) {
-        setState(() {
-          currentValue = value!;
-        });
+    return DropdownButton<CountriesPhone>(
+      isExpanded: true,
+      value: widget.currentValue ?? countries.first,
+      onChanged: (CountriesPhone? value) {
+        context.read<EnterPhoneNumberBloc>().add(ChangeCountryPhoneEvent(newCountriesPhone: value ?? countries.first));
       },
-      items: values.map<DropdownMenuItem<String>>(
-        (String value) {
-          return DropdownMenuItem<String>(
+      items: countries.map<DropdownMenuItem<CountriesPhone>>(
+        (CountriesPhone value) {
+          return DropdownMenuItem<CountriesPhone>(
             value: value,
-            child: Text(value),
+            child: Text(
+              "(+${value.dialCode.toString()})${value.name.toString()}",
+              overflow: TextOverflow.ellipsis,
+            ),
           );
         },
       ).toList(),

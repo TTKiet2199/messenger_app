@@ -1,5 +1,6 @@
 import 'package:messenger_app/app_image/app_image.dart';
-import 'package:messenger_app/objects/all_item_objects.dart';
+
+import '../models/user_model.dart';
 
 List<UserObject> userItem = [
   UserObject(user: 'Hehehehe', activeStatus: true, ava: AppImage.profileImage),
@@ -9,5 +10,4 @@ List<UserObject> userItem = [
     activeStatus: false,
     ava: AppImage.userImage2,
   ),
-  
 ];

@@ -25,12 +25,12 @@ class _SetImageAndNameState extends State<SetImageAndName> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
-        children: [_profileTmageWidget(), _enterGroupNameTextFiled()],
+        children: [profileTmageWidget(), _enterGroupNameTextFiled()],
       ),
     );
   }
 
-  Widget _profileTmageWidget() {
+  Widget profileTmageWidget() {
     var imageProvider = image != null
         ? FileImage(image!)
         : const AssetImage("assets/images/Input Image.png");

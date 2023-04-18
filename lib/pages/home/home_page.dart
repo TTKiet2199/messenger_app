@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-
-
-import 'package:messenger_app/profile/profile_page.dart';
-
 import '../calls/calls_page.dart';
 import '../contacts/contacts_page.dart';
 import '../messages/messages_page.dart';
+import '../profile/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -52,8 +49,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     )
-                  : Row(
-                    children: [
+                  : Row(children: [
                       GestureDetector(
                         onTap: (() => Navigator.pushNamed(context, 'search')),
                         child: const Padding(
@@ -67,7 +63,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Icon(Icons.more_vert,color: Colors.black,size: 35,),
+                        child: Icon(
+                          Icons.more_vert,
+                          color: Colors.black,
+                          size: 35,
+                        ),
                       )
                     ]))
               : Container(),

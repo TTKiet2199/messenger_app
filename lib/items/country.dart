@@ -1,5 +1,5 @@
-const List<countriesPhone> countries = [
-  countriesPhone(
+const List<CountriesPhone> countries = [
+  CountriesPhone(
     name: "Afghanistan",
     flag: "🇦🇫",
     code: "AF",
@@ -7,7 +7,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Åland Islands",
     flag: "🇦🇽",
     code: "AX",
@@ -15,7 +15,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Albania",
     flag: "🇦🇱",
     code: "AL",
@@ -23,7 +23,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Algeria",
     flag: "🇩🇿",
     code: "DZ",
@@ -31,7 +31,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "American Samoa",
     flag: "🇦🇸",
     code: "AS",
@@ -39,7 +39,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Andorra",
     flag: "🇦🇩",
     code: "AD",
@@ -47,7 +47,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Angola",
     flag: "🇦🇴",
     code: "AO",
@@ -55,7 +55,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Anguilla",
     flag: "🇦🇮",
     code: "AI",
@@ -63,7 +63,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Antarctica",
     flag: "🇦🇶",
     code: "AQ",
@@ -71,7 +71,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Antigua and Barbuda",
     flag: "🇦🇬",
     code: "AG",
@@ -79,7 +79,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Argentina",
     flag: "🇦🇷",
     code: "AR",
@@ -87,7 +87,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Armenia",
     flag: "🇦🇲",
     code: "AM",
@@ -95,7 +95,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Aruba",
     flag: "🇦🇼",
     code: "AW",
@@ -103,7 +103,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Australia",
     flag: "🇦🇺",
     code: "AU",
@@ -111,7 +111,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Austria",
     flag: "🇦🇹",
     code: "AT",
@@ -119,7 +119,7 @@ const List<countriesPhone> countries = [
     minLength: 13,
     maxLength: 13,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Azerbaijan",
     flag: "🇦🇿",
     code: "AZ",
@@ -127,7 +127,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bahamas",
     flag: "🇧🇸",
     code: "BS",
@@ -135,7 +135,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bahrain",
     flag: "🇧🇭",
     code: "BH",
@@ -143,7 +143,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bangladesh",
     flag: "🇧🇩",
     code: "BD",
@@ -151,7 +151,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Barbados",
     flag: "🇧🇧",
     code: "BB",
@@ -159,7 +159,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Belarus",
     flag: "🇧🇾",
     code: "BY",
@@ -167,7 +167,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Belgium",
     flag: "🇧🇪",
     code: "BE",
@@ -175,7 +175,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Belize",
     flag: "🇧🇿",
     code: "BZ",
@@ -183,7 +183,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Benin",
     flag: "🇧🇯",
     code: "BJ",
@@ -191,7 +191,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bermuda",
     flag: "🇧🇲",
     code: "BM",
@@ -199,7 +199,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bhutan",
     flag: "🇧🇹",
     code: "BT",
@@ -207,7 +207,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bolivia",
     flag: "🇧🇴",
     code: "BO",
@@ -215,7 +215,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bosnia and Herzegovina",
     flag: "🇧🇦",
     code: "BA",
@@ -223,7 +223,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Botswana",
     flag: "🇧🇼",
     code: "BW",
@@ -231,7 +231,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bouvet Island",
     flag: "🇧🇻",
     code: "BV",
@@ -239,7 +239,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Brazil",
     flag: "🇧🇷",
     code: "BR",
@@ -247,7 +247,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "British Indian Ocean Territory",
     flag: "🇮🇴",
     code: "IO",
@@ -255,7 +255,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Brunei Darussalam",
     flag: "🇧🇳",
     code: "BN",
@@ -263,7 +263,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Bulgaria",
     flag: "🇧🇬",
     code: "BG",
@@ -271,7 +271,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Burkina Faso",
     flag: "🇧🇫",
     code: "BF",
@@ -279,7 +279,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Burundi",
     flag: "🇧🇮",
     code: "BI",
@@ -287,7 +287,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Cambodia",
     flag: "🇰🇭",
     code: "KH",
@@ -295,7 +295,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Cameroon",
     flag: "🇨🇲",
     code: "CM",
@@ -303,7 +303,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Canada",
     flag: "🇨🇦",
     code: "CA",
@@ -311,7 +311,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Cape Verde",
     flag: "🇨🇻",
     code: "CV",
@@ -319,7 +319,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Cayman Islands",
     flag: "🇰🇾",
     code: "KY",
@@ -327,7 +327,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Central African Republic",
     flag: "🇨🇫",
     code: "CF",
@@ -335,7 +335,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Chad",
     flag: "🇹🇩",
     code: "TD",
@@ -343,7 +343,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Chile",
     flag: "🇨🇱",
     code: "CL",
@@ -351,7 +351,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "China",
     flag: "🇨🇳",
     code: "CN",
@@ -359,7 +359,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Christmas Island",
     flag: "🇨🇽",
     code: "CX",
@@ -367,7 +367,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Cocos (Keeling) Islands",
     flag: "🇨🇨",
     code: "CC",
@@ -375,7 +375,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Colombia",
     flag: "🇨🇴",
     code: "CO",
@@ -383,7 +383,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Comoros",
     flag: "🇰🇲",
     code: "KM",
@@ -391,7 +391,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Congo",
     flag: "🇨🇬",
     code: "CG",
@@ -399,7 +399,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Congo",
     flag: "🇨🇩",
     code: "CD",
@@ -407,7 +407,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Cook Islands",
     flag: "🇨🇰",
     code: "CK",
@@ -415,7 +415,7 @@ const List<countriesPhone> countries = [
     minLength: 5,
     maxLength: 5,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Costa Rica",
     flag: "🇨🇷",
     code: "CR",
@@ -423,7 +423,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Côte d'Ivoire",
     flag: "🇨🇮",
     code: "CI",
@@ -431,7 +431,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Croatia",
     flag: "🇭🇷",
     code: "HR",
@@ -439,7 +439,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Cuba",
     flag: "🇨🇺",
     code: "CU",
@@ -447,7 +447,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Cyprus",
     flag: "🇨🇾",
     code: "CY",
@@ -455,7 +455,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Czech Republic",
     flag: "🇨🇿",
     code: "CZ",
@@ -463,7 +463,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Denmark",
     flag: "🇩🇰",
     code: "DK",
@@ -471,7 +471,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Djibouti",
     flag: "🇩🇯",
     code: "DJ",
@@ -479,7 +479,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Dominica",
     flag: "🇩🇲",
     code: "DM",
@@ -487,7 +487,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Dominican Republic",
     flag: "🇩🇴",
     code: "DO",
@@ -495,7 +495,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Ecuador",
     flag: "🇪🇨",
     code: "EC",
@@ -503,7 +503,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Egypt",
     flag: "🇪🇬",
     code: "EG",
@@ -511,7 +511,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "El Salvador",
     flag: "🇸🇻",
     code: "SV",
@@ -519,7 +519,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Equatorial Guinea",
     flag: "🇬🇶",
     code: "GQ",
@@ -527,7 +527,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Eritrea",
     flag: "🇪🇷",
     code: "ER",
@@ -535,7 +535,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Estonia",
     flag: "🇪🇪",
     code: "EE",
@@ -543,7 +543,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Ethiopia",
     flag: "🇪🇹",
     code: "ET",
@@ -551,7 +551,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Falkland Islands (Malvinas)",
     flag: "🇫🇰",
     code: "FK",
@@ -559,7 +559,7 @@ const List<countriesPhone> countries = [
     minLength: 5,
     maxLength: 5,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Faroe Islands",
     flag: "🇫🇴",
     code: "FO",
@@ -567,7 +567,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Fiji",
     flag: "🇫🇯",
     code: "FJ",
@@ -575,7 +575,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Finland",
     flag: "🇫🇮",
     code: "FI",
@@ -583,7 +583,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "France",
     flag: "🇫🇷",
     code: "FR",
@@ -591,7 +591,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "French Guiana",
     flag: "🇬🇫",
     code: "GF",
@@ -599,7 +599,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "French Polynesia",
     flag: "🇵🇫",
     code: "PF",
@@ -607,7 +607,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "French Southern Territories",
     flag: "🇹🇫",
     code: "TF",
@@ -615,7 +615,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Gabon",
     flag: "🇬🇦",
     code: "GA",
@@ -623,7 +623,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Gambia",
     flag: "🇬🇲",
     code: "GM",
@@ -631,7 +631,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Georgia",
     flag: "🇬🇪",
     code: "GE",
@@ -639,7 +639,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Germany",
     flag: "🇩🇪",
     code: "DE",
@@ -647,7 +647,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 13,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Ghana",
     flag: "🇬🇭",
     code: "GH",
@@ -655,7 +655,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Gibraltar",
     flag: "🇬🇮",
     code: "GI",
@@ -663,7 +663,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Greece",
     flag: "🇬🇷",
     code: "GR",
@@ -671,7 +671,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Greenland",
     flag: "🇬🇱",
     code: "GL",
@@ -679,7 +679,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Grenada",
     flag: "🇬🇩",
     code: "GD",
@@ -687,7 +687,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Guadeloupe",
     flag: "🇬🇵",
     code: "GP",
@@ -695,7 +695,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Guam",
     flag: "🇬🇺",
     code: "GU",
@@ -703,7 +703,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Guatemala",
     flag: "🇬🇹",
     code: "GT",
@@ -711,7 +711,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Guernsey",
     flag: "🇬🇬",
     code: "GG",
@@ -719,7 +719,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Guinea",
     flag: "🇬🇳",
     code: "GN",
@@ -727,7 +727,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Guinea-Bissau",
     flag: "🇬🇼",
     code: "GW",
@@ -735,7 +735,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Guyana",
     flag: "🇬🇾",
     code: "GY",
@@ -743,7 +743,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Haiti",
     flag: "🇭🇹",
     code: "HT",
@@ -751,7 +751,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Heard Island and Mcdonald Islands",
     flag: "🇭🇲",
     code: "HM",
@@ -759,7 +759,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Holy See (Vatican City State)",
     flag: "🇻🇦",
     code: "VA",
@@ -767,7 +767,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Honduras",
     flag: "🇭🇳",
     code: "HN",
@@ -775,7 +775,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Hong Kong",
     flag: "🇭🇰",
     code: "HK",
@@ -783,7 +783,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Hungary",
     flag: "🇭🇺",
     code: "HU",
@@ -791,7 +791,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Iceland",
     flag: "🇮🇸",
     code: "IS",
@@ -799,7 +799,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "India",
     flag: "🇮🇳",
     code: "IN",
@@ -807,7 +807,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Indonesia",
     flag: "🇮🇩",
     code: "ID",
@@ -815,7 +815,7 @@ const List<countriesPhone> countries = [
     minLength: 13,
     maxLength: 13,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Iran",
     flag: "🇮🇷",
     code: "IR",
@@ -823,7 +823,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Iraq",
     flag: "🇮🇶",
     code: "IQ",
@@ -831,7 +831,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Ireland",
     flag: "🇮🇪",
     code: "IE",
@@ -839,7 +839,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Isle of Man",
     flag: "🇮🇲",
     code: "IM",
@@ -847,7 +847,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Israel",
     flag: "🇮🇱",
     code: "IL",
@@ -855,7 +855,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Italy",
     flag: "🇮🇹",
     code: "IT",
@@ -863,7 +863,7 @@ const List<countriesPhone> countries = [
     minLength: 13,
     maxLength: 13,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Jamaica",
     flag: "🇯🇲",
     code: "JM",
@@ -871,7 +871,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Japan",
     flag: "🇯🇵",
     code: "JP",
@@ -879,7 +879,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Jersey",
     flag: "🇯🇪",
     code: "JE",
@@ -887,7 +887,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Jordan",
     flag: "🇯🇴",
     code: "JO",
@@ -895,7 +895,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Kazakhstan",
     flag: "🇰🇿",
     code: "KZ",
@@ -903,7 +903,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Kenya",
     flag: "🇰🇪",
     code: "KE",
@@ -911,7 +911,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Kiribati",
     flag: "🇰🇮",
     code: "KI",
@@ -919,7 +919,7 @@ const List<countriesPhone> countries = [
     minLength: 5,
     maxLength: 5,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "North Korea",
     flag: "🇰🇵",
     code: "KP",
@@ -927,7 +927,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Korea",
     flag: "🇰🇷",
     code: "KR",
@@ -935,7 +935,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Kosovo",
     flag: "🇽🇰",
     code: "XK",
@@ -943,7 +943,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Kuwait",
     flag: "🇰🇼",
     code: "KW",
@@ -951,7 +951,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Kyrgyzstan",
     flag: "🇰🇬",
     code: "KG",
@@ -959,7 +959,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Laos",
     flag: "🇱🇦",
     code: "LA",
@@ -967,7 +967,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Latvia",
     flag: "🇱🇻",
     code: "LV",
@@ -975,7 +975,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Lebanon",
     flag: "🇱🇧",
     code: "LB",
@@ -983,7 +983,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Lesotho",
     flag: "🇱🇸",
     code: "LS",
@@ -991,7 +991,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Liberia",
     flag: "🇱🇷",
     code: "LR",
@@ -999,7 +999,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Libyan Arab Jamahiriya",
     flag: "🇱🇾",
     code: "LY",
@@ -1007,7 +1007,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Liechtenstein",
     flag: "🇱🇮",
     code: "LI",
@@ -1015,7 +1015,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Lithuania",
     flag: "🇱🇹",
     code: "LT",
@@ -1023,7 +1023,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Luxembourg",
     flag: "🇱🇺",
     code: "LU",
@@ -1031,7 +1031,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Macao",
     flag: "🇲🇴",
     code: "MO",
@@ -1039,7 +1039,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Macedonia",
     flag: "🇲🇰",
     code: "MK",
@@ -1047,7 +1047,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Madagascar",
     flag: "🇲🇬",
     code: "MG",
@@ -1055,7 +1055,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Malawi",
     flag: "🇲🇼",
     code: "MW",
@@ -1063,7 +1063,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Malaysia",
     flag: "🇲🇾",
     code: "MY",
@@ -1071,7 +1071,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Maldives",
     flag: "🇲🇻",
     code: "MV",
@@ -1079,7 +1079,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Mali",
     flag: "🇲🇱",
     code: "ML",
@@ -1087,7 +1087,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Malta",
     flag: "🇲🇹",
     code: "MT",
@@ -1095,7 +1095,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Marshall Islands",
     flag: "🇲🇭",
     code: "MH",
@@ -1103,7 +1103,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Martinique",
     flag: "🇲🇶",
     code: "MQ",
@@ -1111,7 +1111,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Mauritania",
     flag: "🇲🇷",
     code: "MR",
@@ -1119,7 +1119,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Mauritius",
     flag: "🇲🇺",
     code: "MU",
@@ -1127,7 +1127,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Mayotte",
     flag: "🇾🇹",
     code: "YT",
@@ -1135,7 +1135,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Mexico",
     flag: "🇲🇽",
     code: "MX",
@@ -1143,7 +1143,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Micronesia",
     flag: "🇫🇲",
     code: "FM",
@@ -1151,7 +1151,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Moldova",
     flag: "🇲🇩",
     code: "MD",
@@ -1159,7 +1159,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Monaco",
     flag: "🇲🇨",
     code: "MC",
@@ -1167,7 +1167,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Mongolia",
     flag: "🇲🇳",
     code: "MN",
@@ -1175,7 +1175,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Montenegro",
     flag: "🇲🇪",
     code: "ME",
@@ -1183,7 +1183,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Montserrat",
     flag: "🇲🇸",
     code: "MS",
@@ -1191,7 +1191,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Morocco",
     flag: "🇲🇦",
     code: "MA",
@@ -1199,7 +1199,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Mozambique",
     flag: "🇲🇿",
     code: "MZ",
@@ -1207,7 +1207,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Myanmar",
     flag: "🇲🇲",
     code: "MM",
@@ -1215,7 +1215,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Namibia",
     flag: "🇳🇦",
     code: "NA",
@@ -1223,7 +1223,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Nauru",
     flag: "🇳🇷",
     code: "NR",
@@ -1231,7 +1231,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Nepal",
     flag: "🇳🇵",
     code: "NP",
@@ -1239,7 +1239,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Netherlands",
     flag: "🇳🇱",
     code: "NL",
@@ -1247,7 +1247,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Netherlands Antilles",
     flag: "",
     code: "AN",
@@ -1255,7 +1255,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "New Caledonia",
     flag: "🇳🇨",
     code: "NC",
@@ -1263,7 +1263,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "New Zealand",
     flag: "🇳🇿",
     code: "NZ",
@@ -1271,7 +1271,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Nicaragua",
     flag: "🇳🇮",
     code: "NI",
@@ -1279,7 +1279,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Niger",
     flag: "🇳🇪",
     code: "NE",
@@ -1287,7 +1287,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Nigeria",
     flag: "🇳🇬",
     code: "NG",
@@ -1295,7 +1295,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Niue",
     flag: "🇳🇺",
     code: "NU",
@@ -1303,7 +1303,7 @@ const List<countriesPhone> countries = [
     minLength: 4,
     maxLength: 4,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Norfolk Island",
     flag: "🇳🇫",
     code: "NF",
@@ -1311,7 +1311,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Northern Mariana Islands",
     flag: "🇲🇵",
     code: "MP",
@@ -1319,7 +1319,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Norway",
     flag: "🇳🇴",
     code: "NO",
@@ -1327,7 +1327,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Oman",
     flag: "🇴🇲",
     code: "OM",
@@ -1335,7 +1335,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Pakistan",
     flag: "🇵🇰",
     code: "PK",
@@ -1343,7 +1343,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Palau",
     flag: "🇵🇼",
     code: "PW",
@@ -1351,7 +1351,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Palestinian Territory, Occupied",
     flag: "🇵🇸",
     code: "PS",
@@ -1359,7 +1359,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Panama",
     flag: "🇵🇦",
     code: "PA",
@@ -1367,7 +1367,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Papua New Guinea",
     flag: "🇵🇬",
     code: "PG",
@@ -1375,7 +1375,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Paraguay",
     flag: "🇵🇾",
     code: "PY",
@@ -1383,7 +1383,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Peru",
     flag: "🇵🇪",
     code: "PE",
@@ -1391,7 +1391,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Philippines",
     flag: "🇵🇭",
     code: "PH",
@@ -1399,7 +1399,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Pitcairn",
     flag: "🇵🇳",
     code: "PN",
@@ -1407,7 +1407,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Poland",
     flag: "🇵🇱",
     code: "PL",
@@ -1415,7 +1415,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Portugal",
     flag: "🇵🇹",
     code: "PT",
@@ -1423,7 +1423,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Puerto Rico",
     flag: "🇵🇷",
     code: "PR",
@@ -1431,7 +1431,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Qatar",
     flag: "🇶🇦",
     code: "QA",
@@ -1439,7 +1439,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Romania",
     flag: "🇷🇴",
     code: "RO",
@@ -1447,7 +1447,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Russia",
     flag: "🇷🇺",
     code: "RU",
@@ -1455,7 +1455,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Rwanda",
     flag: "🇷🇼",
     code: "RW",
@@ -1463,7 +1463,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Reunion",
     flag: "🇷🇪",
     code: "RE",
@@ -1471,7 +1471,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Saint Barthelemy",
     flag: "🇧🇱",
     code: "BL",
@@ -1479,7 +1479,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Saint Helena",
     flag: "🇸🇭",
     code: "SH",
@@ -1487,7 +1487,7 @@ const List<countriesPhone> countries = [
     minLength: 4,
     maxLength: 4,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Saint Kitts and Nevis",
     flag: "🇰🇳",
     code: "KN",
@@ -1495,7 +1495,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Saint Lucia",
     flag: "🇱🇨",
     code: "LC",
@@ -1503,7 +1503,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Saint Martin",
     flag: "🇲🇫",
     code: "MF",
@@ -1511,7 +1511,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Saint Pierre and Miquelon",
     flag: "🇵🇲",
     code: "PM",
@@ -1519,7 +1519,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Saint Vincent and the Grenadines",
     flag: "🇻🇨",
     code: "VC",
@@ -1527,7 +1527,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Samoa",
     flag: "🇼🇸",
     code: "WS",
@@ -1535,7 +1535,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "San Marino",
     flag: "🇸🇲",
     code: "SM",
@@ -1543,7 +1543,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Sao Tome and Principe",
     flag: "🇸🇹",
     code: "ST",
@@ -1551,7 +1551,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Saudi Arabia",
     flag: "🇸🇦",
     code: "SA",
@@ -1559,7 +1559,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Senegal",
     flag: "🇸🇳",
     code: "SN",
@@ -1567,7 +1567,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Serbia",
     flag: "🇷🇸",
     code: "RS",
@@ -1575,7 +1575,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Seychelles",
     flag: "🇸🇨",
     code: "SC",
@@ -1583,7 +1583,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Sierra Leone",
     flag: "🇸🇱",
     code: "SL",
@@ -1591,7 +1591,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Singapore",
     flag: "🇸🇬",
     code: "SG",
@@ -1599,7 +1599,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Slovakia",
     flag: "🇸🇰",
     code: "SK",
@@ -1607,7 +1607,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Slovenia",
     flag: "🇸🇮",
     code: "SI",
@@ -1615,7 +1615,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Solomon Islands",
     flag: "🇸🇧",
     code: "SB",
@@ -1623,7 +1623,7 @@ const List<countriesPhone> countries = [
     minLength: 5,
     maxLength: 5,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Somalia",
     flag: "🇸🇴",
     code: "SO",
@@ -1631,7 +1631,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "South Africa",
     flag: "🇿🇦",
     code: "ZA",
@@ -1639,7 +1639,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "South Sudan",
     flag: "🇸🇸",
     code: "SS",
@@ -1647,7 +1647,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "South Georgia and the South Sandwich Islands",
     flag: "🇬🇸",
     code: "GS",
@@ -1655,7 +1655,7 @@ const List<countriesPhone> countries = [
     minLength: 15,
     maxLength: 15,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Spain",
     flag: "🇪🇸",
     code: "ES",
@@ -1663,7 +1663,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Sri Lanka",
     flag: "🇱🇰",
     code: "LK",
@@ -1671,7 +1671,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Sudan",
     flag: "🇸🇩",
     code: "SD",
@@ -1679,7 +1679,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Suriname",
     flag: "🇸🇷",
     code: "SR",
@@ -1687,7 +1687,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Svalbard and Jan Mayen",
     flag: "🇸🇯",
     code: "SJ",
@@ -1695,7 +1695,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Eswatini",
     flag: "🇸🇿",
     code: "SZ",
@@ -1703,7 +1703,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Sweden",
     flag: "🇸🇪",
     code: "SE",
@@ -1711,7 +1711,7 @@ const List<countriesPhone> countries = [
     minLength: 13,
     maxLength: 13,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Switzerland",
     flag: "🇨🇭",
     code: "CH",
@@ -1719,7 +1719,7 @@ const List<countriesPhone> countries = [
     minLength: 12,
     maxLength: 12,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Syrian Arab Republic",
     flag: "🇸🇾",
     code: "SY",
@@ -1727,7 +1727,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Taiwan",
     flag: "🇹🇼",
     code: "TW",
@@ -1735,7 +1735,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Tajikistan",
     flag: "🇹🇯",
     code: "TJ",
@@ -1743,7 +1743,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Tanzania",
     flag: "🇹🇿",
     code: "TZ",
@@ -1751,7 +1751,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Thailand",
     flag: "🇹🇭",
     code: "TH",
@@ -1759,7 +1759,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Timor-Leste",
     flag: "🇹🇱",
     code: "TL",
@@ -1767,7 +1767,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Togo",
     flag: "🇹🇬",
     code: "TG",
@@ -1775,7 +1775,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Tokelau",
     flag: "🇹🇰",
     code: "TK",
@@ -1783,7 +1783,7 @@ const List<countriesPhone> countries = [
     minLength: 4,
     maxLength: 4,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Tonga",
     flag: "🇹🇴",
     code: "TO",
@@ -1791,7 +1791,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Trinidad and Tobago",
     flag: "🇹🇹",
     code: "TT",
@@ -1799,7 +1799,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Tunisia",
     flag: "🇹🇳",
     code: "TN",
@@ -1807,7 +1807,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Turkey",
     flag: "🇹🇷",
     code: "TR",
@@ -1815,7 +1815,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Turkmenistan",
     flag: "🇹🇲",
     code: "TM",
@@ -1823,7 +1823,7 @@ const List<countriesPhone> countries = [
     minLength: 8,
     maxLength: 8,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Turks and Caicos Islands",
     flag: "🇹🇨",
     code: "TC",
@@ -1831,7 +1831,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Tuvalu",
     flag: "🇹🇻",
     code: "TV",
@@ -1839,7 +1839,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Uganda",
     flag: "🇺🇬",
     code: "UG",
@@ -1847,7 +1847,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Ukraine",
     flag: "🇺🇦",
     code: "UA",
@@ -1855,7 +1855,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "United Arab Emirates",
     flag: "🇦🇪",
     code: "AE",
@@ -1863,7 +1863,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "United Kingdom",
     flag: "🇬🇧",
     code: "GB",
@@ -1871,7 +1871,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "United States",
     flag: "🇺🇸",
     code: "US",
@@ -1879,7 +1879,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Uruguay",
     flag: "🇺🇾",
     code: "UY",
@@ -1887,7 +1887,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Uzbekistan",
     flag: "🇺🇿",
     code: "UZ",
@@ -1895,7 +1895,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Vanuatu",
     flag: "🇻🇺",
     code: "VU",
@@ -1903,7 +1903,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Venezuela",
     flag: "🇻🇪",
     code: "VE",
@@ -1911,7 +1911,7 @@ const List<countriesPhone> countries = [
     minLength: 10,
     maxLength: 10,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Vietnam",
     flag: "🇻🇳",
     code: "VN",
@@ -1919,7 +1919,7 @@ const List<countriesPhone> countries = [
     minLength: 11,
     maxLength: 11,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Virgin Islands, British",
     flag: "🇻🇬",
     code: "VG",
@@ -1927,7 +1927,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Virgin Islands, U.S.",
     flag: "🇻🇮",
     code: "VI",
@@ -1935,7 +1935,7 @@ const List<countriesPhone> countries = [
     minLength: 7,
     maxLength: 7,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Wallis and Futuna",
     flag: "🇼🇫",
     code: "WF",
@@ -1943,7 +1943,7 @@ const List<countriesPhone> countries = [
     minLength: 6,
     maxLength: 6,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Yemen",
     flag: "🇾🇪",
     code: "YE",
@@ -1951,7 +1951,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Zambia",
     flag: "🇿🇲",
     code: "ZM",
@@ -1959,7 +1959,7 @@ const List<countriesPhone> countries = [
     minLength: 9,
     maxLength: 9,
   ),
-  countriesPhone(
+  CountriesPhone(
     name: "Zimbabwe",
     flag: "🇿🇼",
     code: "ZW",
@@ -1969,7 +1969,7 @@ const List<countriesPhone> countries = [
   ),
 ];
 
-class countriesPhone {
+class CountriesPhone {
   final String name;
   final String flag;
   final String code;
@@ -1977,7 +1977,7 @@ class countriesPhone {
   final int minLength;
   final int maxLength;
 
-  const countriesPhone({
+  const CountriesPhone({
     required this.name,
     required this.flag,
     required this.code,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:messenger_app/items/country.dart';
 import 'package:messenger_app/items/dropdown_item.dart';
+import 'package:messenger_app/pages/enter_phone_numb/bloc/enter_phone_number_bloc.dart';
 
 class EnterPhoneNumberPage extends StatefulWidget {
   const EnterPhoneNumberPage({Key? key}) : super(key: key);
@@ -10,23 +12,35 @@ class EnterPhoneNumberPage extends StatefulWidget {
 }
 
 class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
+  TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [_headTextPage(),Column(
-          children: [
-            _phoneCountries() ,
-            
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: _confirmPhoneNumber(),
-            ),
-          ],
-        ), _continueButton()],
+    return BlocProvider(
+      create: (context) => EnterPhoneNumberBloc(),
+      child: Scaffold(
+        body: BlocConsumer<EnterPhoneNumberBloc, EnterPhoneNumberState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _headTextPage(),
+                Column(
+                  children: [
+                    _phoneCountries(state.countriesPhone),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: _confirmPhoneNumber(context),
+                    ),
+                  ],
+                ),
+                _continueButton(state)
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -53,29 +67,43 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
     );
   }
 
-  Widget _phoneCountries() {
+  Widget _phoneCountries(CountriesPhone? currentValue) {
     return Container(
       width: 370,
       height: 60,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(60),
-      color: Colors.white,border: Border.all(width: 1,color: const Color(0xFFDCDCDC))),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(60),
+          color: Colors.white,
+          border: Border.all(width: 1, color: const Color(0xFFDCDCDC))),
       child: Row(
         children: [
           const Padding(
-               padding: EdgeInsets.symmetric(horizontal: 10),
-               child: Icon(Icons.language_outlined, size: 30,),
-             ),
-            DropDownButtonCustom()
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Icon(
+              Icons.language_outlined,
+              size: 30,
+            ),
+          ),
+          Expanded(
+              child: DropDownButtonCustom(
+            currentValue: currentValue,
+          ))
         ],
       ),
     );
   }
 
-  Widget _confirmPhoneNumber() {
+  Widget _confirmPhoneNumber(BuildContext context) {
     return SizedBox(
       height: 60,
       width: 370,
       child: TextField(
+        onChanged: (value) {
+          context
+              .read<EnterPhoneNumberBloc>()
+              .add(ChangePhoneNumberEvent(newPhoneNumber: value));
+        },
+        controller: textEditingController,
         textAlignVertical: TextAlignVertical.center,
         style: const TextStyle(
           fontSize: 20,
@@ -91,7 +119,7 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
     );
   }
 
-  Widget _continueButton() {
+  Widget _continueButton(EnterPhoneNumberState state) {
     return Container(
       height: 60,
       width: 360,
@@ -101,6 +129,9 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
       ),
       child: InkWell(
         onTap: (() => Navigator.pushNamed(context, 'otp')),
+        // onTap: () {
+        //   print(state.phoneNumber);
+        // },
         child: const Center(
             child: Text(
           "Continue",
