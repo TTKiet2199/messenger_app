@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:messenger_app/fake_data/fake_data.dart';
 import 'package:messenger_app/item_list/users_list.dart';
+import 'package:messenger_app/items/appbar_item.dart';
+import 'package:messenger_app/items/item_chip_user.dart';
 
 class NewGroupPage extends StatefulWidget {
   const NewGroupPage({Key? key}) : super(key: key);
@@ -9,59 +12,31 @@ class NewGroupPage extends StatefulWidget {
 }
 
 class _NewGroupPageState extends State<NewGroupPage> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.white60,
-        title: Container(
-          alignment: Alignment.centerLeft,
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: (() {
-                  Navigator.popAndPushNamed(context, 'home');
-                }),
-                child: const Icon(
-                  Icons.arrow_back,
-                  color: Color.fromARGB(170, 0, 0, 0),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 20),
-                child: const Text('New group',
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black)),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: (() => Navigator.pushNamed(context, 'search')),
-            child: const Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
-              child: Icon(
-                Icons.search_rounded,
-                color: Color.fromARGB(170, 0, 0, 0),
-                size: 35,
-              ),
-            ),
-          ),
-        ],
+      appBar: const AppBarAll(
+        icon1: Icons.arrow_back,
+        icon2: Icons.search,
+        name: 'New group',
+        route1: 'newMess',
+        route2: 'search',
       ),
-      body: Stack(
-        children: [Column(
-          children: [_groupMemberSelected(), const UsersList()],
+      body: Stack(children: [
+        Column(
+          children: [
+            _groupMemberSelected(),
+            const UsersList(
+              width: 300,
+            )
+          ],
         ),
         Container(
-          padding: const EdgeInsets.only(bottom: 30),
-          alignment: Alignment.bottomCenter,
-          child: _nextButton())]
-      ),
+            padding: const EdgeInsets.only(bottom: 30),
+            alignment: Alignment.bottomCenter,
+            child: _nextButton())
+      ]),
     );
   }
 
@@ -73,35 +48,23 @@ class _NewGroupPageState extends State<NewGroupPage> {
           border: Border(
               bottom:
                   BorderSide(width: 1, color: Color.fromARGB(22, 0, 0, 0)))),
-      child: GridView.builder(
-          itemCount: 5,
-          gridDelegate:  const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 250,
-            childAspectRatio: 144/42,
+      child: ListView(children: [
+        Wrap(
+          spacing: 5,
+          runSpacing: 5,
+          children: List.generate(
+            userItem.length,
+            (index) => 
+            userItem[index].isSelected==true?
+            ItemChipUser(name: userItem[index].user)
+            :Container()
+            ,
           ),
-          itemBuilder: ((context, index) {
-            return Container(
-              margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color: const Color.fromARGB(255, 233, 235, 235)),
-              child: InkWell(
-                onTap: () {},
-                child: const Center(
-                  child: Text(
-                    'User name',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-            );
-          })),
+        ),
+      ]),
     );
   }
 
-  
   Widget _nextButton() {
     return Container(
       height: 60,

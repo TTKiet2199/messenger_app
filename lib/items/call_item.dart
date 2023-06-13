@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:messenger_app/models/call_model.dart';
 
 class CallItem extends StatefulWidget {
-  CallItem({Key? key, required this.call}) : super(key: key);
-  CallObject call;
+ const CallItem({Key? key, required this.call}) : super(key: key);
+ final CallObject call;
   @override
   State<CallItem> createState() => _CallItemState();
 }

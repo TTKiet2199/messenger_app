@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/fake_data/fake_data.dart';
-import 'package:messenger_app/item_list/user_item.dart';
-
+import 'package:messenger_app/items/user_item.dart';
 
 class UsersList extends StatefulWidget {
-  const UsersList({Key? key}) : super(key: key);
+  const UsersList({Key? key, required this.width}) : super(key: key);
+ final double width;
 
   @override
   State<UsersList> createState() => _UsersListState();
@@ -24,6 +24,7 @@ class _UsersListState extends State<UsersList> {
               padding: const EdgeInsets.only(top: 10, left: 20),
               child: UserItem(
                 user: userItem[index + 1],
+                width: widget.width,
               ),
             );
           })),
@@ -32,8 +33,9 @@ class _UsersListState extends State<UsersList> {
 }
 
 class MProfile extends StatefulWidget {
-  MProfile({Key? key, required this.route}) : super(key: key);
+  MProfile({Key? key, required this.route, required this.width}) : super(key: key);
   List<String> route = [];
+ final double width;
   @override
   State<MProfile> createState() => _MProfileState();
 }
@@ -48,7 +50,7 @@ class _MProfileState extends State<MProfile> {
             onTap: (() => Navigator.pushNamed(context, 'profile')),
             child: Container(
               padding: const EdgeInsets.only(top: 10, left: 20),
-              child: UserItem(user: userItem[0]),
+              child: UserItem(user: userItem[0], width: widget.width,),
             ),
           );
         }));
@@ -74,7 +76,9 @@ class _MyProfileImageState extends State<MyProfileImage> {
         children: [
           GestureDetector(
             onTap: () {
-              FilePicker.platform.pickFiles(type: FileType.image).then((result) {
+              FilePicker.platform
+                  .pickFiles(type: FileType.image)
+                  .then((result) {
                 setState(() {
                   image = File(result!.files.first.path!);
                 });
@@ -86,7 +90,8 @@ class _MyProfileImageState extends State<MyProfileImage> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(140),
                   image: DecorationImage(
-                      fit: BoxFit.cover, image: imageProvider as ImageProvider)),
+                      fit: BoxFit.cover,
+                      image: imageProvider as ImageProvider)),
             ),
           ),
           const Padding(

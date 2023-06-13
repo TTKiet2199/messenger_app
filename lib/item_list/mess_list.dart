@@ -15,11 +15,8 @@ class _MessListState extends State<MessList> {
     return ListView.builder(
         itemCount: mess.length,
         itemBuilder: ((context, index) {
-          return Container(
-            padding: const EdgeInsets.only(top: 10),
-            child: MessItem(
-              meassage: mess[index],
-            ),
+          return MessItem(
+            meassage: mess[index],
           );
         }));
   }

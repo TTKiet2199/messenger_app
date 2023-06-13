@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:messenger_app/models/mess_model.dart';
 
 class MessItem extends StatefulWidget {
-  MessItem({Key? key, required this.meassage}) : super(key: key);
-  MessObject meassage;
+ const MessItem({Key? key, required this.meassage}) : super(key: key);
+ final MessObject meassage;
   @override
   State<MessItem> createState() => _MessItemState();
 }
@@ -11,25 +11,44 @@ class MessItem extends StatefulWidget {
 class _MessItemState extends State<MessItem> {
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       padding: const EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [_avataImage(), _messText()],
+        children: [
+          _avataImage(),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: _messText(),
+          )
+        ],
       ),
     );
   }
 
   Widget _avataImage() {
-    return Container(
-        height: 70,
-        width: 70,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            image: DecorationImage(
-                image: AssetImage(widget.meassage.image!), fit: BoxFit.cover)));
+    return Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+      Container(
+          height: 70,
+          width: 70,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              image: DecorationImage(
+                  image: AssetImage(widget.meassage.image!),
+                  fit: BoxFit.cover))),
+      widget.meassage.isOnline==IsOnline.onLine?
+      Container(
+          height: 15,
+          width: 15,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.green,
+          )):Container()
+    ]);
   }
 
   Widget _messText() {
@@ -67,7 +86,6 @@ class _MessItemState extends State<MessItem> {
                 child: widget.meassage.inbox == Inbox.recive
                     ? Text(
                         widget.meassage.messContent!,
-                        
                         style: const TextStyle(
                             fontSize: 17, color: Color(0xFF0E9F9F)),
                       )
@@ -83,7 +101,6 @@ class _MessItemState extends State<MessItem> {
                               )),
                           Text(
                             widget.meassage.messContent!,
-                            
                             style: const TextStyle(
                                 fontSize: 17, color: Color(0xFF0E9F9F)),
                           )
@@ -96,7 +113,6 @@ class _MessItemState extends State<MessItem> {
   Widget _timeSent() {
     return SizedBox(
       height: 80,
-     
       child: widget.meassage.isReed == false
           ? Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

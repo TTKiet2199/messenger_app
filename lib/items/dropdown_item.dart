@@ -38,3 +38,39 @@ class _DropDownButtonCustomState extends State<DropDownButtonCustom> {
     );
   }
 }
+class DropDownButtonCustom1 extends StatefulWidget {
+   DropDownButtonCustom1({Key? key}) : super(key: key);
+   CountriesPhone? currentValue;
+
+  @override
+  State<DropDownButtonCustom1> createState() => _DropDownButtonCustom1State();
+}
+
+class _DropDownButtonCustom1State extends State<DropDownButtonCustom1> {
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<CountriesPhone>(
+      isExpanded: true,
+      value: widget.currentValue ?? countries.first,
+      onChanged: (CountriesPhone? value) {
+        setState(() {
+          widget.currentValue=value!;
+        });
+      },
+      items: countries.map<DropdownMenuItem<CountriesPhone>>(
+        (CountriesPhone value) {
+          return DropdownMenuItem<CountriesPhone>(
+            value: value,
+            child: Text(
+              "(+${value.dialCode.toString()})${value.name.toString()}",
+              overflow: TextOverflow.ellipsis,
+            ),
+          );
+        },
+      ).toList(),
+      underline: Container(),
+      dropdownColor: Colors.white,
+      style: const TextStyle(color: Colors.black),
+    );
+  }
+}

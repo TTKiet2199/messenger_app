@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/item_list/mess_list.dart';
+import 'package:messenger_app/items/floating_button.dart';
 
 class MessagesPage extends StatefulWidget {
   const MessagesPage({Key? key}) : super(key: key);
@@ -13,29 +14,18 @@ class _MessagesPageState extends State<MessagesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: [
-        Container(
-          padding: const EdgeInsets.all(10),
+        const Padding(
+          padding: EdgeInsets.all(10.0),
           child: MessList(),
         ),
         Container(
           padding: const EdgeInsets.all(20),
           alignment: Alignment.bottomRight,
-          child: _newMessagesButton(),
+          child: FloatingButton(icon: Icons.create, route: 'newMess',)
         )
       ]),
     );
   }
 
  
-  Widget _newMessagesButton() {
-    return FloatingActionButton(
-        onPressed: (() => Navigator.pushNamed(context, 'newMess')),
-        child: Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(70),
-          color: Colors.black),
-          child: const Icon(Icons.create, color: Colors.white,),
-        ),);
-  }
 }

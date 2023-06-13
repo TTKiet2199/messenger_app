@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../models/user_model.dart';
 
 class UserItem extends StatefulWidget {
-  UserItem({Key? key, required this.user}) : super(key: key);
-  UserObject user;
+  const UserItem({Key? key, required this.user,required this.width }) : super(key: key);
+ final UserObject user;
+ final double width;
   @override
   State<UserItem> createState() => _UserItemState();
 }
@@ -14,7 +15,7 @@ class _UserItemState extends State<UserItem> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 70,
-      width: 300,
+      width: widget.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
@@ -30,7 +31,7 @@ class _UserItemState extends State<UserItem> {
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: widget.user.isReed == true ? _checkSelected() : Container(),
+            child: widget.user.isSelected == true ? _checkSelected() : Container(),
           ),
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messenger_app/items/country.dart';
 import 'package:messenger_app/items/dropdown_item.dart';
 import 'package:messenger_app/pages/enter_phone_numb/bloc/enter_phone_number_bloc.dart';
+import 'package:messenger_app/pages/otp/otp_page.dart';
 
 class EnterPhoneNumberPage extends StatefulWidget {
   const EnterPhoneNumberPage({Key? key}) : super(key: key);
@@ -109,6 +110,7 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
           fontSize: 20,
         ),
         decoration: InputDecoration(
+          hintText: 'Phone Number',
             prefixIcon: const Padding(
               padding: EdgeInsets.only(left: 0.0),
               child: Icon(Icons.call_outlined),
@@ -128,10 +130,12 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
         color: const Color(0xFF303030),
       ),
       child: InkWell(
-        onTap: (() => Navigator.pushNamed(context, 'otp')),
-        // onTap: () {
-        //   print(state.phoneNumber);
-        // },
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: ((context) =>
+                  PhoneNumberVerify(phoneNum: state.phoneNumber, dialCode: state.countriesPhone==null?'+93':state.countriesPhone!.dialCode.toString(),))));
+          
+        },
         child: const Center(
             child: Text(
           "Continue",

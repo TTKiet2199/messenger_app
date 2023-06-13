@@ -25,7 +25,7 @@ class _OptionButtonState extends State<OptionButton> {
       decoration: BoxDecoration(
           border: Border(
         bottom: BorderSide(
-            width: widget.widthSide, color: Color.fromARGB(22, 0, 0, 0)),
+            width: widget.widthSide, color: const Color.fromARGB(22, 0, 0, 0)),
       )),
       child: Column(
           children: List.generate(

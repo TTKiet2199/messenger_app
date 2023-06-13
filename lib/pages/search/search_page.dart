@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:messenger_app/pages/search/bloc/search_page_bloc.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -25,36 +27,57 @@ List<Icon> iconButton = const [
 ];
 
 class _SearchPageState extends State<SearchPage> {
+  TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.white,
-          shadowColor: Colors.white60,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: (() {
-                  Navigator.popAndPushNamed(context, 'home');
-                }),
-                child: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(
-                width: 360,
-                child: TextField(
-                    decoration: InputDecoration(
-                  hintText: 'Search...',
-                  hintStyle: TextStyle(fontSize: 20, color: Color(0xFF0E9F9F)),
-                )),
-              ),
-            ],
-          )),
-      body: Column(
-        children: [_listButton(), _recentSearchWidget(), _listRecentSearch()],
+    return BlocProvider(
+      create: (context) => SearchPageBloc(),
+      child: BlocConsumer<SearchPageBloc, SearchPageState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return Scaffold(
+              appBar: AppBar(
+                  backgroundColor: Colors.white,
+                  shadowColor: Colors.white60,
+                  title: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: (() {
+                          Navigator.popAndPushNamed(context, 'home');
+                        }),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: SizedBox(
+                          width: 200,
+                          child: TextField(
+                              controller: textEditingController,
+                              onChanged: (value) {
+                                context.read<SearchPageBloc>().add(
+                                    ResultSearchEvent(resultSearch: value));
+                              },
+                              decoration: const InputDecoration(
+                                hintText: 'Search...',
+                                hintStyle: TextStyle(
+                                    fontSize: 20, color: Color(0xFF0E9F9F)),
+                                border: InputBorder.none,
+                              )),
+                        ),
+                      ),
+                    ],
+                  )),
+              body: Column(
+                children: [
+                  _listButton(),
+                  _recentSearchWidget(),
+                  _listRecentSearch(state)
+                ],
+              ));
+        },
       ),
     );
   }
@@ -108,9 +131,7 @@ class _SearchPageState extends State<SearchPage> {
             style: TextStyle(fontSize: 20, color: Colors.black),
           ),
           GestureDetector(
-            onTap: (() {
-             
-            }),
+            onTap: (() {}),
             child: const Text(
               "Clear all",
               style: TextStyle(
@@ -124,12 +145,12 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  Widget _listRecentSearch() {
+  Widget _listRecentSearch(SearchPageState state) {
     return Expanded(
       child: Container(
           margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: ListView.builder(
-              itemCount: 3,
+              itemCount: state.search == null ? 0 : state.search!.length,
               itemBuilder: ((context, index) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,24 +161,19 @@ class _SearchPageState extends State<SearchPage> {
                       margin: const EdgeInsets.symmetric(vertical: 10),
                       width: 320,
                       height: 20,
-                      child: const Text(
-                        'Search result history',
-                        style: TextStyle(
+                      child: Text(
+                        state.search!,
+                        style: const TextStyle(
                           color: Color(0xFF0E9F9F),
                           fontSize: 17,
                         ),
                       ),
                     ),
                     GestureDetector(
-                        onTap: (() {
-                          setState(() {
-                            
-                          });
-                        }),
                         child: const Icon(
-                          Icons.cancel_sharp,
-                          color: Colors.black,
-                        ))
+                      Icons.cancel_sharp,
+                      color: Colors.black,
+                    ))
                   ],
                 );
               }))),

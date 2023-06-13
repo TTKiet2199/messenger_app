@@ -1,35 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:messenger_app/pages/otp/bloc/otp_page_bloc.dart';
+
+import 'component/otp_view.dart';
 
 class PhoneNumberVerify extends StatefulWidget {
-  const PhoneNumberVerify({Key? key, }) : super(key: key);
-// required this.phoneNum
+  const PhoneNumberVerify({Key? key, this.dialCode, this.phoneNum}) : super(key: key);
+  final String? phoneNum;
+ final String? dialCode;
   @override
   State<PhoneNumberVerify> createState() => _PhoneNumberVerifyState();
-  // PhoneNumber? phoneNum;
 }
 
 class _PhoneNumberVerifyState extends State<PhoneNumberVerify> {
-  int? otp;
+  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Column(
-            children: [
-              _enterCodeText(),
-              const Padding(padding: EdgeInsets.all(10)),
-              _confirmText(),
-            ],
-          ),
-          _enterCode(),
-          _resentCodeText(),
-          _continueButton(),
-        ],
+    return BlocProvider(
+      create: (context) => OtpPageBloc(),
+      child: Scaffold(
+        body: BlocConsumer<OtpPageBloc, EnterOtpVerifyState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    _enterCodeText(),
+                    const Padding(padding: EdgeInsets.all(10)),
+                    _confirmText(),
+                  ],
+                ),
+                _enterCode(context),
+                _resentCodeText(),
+                _continueButton(state),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -44,42 +55,19 @@ class _PhoneNumberVerifyState extends State<PhoneNumberVerify> {
   }
 
   Widget _confirmText() {
-    return const Center(
+    return Center(
       child: Text(
-        "We've sent the code via SMS to  ",
+        "We've sent the code via SMS to +${widget.dialCode} ${widget.phoneNum} ",
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F)),
+        style: const TextStyle(fontSize: 17, color: Color(0xFF0E9F9F)),
       ),
     );
   }
 
-  Widget _enterCode() {
-    return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: List.generate(
-            4,
-            (index) => SizedBox(
-                  height: 70,
-                  width: 70,
-                  child: TextField(
-                    onChanged: (value) {
-                      if (value.length == 1) {
-                        FocusScope.of(context).nextFocus();
-                      }
-                    },
-                    textAlignVertical: TextAlignVertical.center,
-                    style: const TextStyle(
-                        fontSize: 30, fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.center,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [LengthLimitingTextInputFormatter(1)],
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50))),
-                  ),
-                )),
-      ),
+  Widget _enterCode(BuildContext context) {
+    return const Center(
+      child: OtpView()
+    
     );
   }
 
@@ -102,7 +90,8 @@ class _PhoneNumberVerifyState extends State<PhoneNumberVerify> {
       ],
     );
   }
-  Widget _continueButton() {
+
+  Widget _continueButton(EnterOtpVerifyState state) {
     return Container(
       height: 60,
       width: 360,
@@ -111,7 +100,11 @@ class _PhoneNumberVerifyState extends State<PhoneNumberVerify> {
         color: const Color(0xFF303030),
       ),
       child: InkWell(
-        onTap: (() => Navigator.pushNamed(context, 'create')),
+        onTap: (
+            // () => Navigator.pushNamed(context, 'name')
+            ) {
+          print(state.otp);
+        },
         child: const Center(
             child: Text(
           "Continue",

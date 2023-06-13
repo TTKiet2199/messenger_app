@@ -29,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
           border: Border(
         bottom: BorderSide(width: 1, color: Color.fromARGB(22, 0, 0, 0)),
       )),
-      child:  MProfile(route: const ['profile'],),
+      child:  MProfile(route: const ['profile'], width: 300,),
     );
   }
 

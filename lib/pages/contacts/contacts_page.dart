@@ -23,14 +23,14 @@ class _ContactsPageState extends State<ContactsPage> {
                 nameOption: const ['Invite Friends', 'Find people nearby'],
                 iconOption: const [Icons.person_add_outlined,Icons.fmd_good_outlined],
                 route: const ['invite','find'], widthSide: 10,),
-            const UsersList()
+             const UsersList(width: 300,)
           ],
         ),
         Container(
           padding: const EdgeInsets.all(20),
           alignment: Alignment.bottomRight,
-          child: FloatingButton(
-            icon: Icons.person_add_alt_1_outlined,
+          child: const FloatingButton(
+            icon: Icons.person_add_alt_1_outlined, route: 'addContact',
           ),
         )
       ],

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:messenger_app/fake_data/fake_data.dart';
+import 'package:messenger_app/items/appbar_item.dart';
 import 'package:messenger_app/items/set_image_and_name.dart';
 import 'package:messenger_app/item_list/users_list.dart';
 
@@ -17,65 +18,34 @@ class _GroupSettingPageState extends State<GroupSettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.white60,
-        title: Container(
-          alignment: Alignment.centerLeft,
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: (() {
-                  Navigator.popAndPushNamed(context, 'home');
-                }),
-                child: const Icon(
-                  Icons.arrow_back,
-                  color: Color.fromARGB(170, 0, 0, 0),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 20),
-                child: const Text('New group',
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black)),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: (() => Navigator.pushNamed(context, '')),
-            child: const Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
-              child: Icon(
-                Icons.check,
-                color: Color.fromARGB(170, 0, 0, 0),
-                size: 35,
-              ),
-            ),
-          ),
-        ],
-      ),
+      appBar: const AppBarAll(
+          name: 'New group',
+          icon1: Icons.arrow_back,
+          route1: 'newGroup',
+          icon2: Icons.check,
+          route2: null),
       body: Column(
         children: [
-           SetImageAndName(hintText: 'Group name', icon: Icons.groups_outlined,),
+          SetImageAndName(
+            hintText: 'Group name',
+            icon: Icons.groups_outlined,
+          ),
           Container(
-            padding: const EdgeInsets.all(20),
-            alignment: Alignment.centerLeft,
-            child: _memberText()),
-          const UsersList()
+              padding: const EdgeInsets.all(20),
+              alignment: Alignment.centerLeft,
+              child: _memberText()),
+          const UsersList(
+            width: 300,
+          )
         ],
       ),
-    );
-  }
-  Widget _memberText() {
-    return  Text(
-      '${userItem.length} member',
-      style: const TextStyle(fontSize: 20),
     );
   }
 
-  
+  Widget _memberText() {
+    return Text(
+      '${userItem.length - 1} member',
+      style: const TextStyle(fontSize: 20),
+    );
+  }
 }

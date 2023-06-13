@@ -3,10 +3,10 @@ class UserObject {
   String user;
   String ava;
   bool activeStatus;
-  bool? isReed = false;
+  bool? isSelected = false;
   UserObject(
       {required this.user,
-      this.isReed,
+      this.isSelected,
       required this.activeStatus,
       required this.ava});
 }

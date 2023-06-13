@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:messenger_app/items/navigator_button.dart';
 
 class SetImagePage extends StatefulWidget {
   const SetImagePage({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _SetImagePageState extends State<SetImagePage> {
               alignment: Alignment.centerLeft,
               child: GestureDetector(
                 onTap: (() {
-                  Navigator.popAndPushNamed(context, 'create');
+                  Navigator.popAndPushNamed(context, 'name');
                 }),
                 child: const Icon(
                   Icons.arrow_back,
@@ -52,7 +53,7 @@ class _SetImagePageState extends State<SetImagePage> {
               ],
             ),
             _profileTmageWidget(),
-            _nextButton()
+            NavigatorButton(nameButton: 'Next', route: 'home',)
           ],
         ),
       ),
@@ -111,22 +112,5 @@ class _SetImagePageState extends State<SetImagePage> {
     );
   }
 
-  Widget _nextButton() {
-    return Container(
-      height: 60,
-      width: 360,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(60),
-        color: const Color(0xFF303030),
-      ),
-      child: InkWell(
-        onTap: (() => Navigator.pushNamed(context, 'home')),
-        child: const Center(
-            child: Text(
-          "Next",
-          style: TextStyle(fontSize: 15, color: Colors.white),
-        )),
-      ),
-    );
-  }
+  
 }

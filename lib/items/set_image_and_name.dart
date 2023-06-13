@@ -75,7 +75,7 @@ class _SetImageAndNameState extends State<SetImageAndName> {
         decoration: InputDecoration(
             hintText: widget.hintText,
             prefixIcon:  Padding(
-              padding: EdgeInsets.only(left: 0.0),
+              padding: const EdgeInsets.only(left: 0.0),
               child: Icon(widget.icon),
             ),
             border:
