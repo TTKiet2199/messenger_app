@@ -16,8 +16,11 @@ class _UserProfilePageState extends State<UserProfilePage> {
       appBar: AppBarAll(
         icon1: Icons.arrow_back,
         icon2: Icons.more_vert,
-        name: userItem[0].user,
-        route1: 'home',
+        name: Text(userItem[0].user,style: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
+        route1: 'chat',
         route2: null,
       ),
     );

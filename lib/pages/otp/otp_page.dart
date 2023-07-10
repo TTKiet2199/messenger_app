@@ -101,10 +101,8 @@ class _PhoneNumberVerifyState extends State<PhoneNumberVerify> {
       ),
       child: InkWell(
         onTap: (
-            // () => Navigator.pushNamed(context, 'name')
-            ) {
-          print(state.otp);
-        },
+            () => Navigator.pushNamed(context, 'name')
+            ) ,
         child: const Center(
             child: Text(
           "Continue",

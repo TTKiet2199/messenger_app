@@ -16,7 +16,10 @@ class _SelectCallPageState extends State<SelectCallPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  const AppBarAll(
-          name: 'Select Contact',
+          name: Text('Select Contact',style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
           icon1: Icons.arrow_back,
           route1: 'home',
           icon2: Icons.search,

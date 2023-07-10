@@ -21,7 +21,7 @@ class _MessagesPageState extends State<MessagesPage> {
         Container(
           padding: const EdgeInsets.all(20),
           alignment: Alignment.bottomRight,
-          child: FloatingButton(icon: Icons.create, route: 'newMess',)
+          child: const FloatingButton(icon: Icons.create, route: 'newMess',)
         )
       ]),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
   const AppBarAll(
       {Key? key,
@@ -8,10 +9,11 @@ class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
       required this.icon2,
       required this.route2})
       : super(key: key);
- final IconData icon1; 
- final  IconData? icon2;
- final String name, route1;
- final String? route2;
+  final IconData icon1;
+  final IconData? icon2;
+  final Widget name;
+  final String route1;
+  final String? route2;
 
   @override
   Size get preferredSize => const Size.fromHeight(70);
@@ -20,9 +22,8 @@ class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-          border: Border(
-              bottom:
-                  BorderSide(width: 1, color:Color(0xFFDCDCDC)))),
+          border:
+              Border(bottom: BorderSide(width: 1, color: Color(0xFFDCDCDC)))),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: Column(
@@ -43,11 +44,12 @@ class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
                         }),
                       ),
                     ),
-                    Text(name,
-                        style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black))
+                    name
+                    // Text(name,
+                    //     style: const TextStyle(
+                    //         fontSize: 30,
+                    //         fontWeight: FontWeight.w500,
+                    //         color: Colors.black))
                   ],
                 ),
                 IconButton(

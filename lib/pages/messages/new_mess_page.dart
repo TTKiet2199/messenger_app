@@ -15,7 +15,10 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarAll(
-          name: 'New message',
+          name: Text('New message',style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
           icon1: Icons.arrow_back,
           route1: 'home',
           icon2: Icons.search,

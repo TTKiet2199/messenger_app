@@ -4,6 +4,7 @@ import 'package:messenger_app/pages/contacts/add_contact_page.dart';
 import 'package:messenger_app/pages/contacts/fine_people_nearby_page.dart';
 import 'package:messenger_app/pages/contacts/invite_friends_page.dart';
 import 'package:messenger_app/pages/home/home_page.dart';
+import 'package:messenger_app/pages/messages/chat/chat_page.dart';
 
 import 'package:messenger_app/pages/messages/new_mess_page.dart';
 import 'package:messenger_app/pages/profile/my_profile_page.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
-      initialRoute: 'otp',
+      initialRoute: 'home',
       routes: {
         'start': (context) => const StartPage(),
         'phone': (context) => const EnterPhoneNumberPage(),
@@ -51,7 +52,8 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const MyProfile(),
         'selectCall':(context) => const SelectCallPage(),
         'addContact':(context) => const AddContactPage(),
-        'userProfile':(context) => const UserProfilePage()
+        'userProfile':(context) => const UserProfilePage(),
+        // 'chat':(context) => const ChatPages(),
 
       },
       

@@ -19,7 +19,10 @@ class _NewGroupPageState extends State<NewGroupPage> {
       appBar: const AppBarAll(
         icon1: Icons.arrow_back,
         icon2: Icons.search,
-        name: 'New group',
+        name: Text('New group',style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
         route1: 'newMess',
         route2: 'search',
       ),

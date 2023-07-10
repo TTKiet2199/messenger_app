@@ -17,22 +17,17 @@ class _UserItemState extends State<UserItem> {
       height: 70,
       width: widget.width,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Row(
-            children: [
-              _avataImage(),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: _userText(),
-              ),
-            ],
-          ),
+          _avataImage(),
           Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: widget.user.isSelected == true ? _checkSelected() : Container(),
+            padding: const EdgeInsets.only(left: 20),
+            child: _userText(),
           ),
+          // Padding(
+          //   padding: const EdgeInsets.all(10.0),
+          //   child: widget.user.isSelected == true ? _checkSelected() : Container(),
+          // ),
         ],
       ),
     );
@@ -76,11 +71,11 @@ class _UserItemState extends State<UserItem> {
         ));
   }
 
-  Widget _checkSelected() {
-    return const Icon(
-      Icons.check_circle,
-      size: 30,
-      color: Colors.black,
-    );
-  }
+  // Widget _checkSelected() {
+  //   return const Icon(
+  //     Icons.check_circle,
+  //     size: 30,
+  //     color: Colors.black,
+  //   );
+  // }
 }

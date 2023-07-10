@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentPage = 2;
+  int currentPage = 0;
   final List<String> namePages = ['Messages', 'Contacts', 'Calls', 'Profile'];
   final List<Widget> pages = [
     const MessagesPage(),

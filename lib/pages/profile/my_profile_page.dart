@@ -16,7 +16,10 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarAll(
-          name: 'My profile',
+          name: Text('My profile',style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
           icon1: Icons.arrow_back,
           route1: 'home',
           icon2: null,

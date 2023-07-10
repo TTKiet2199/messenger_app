@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:messenger_app/app_image/app_image.dart';
 import 'package:messenger_app/models/call_model.dart';
+import 'package:messenger_app/models/chat_model.dart';
 import 'package:messenger_app/models/mess_model.dart';
 
 import '../models/user_model.dart';
@@ -25,7 +26,6 @@ List<UserObject> userItem = [
     user: 'hihi123',
     activeStatus: false,
     ava: AppImage.userImage2,
-    
   ),
   UserObject(
     user: 'hih3333',
@@ -33,28 +33,25 @@ List<UserObject> userItem = [
     ava: AppImage.userImage2,
   ),
   UserObject(
-    user: 'hihih33344',
-    activeStatus: false,
-    ava: AppImage.userImage2,
-    isSelected: true
-  ),
+      user: 'hihih33344',
+      activeStatus: false,
+      ava: AppImage.userImage2,
+      isSelected: true),
   UserObject(
-    user: 'hihihihi223',
-    activeStatus: false,
-    ava: AppImage.userImage2,
-    isSelected: true
-  ),
+      user: 'hihihihi223',
+      activeStatus: false,
+      ava: AppImage.userImage2,
+      isSelected: true),
   UserObject(
     user: 'hihihihi111',
     activeStatus: false,
     ava: AppImage.userImage2,
   ),
   UserObject(
-    user: 'VitaminJ',
-    activeStatus: false,
-    ava: AppImage.userImage2,
-    isSelected: true
-  ),
+      user: 'VitaminJ',
+      activeStatus: false,
+      ava: AppImage.userImage2,
+      isSelected: true),
 ];
 List<CallObject> calls = [
   CallObject(
@@ -121,4 +118,11 @@ List<MessObject> mess = [
       time: 'yesterday',
       inbox: Inbox.sent,
       seen: true)
+];
+List<ChatObject> message = [
+  ChatObject(typeChat: TypeChat.recived),
+  ChatObject(typeChat: TypeChat.send),
+  ChatObject(typeChat: TypeChat.recived),
+  ChatObject(typeChat: TypeChat.send),
+  ChatObject(typeChat: TypeChat.recived),
 ];

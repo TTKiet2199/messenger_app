@@ -20,7 +20,10 @@ class _AddContactPageState extends State<AddContactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarAll(
-          name: 'Add contact',
+          name: Text('Add contact',style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
           icon1: Icons.arrow_back,
           route1: 'home',
           icon2: Icons.check,

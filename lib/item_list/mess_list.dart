@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/fake_data/fake_data.dart';
 import 'package:messenger_app/items/mess_item.dart';
+import 'package:messenger_app/pages/messages/chat/chat_page.dart';
 
 class MessList extends StatefulWidget {
   const MessList({Key? key}) : super(key: key);
@@ -15,9 +16,17 @@ class _MessListState extends State<MessList> {
     return ListView.builder(
         itemCount: mess.length,
         itemBuilder: ((context, index) {
-          return MessItem(
-            meassage: mess[index],
+          return InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: ((context) => ChatPages(
+                        name: mess[index],
+                      ))));
+            },
+            child: MessItem(
+              meassage: mess[index],
+            ),
           );
         }));
   }
-  }
+}

@@ -123,6 +123,7 @@ class _MessItemState extends State<MessItem> {
                     style: const TextStyle(
                         fontSize: 17, color: Color(0xFF0E9F9F))),
                 Container(
+                  alignment: Alignment.center,
                     height: 20,
                     width: 20,
                     decoration: BoxDecoration(
@@ -132,7 +133,7 @@ class _MessItemState extends State<MessItem> {
                     child: Text(widget.meassage.numMesUnReed!.toString(),
                         textAlign: TextAlign.center,
                         style: const TextStyle(
-                            fontSize: 17, color: Colors.white))),
+                            fontSize: 15, color: Colors.white))),
               ],
             )
           : Text(widget.meassage.time!,

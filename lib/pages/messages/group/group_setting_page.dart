@@ -19,7 +19,10 @@ class _GroupSettingPageState extends State<GroupSettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarAll(
-          name: 'New group',
+          name: Text('New group',style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
           icon1: Icons.arrow_back,
           route1: 'newGroup',
           icon2: Icons.check,
