@@ -33,8 +33,8 @@ class _UsersListState extends State<UsersList> {
 }
 
 class MProfile extends StatefulWidget {
-  MProfile({Key? key, required this.route, required this.width}) : super(key: key);
-  List<String> route = [];
+  const MProfile({Key? key, required this.route, required this.width}) : super(key: key);
+ final List<String> route ;
  final double width;
   @override
   State<MProfile> createState() => _MProfileState();

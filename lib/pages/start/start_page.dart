@@ -14,19 +14,24 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _headPageText(),
-          _imageStartPage(),
-          _noteText(),
-          NavigatorButton(
-            nameButton: 'Continue with phone',
-            route: 'phone',
-          )
-        ],
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _headPageText(),
+            _noteText("Let's talk with your friends and your familly whereever and whenever"),
+            _imageStartPage(),
+            _noteText("Have already a account"),
+            NavigatorButton(nameButton: 'Sign in here', route: 'login'),
+            _noteText('or'),
+            NavigatorButton(
+              nameButton: 'Register',
+              route: 'phone',
+            )
+          ],
+        ),
       ),
     );
   }
@@ -45,13 +50,14 @@ class _StartPageState extends State<StartPage> {
     );
   }
 
-  Widget _noteText() {
-    return const Center(
+  Widget _noteText(String? word) {
+    return  Center(
       child: Text(
-        "Let's talk with your friends and your familly whereever and whenever ",
+        word!,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F)),
+        style: const TextStyle(fontSize: 17, color: Color(0xFF0E9F9F)),
       ),
     );
   }
+  
 }

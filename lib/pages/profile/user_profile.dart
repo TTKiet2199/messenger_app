@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/fake_data/fake_data.dart';
 import 'package:messenger_app/items/appbar_item.dart';
+import 'package:messenger_app/models/mess_model.dart';
+import 'package:messenger_app/pages/messages/chat/chat_page.dart';
 
 class UserProfilePage extends StatefulWidget {
-  const UserProfilePage({Key? key}) : super(key: key);
-
+  const UserProfilePage({Key? key, this.nameUser}) : super(key: key);
+  final MessObject? nameUser;
   @override
   State<UserProfilePage> createState() => _UserProfilePageState();
 }
@@ -13,16 +14,18 @@ class _UserProfilePageState extends State<UserProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarAll(
-        icon1: Icons.arrow_back,
-        icon2: Icons.more_vert,
-        name: Text(userItem[0].user,style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black)),
-        route1: 'chat',
-        route2: null,
+        appBar: AppBarMess(
+      icon1: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: ((context) => ChatPages(name: widget.nameUser))));
+        },
       ),
-    );
+      icon2: IconButton(
+        icon: const Icon(Icons.more_vert),
+        onPressed: () {},
+      ),
+      nameAppbar: widget.nameUser!,
+    ));
   }
 }

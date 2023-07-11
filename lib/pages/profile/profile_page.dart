@@ -24,12 +24,12 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _profileItem() {
     return Container(
-      height: 100,
+      height: 90,
       decoration: const BoxDecoration(
           border: Border(
         bottom: BorderSide(width: 1, color: Color.fromARGB(22, 0, 0, 0)),
       )),
-      child:  MProfile(route: const ['profile'], width: 300,),
+      child:  const MProfile(route: ['profile'], width: 300,),
     );
   }
 
@@ -41,11 +41,11 @@ class _ProfilePageState extends State<ProfilePage> {
           alignment: Alignment.centerLeft,
           child: const Text(
             'Settings',
-            style: TextStyle(color: Colors.black, fontSize: 25),
+            style: TextStyle(color: Colors.black, fontSize: 20),
           ),
         ),
         OptionButton(
-            height: 310,
+            height: 260,
             nameOption: const [
               'Notifications',
               'Privacy anh Security',
@@ -71,23 +71,24 @@ class _ProfilePageState extends State<ProfilePage> {
           alignment: Alignment.centerLeft,
           child: const Text(
             'Help',
-            style: TextStyle(color: Colors.black, fontSize: 25),
+            style: TextStyle(color: Colors.black, fontSize: 20),
           ),
         ),
         OptionButton(
-            height: 235,
+            height: 260,
             nameOption: const [
               "What's Up FAQ",
               'Privacy policy',
-              'Ask a question'
+              'Ask a question',
+              'Sign Out'
             ],
             iconOption: const [
               Icons.question_mark_outlined,
               Icons.shield_outlined,
               Icons.message_outlined,
-             
+             Icons.logout_outlined,
             ],
-            route: const ['faq','policy','ask'],
+            route: const ['faq','policy','ask','start'],
             widthSide: 0)
       ],
     );

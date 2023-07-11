@@ -36,7 +36,7 @@ class _OptionButtonState extends State<OptionButton> {
                     child: Container(
                       margin: const EdgeInsets.only(left: 20),
                       width: 410,
-                      height: 75,
+                      height: 60,
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: index == widget.nameOption.length - 1

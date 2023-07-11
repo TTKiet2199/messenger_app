@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:messenger_app/items/appbar_item.dart';
 import 'package:messenger_app/models/chat_model.dart';
 import 'package:messenger_app/models/mess_model.dart';
+import 'package:messenger_app/pages/profile/user_profile.dart';
 
 class ChatPages extends StatefulWidget {
-  const ChatPages({Key? key, required this.name}) : super(key: key);
-  final MessObject name;
+  const ChatPages({Key? key, this.name}) : super(key: key);
+  final MessObject? name;
 
   @override
   State<ChatPages> createState() => _ChatPagesState();
@@ -15,64 +16,28 @@ class _ChatPagesState extends State<ChatPages> {
   List<ChatObject> message = [];
   final TextEditingController chatController = TextEditingController();
   bool? check;
-  ChatObject content = ChatObject(content: '');
+  ChatObject newContent = ChatObject(content: '');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarAll(
-          name: SizedBox(
-              height: 70,
-              width: 300,
-              child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                        height: 70,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            image: DecorationImage(
-                                image: AssetImage(widget.name.image!),
-                                fit: BoxFit.cover))),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: SizedBox(
-                          height: 50,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(widget.name.name!,
-                                  style: const TextStyle(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w400)),
-                              SizedBox(
-                                height: 20,
-                                child: widget.name.isOnline == IsOnline.onLine
-                                    ? const Text(
-                                        'online',
-                                        style: TextStyle(
-                                            fontSize: 17, color: Colors.lime),
-                                      )
-                                    : const Text(
-                                        'offline',
-                                        style: TextStyle(
-                                            fontSize: 17,
-                                            color: Color(0xFF9E9F9F)),
-                                      ),
-                              ),
-                            ],
-                          )),
-                    ),
-                  ])),
-          icon1: Icons.arrow_back,
-          route1: 'home',
-          icon2: Icons.more_vert,
-          route2: 'userProfile'),
+      appBar: AppBarMess(
+        icon1: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushNamed(context, 'home');
+          },
+        ),
+        icon2: IconButton(
+            onPressed: (() {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: ((context) => UserProfilePage(
+                        nameUser: widget.name,
+                      ))));
+            }),
+            icon: const Icon(Icons.more_vert)),
+        nameAppbar: widget.name!,
+      ),
       body: Column(
         children: [
           Expanded(
@@ -98,12 +63,22 @@ class _ChatPagesState extends State<ChatPages> {
           return Padding(
             padding: EdgeInsets.only(
                 right: 5,
-                bottom: message[index].typeChat == TypeChat.send ? 5 : 10),
+                bottom: message[index].typeChat != TypeChat.send ? 5 : 10),
             child: Align(
-              alignment: Alignment.topRight,
+              alignment: 
+              message[index].typeChat != TypeChat.send
+                  ? 
+                  Alignment.topRight
+                  : Alignment.topLeft
+                  ,
               child: Column(children: [
                 Container(
-                  margin: const EdgeInsets.only(left: 100),
+                  margin: 
+                  message[index].typeChat != TypeChat.send
+                      ? 
+                      const EdgeInsets.only(left: 100)
+                      : const EdgeInsets.only(right: 100)
+                      ,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: const Color(0xFFEEEEEE)),
@@ -114,7 +89,7 @@ class _ChatPagesState extends State<ChatPages> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 2),
+                  padding: const EdgeInsets.only(top: 2,),
                   child:
                       Text('${DateTime.now().hour}:${DateTime.now().minute}'),
                 ),
@@ -132,7 +107,7 @@ class _ChatPagesState extends State<ChatPages> {
             maxLines: null,
             onChanged: (Text) {
               chatController.text.isEmpty ? check = true : check = false;
-              content.content = Text;
+              newContent.content = Text;
               // print(check);
             },
             controller: chatController,
@@ -154,8 +129,8 @@ class _ChatPagesState extends State<ChatPages> {
                       setState(() {
                         chatController.text.isEmpty
                             ? null
-                            : message.add(content);
-                        content = ChatObject(content: '');
+                            : message.add(newContent);
+                        newContent = ChatObject(content: '');
                         chatController.text = '';
                       });
                     },

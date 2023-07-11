@@ -119,10 +119,13 @@ List<MessObject> mess = [
       inbox: Inbox.sent,
       seen: true)
 ];
-List<ChatObject> message = [
+List<ChatObject> messages = [
   ChatObject(typeChat: TypeChat.recived),
   ChatObject(typeChat: TypeChat.send),
   ChatObject(typeChat: TypeChat.recived),
   ChatObject(typeChat: TypeChat.send),
   ChatObject(typeChat: TypeChat.recived),
 ];
+Addmessages(ChatObject content) {
+  messages.add(content);
+}
