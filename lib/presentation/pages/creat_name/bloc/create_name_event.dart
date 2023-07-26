@@ -20,3 +20,4 @@ class CreateYourPasswordEvent extends CreateNameBlocEvent {
 
   CreateYourPasswordEvent({required this.createYourPassword});
 }
+class RegisterEvent extends CreateNameBlocEvent{}

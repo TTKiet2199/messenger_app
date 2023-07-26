@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
+import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/pages/login/bloc/login_bloc.dart';
-
-import '../../../core/services/firebase_service.dart';
-
-
 
 
 class LoginPage extends StatefulWidget {
@@ -19,24 +15,32 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
-  String? email;
-  String? password;
-  FirebaseService? _firebaseService;
+
   @override
   void initState() {
     super.initState();
-    _firebaseService = GetIt.instance.get<FirebaseService>();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.clear();
+    passwordController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginBloc(),
+      create: (context1) => getIt<LoginBloc>(),
       child: Scaffold(
         body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: BlocConsumer<LoginBloc, LoginState>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              if (state.loginResult ?? false) {
+                Navigator.pushNamed(context, 'home');
+              }
+            },
             builder: (context, state) {
               return Center(
                   child: Column(
@@ -46,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   _titleWidget(),
                   _loginForm(context),
-                  _loginButton(state),
+                  _loginButton(context),
                 ],
               ));
             },
@@ -126,10 +130,12 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _loginButton(LoginState state) {
+  Widget _loginButton(BuildContext context) {
     return InkWell(
       onTap: () {
-        _login(state);
+        if (_loginFormKey.currentState!.validate()) {
+          context.read<LoginBloc>().add(LoginEvent());
+        }
       },
       child: Container(
         height: 70,
@@ -143,17 +149,5 @@ class _LoginPageState extends State<LoginPage> {
         )),
       ),
     );
-  }
-
-  void _login(LoginState state) async {
-    if (_loginFormKey.currentState!.validate()) {
-      _loginFormKey.currentState!.save();
-      bool result = await _firebaseService!
-          .loginUsers(email: state.email!, password: state.password!);
-
-      if (result) {
-        Navigator.popAndPushNamed(context, 'home');
-      }
-    }
   }
 }

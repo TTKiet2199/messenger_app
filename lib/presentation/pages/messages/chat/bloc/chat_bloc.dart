@@ -7,7 +7,7 @@ part 'chat_state.dart';
 class ChatBloc extends Bloc<ChatEvent, ChatState> {
   ChatBloc() : super(const ChatState()) {
     on<ChatEvent>((event, emit) {
-      // TODO: implement event handler
+
     });
     on<EnterTextEvent>((event, emit) => handleEnterTextEvent(event, emit));
   }

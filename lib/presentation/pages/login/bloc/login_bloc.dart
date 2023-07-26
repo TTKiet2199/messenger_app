@@ -1,27 +1,44 @@
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
+
+import '../../../../core/services/firebase_service.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
 
+@injectable
 class LoginBloc extends Bloc<LoginBlocEvent, LoginState> {
-  LoginBloc() : super(const LoginState()) {
+  LoginBloc(this._firebaseService) : super(const LoginState()) {
     on<LoginBlocEvent>((event, emit) {});
     on<EnterYourEmailEvent>(
         (event, emit) => handleEnterYourEmailEvent(event, emit));
     on<EnterYourPasswordEvent>(
         (event, emit) => handleEnterYourPasswordEvent(event, emit));
+    on<LoginEvent>((event, emit) => handleLoginEvent(event, emit));
   }
+
+  final FirebaseService? _firebaseService;
 
   handleEnterYourEmailEvent(
       EnterYourEmailEvent event, Emitter<LoginState> emit) {
-    final enterEmail = state.coppyWith(email: event.enterEmail);
-    emit(enterEmail);
+    //cap nhat state moi co email = email cua event
+
+    final newState = state.coppyWith(email: event.enterEmail);
+    //emit: xuat dau ra = newState
+    emit(newState);
   }
 
   handleEnterYourPasswordEvent(
       EnterYourPasswordEvent event, Emitter<LoginState> emit) {
-    final enterPassword = state.coppyWith(password: event.enterPassword);
-    emit(enterPassword);
+    final newState = state.coppyWith(password: event.enterPassword);
+    emit(newState);
+  }
+
+  handleLoginEvent(LoginEvent event, Emitter<LoginState> emit) async {
+    final bool result = await _firebaseService!
+        .loginUsers(email: state.email!, password: state.password!);
+    final newState = state.coppyWith(loginResult: result);
+    emit(newState);
   }
 }

@@ -14,3 +14,5 @@ class EnterYourPasswordEvent extends LoginBlocEvent {
 
   EnterYourPasswordEvent({required this.enterPassword});
 }
+
+class LoginEvent extends LoginBlocEvent {}

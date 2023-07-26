@@ -7,8 +7,6 @@ import 'package:messenger_app/data/models/mess_model.dart';
 import '../../profile/user_profile.dart';
 import 'bloc/chat_bloc.dart';
 
-
-
 class ChatPages extends StatefulWidget {
   const ChatPages({Key? key, this.name}) : super(key: key);
   final MessObject? name;
@@ -19,6 +17,7 @@ class ChatPages extends StatefulWidget {
 
 class _ChatPagesState extends State<ChatPages> {
   List<ChatObject> message = [];
+  List<String> mesNewContent = [];
   final TextEditingController chatController = TextEditingController();
   bool? check;
   ChatObject newContent = ChatObject(content: '');
@@ -31,7 +30,6 @@ class _ChatPagesState extends State<ChatPages> {
         appBar: AppBarMess(
           icon1: IconButton(
             icon: const Icon(Icons.arrow_back),
-            
             onPressed: () {
               Navigator.pushNamed(context, 'home');
             },
@@ -47,9 +45,7 @@ class _ChatPagesState extends State<ChatPages> {
           nameAppbar: widget.name!,
         ),
         body: BlocConsumer<ChatBloc, ChatState>(
-          listener: (context, state) {
-           
-          },
+          listener: (context, state) {},
           builder: (context, state) {
             return Column(
               children: [
@@ -64,7 +60,7 @@ class _ChatPagesState extends State<ChatPages> {
                         border: Border(
                             top: BorderSide(
                                 width: 1, color: Color(0xFFDCDCDC)))),
-                    child: chatTextField(context,state)),
+                    child: chatTextField(context, state)),
               ],
             );
           },
@@ -122,7 +118,9 @@ class _ChatPagesState extends State<ChatPages> {
             child: TextField(
               maxLines: null,
               onChanged: (text) {
-                context.read<ChatBloc>().add(EnterTextEvent(enterText: text));
+                context
+                    .read<ChatBloc>()
+                    .add(EnterTextEvent(enterText: newContent.toString()));
               },
               controller: chatController,
               decoration: InputDecoration(
@@ -158,7 +156,7 @@ class _ChatPagesState extends State<ChatPages> {
                                 ]),
                           ),
                         )
-                      :Padding(
+                      : Padding(
                           padding: const EdgeInsets.only(right: 0),
                           child: IconButton(
                               onPressed: () {
@@ -171,8 +169,7 @@ class _ChatPagesState extends State<ChatPages> {
                                 });
                               },
                               icon: const Icon(Icons.send_outlined)),
-                        ))
-                       ,
+                        )),
             ),
           ));
     });

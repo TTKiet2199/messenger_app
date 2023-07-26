@@ -1,11 +1,14 @@
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
+import 'package:messenger_app/core/services/firebase_service.dart';
 import 'package:meta/meta.dart';
 
 part 'create_name_event.dart';
 part 'create_name_state.dart';
 
+@injectable
 class CreateNameBloc extends Bloc<CreateNameBlocEvent, CreateNameState> {
-  CreateNameBloc() : super(const CreateNameState()) {
+  CreateNameBloc(this._firebaseService) : super(const CreateNameState()) {
     on<CreateNameBlocEvent>((event, emit) {});
     on<CreatYourNameEvent>(
         (event, emit) => handleCreatYourNameEvent(event, emit));
@@ -15,7 +18,9 @@ class CreateNameBloc extends Bloc<CreateNameBlocEvent, CreateNameState> {
     on<CreateYourPasswordEvent>(
       (event, emit) => handleCreatYourPasswordEvent(event, emit),
     );
+    on<RegisterEvent>((event, emit) => handleRegisterEvent(event, emit));
   }
+  final FirebaseService? _firebaseService;
 
   handleCreatYourNameEvent(
       CreatYourNameEvent event, Emitter<CreateNameState> emit) {
@@ -34,5 +39,15 @@ class CreateNameBloc extends Bloc<CreateNameBlocEvent, CreateNameState> {
     final newPassword =
         state.coppyWith(createPassword: event.createYourPassword);
     emit(newPassword);
+  }
+
+  handleRegisterEvent(
+      RegisterEvent event, Emitter<CreateNameState> emit) async {
+    bool result = await _firebaseService!.registerUser(
+        name: state.createName!,
+        email: state.createEmail!,
+        password: state.createPassword!);
+    final newState = state.coppyWith(registerResult: result);
+    emit(newState);
   }
 }

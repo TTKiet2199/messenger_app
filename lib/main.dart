@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:messenger_app/core/services/firebase_options.dart';
+import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/pages/calls/select_call_page.dart';
 import 'package:messenger_app/presentation/pages/contacts/add_contact_page.dart';
 import 'package:messenger_app/presentation/pages/contacts/fine_people_nearby_page.dart';
@@ -21,27 +21,28 @@ import 'package:messenger_app/presentation/pages/profile/user_profile.dart';
 import 'package:messenger_app/presentation/pages/search/search_page.dart';
 import 'package:messenger_app/presentation/pages/set_image/set_image_page.dart';
 
-import 'core/services/firebase_service.dart';
 import 'presentation/pages/start/start_page.dart';
 
-
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  GetIt.instance.registerSingleton<FirebaseService>(FirebaseService());
+  configureDependencies();
+
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
-      initialRoute: 'login',
+      initialRoute: 'home',
       routes: {
         'start': (context) => const StartPage(),
         'login': (context) => const LoginPage(),
