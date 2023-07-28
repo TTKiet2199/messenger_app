@@ -16,14 +16,16 @@ class _NewGroupPageState extends State<NewGroupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarAll(
+      appBar:  AppBarAll(
         icon1: Icons.arrow_back,
         icon2: Icons.search,
-        name: Text('New group',style: TextStyle(
+        name: const Text('New group',style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w500,
                             color: Colors.black)),
-        route1: 'newMess',
+       onTapButtonBack: () {
+         Navigator.pop(context, 'newMes');
+       },
         route2: 'search',
       ),
       body: Stack(children: [

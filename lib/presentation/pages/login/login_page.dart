@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/pages/login/bloc/login_bloc.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -19,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
+    emailController.text = 'kiet@gmail.com';
+    passwordController.text = '1234567';
   }
 
   @override

@@ -16,7 +16,6 @@ class ChatPages extends StatefulWidget {
 }
 
 class _ChatPagesState extends State<ChatPages> {
-  List<ChatObject> message = [];
   List<String> mesNewContent = [];
   final TextEditingController chatController = TextEditingController();
   bool? check;
@@ -52,7 +51,7 @@ class _ChatPagesState extends State<ChatPages> {
                 Expanded(
                     child: Padding(
                   padding: const EdgeInsets.only(top: 10),
-                  child: chatView(),
+                  child: chatView(state),
                 )),
                 Container(
                     alignment: Alignment.bottomCenter,
@@ -69,21 +68,21 @@ class _ChatPagesState extends State<ChatPages> {
     );
   }
 
-  Widget chatView() {
+  Widget chatView(ChatState state) {
     return ListView.builder(
-        itemCount: message.length,
+        itemCount: (state.listContent ?? []).length,
         itemBuilder: ((context, index) {
+          final data = (state.listContent ?? [])[index];
           return Padding(
             padding: EdgeInsets.only(
-                right: 5,
-                bottom: message[index].typeChat != TypeChat.send ? 5 : 10),
+                right: 5, bottom: data.typeChat != TypeChat.send ? 5 : 10),
             child: Align(
-              alignment: message[index].typeChat != TypeChat.send
+              alignment: data.typeChat != TypeChat.send
                   ? Alignment.topRight
                   : Alignment.topLeft,
               child: Column(children: [
                 Container(
-                  margin: message[index].typeChat != TypeChat.send
+                  margin: data.typeChat != TypeChat.send
                       ? const EdgeInsets.only(left: 100)
                       : const EdgeInsets.only(right: 100),
                   decoration: BoxDecoration(
@@ -91,7 +90,7 @@ class _ChatPagesState extends State<ChatPages> {
                       color: const Color(0xFFEEEEEE)),
                   padding: const EdgeInsets.all(10),
                   child: Text(
-                    message[index].content!,
+                    data.content!,
                     style: const TextStyle(fontSize: 20, color: Colors.black),
                   ),
                 ),
@@ -99,8 +98,7 @@ class _ChatPagesState extends State<ChatPages> {
                   padding: const EdgeInsets.only(
                     top: 2,
                   ),
-                  child:
-                      Text('${DateTime.now().hour}:${DateTime.now().minute}'),
+                  child: Text(data.time ?? '${DateTime.now().hour}'),
                 ),
               ]),
             ),
@@ -160,13 +158,16 @@ class _ChatPagesState extends State<ChatPages> {
                           padding: const EdgeInsets.only(right: 0),
                           child: IconButton(
                               onPressed: () {
-                                setState(() {
-                                  chatController.text.isEmpty
-                                      ? null
-                                      : message.add(newContent);
-                                  newContent = ChatObject(content: '');
-                                  chatController.text = '';
-                                });
+                                newContent = ChatObject(
+                                    content: chatController.text,
+                                    time:
+                                        '${DateTime.now().hour}:${DateTime.now().minute}');
+                                chatController.text.isEmpty
+                                    ? null
+                                    : context.read<ChatBloc>().add(
+                                        SendMesageEvent(
+                                            newContent: newContent));
+                                chatController.text = '';
                               },
                               icon: const Icon(Icons.send_outlined)),
                         )),

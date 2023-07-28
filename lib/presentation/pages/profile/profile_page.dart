@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:messenger_app/presentation/global_widget/items/option_button.dart';
-import 'package:messenger_app/presentation/global_widget/list_widget/users_list.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -29,7 +28,8 @@ class _ProfilePageState extends State<ProfilePage> {
           border: Border(
         bottom: BorderSide(width: 1, color: Color.fromARGB(22, 0, 0, 0)),
       )),
-      child:  const MProfile(route: ['profile'], width: 300,),
+      child: Container(color: Colors.red)
+      ,
     );
   }
 

@@ -37,7 +37,7 @@ class LoginBloc extends Bloc<LoginBlocEvent, LoginState> {
 
   handleLoginEvent(LoginEvent event, Emitter<LoginState> emit) async {
     final bool result = await _firebaseService!
-        .loginUsers(email: state.email!, password: state.password!);
+        .loginUsers(email: state.email ?? 'kiet@gmail.com', password: state.password ?? '1234567');
     final newState = state.coppyWith(loginResult: result);
     emit(newState);
   }

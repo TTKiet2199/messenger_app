@@ -4,6 +4,12 @@ part of 'chat_bloc.dart';
 abstract class ChatEvent {}
 
 class EnterTextEvent extends ChatEvent {
- final String enterText;
+  final String enterText;
   EnterTextEvent({required this.enterText});
+}
+
+class SendMesageEvent extends ChatEvent {
+  final ChatObject newContent;
+
+  SendMesageEvent({required this.newContent});
 }

@@ -21,13 +21,15 @@ class _AddContactPageState extends State<AddContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarAll(
-          name: Text('Add contact',style: TextStyle(
+      appBar:  AppBarAll(
+          name: const Text('Add contact',style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w500,
                             color: Colors.black)),
           icon1: Icons.arrow_back,
-          route1: 'home',
+          onTapButtonBack: () {
+            Navigator.pop(context, 'home');
+          },
           icon2: Icons.check,
           route2: null),
       body: Container(

@@ -46,7 +46,7 @@ class _CreateNamePageState extends State<CreateNamePage> {
         body: BlocConsumer<CreateNameBloc, CreateNameState>(
           listener: (context, state) {
             if (state.registerResult ?? false) {
-              Navigator.pushNamed(context, 'login');
+              Navigator.pushNamed(context, 'image');
             }
           },
           builder: (context, state) {

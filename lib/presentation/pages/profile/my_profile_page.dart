@@ -15,13 +15,15 @@ class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarAll(
-          name: Text('My profile',style: TextStyle(
+      appBar:  AppBarAll(
+          name: const Text('My profile',style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w500,
                             color: Colors.black)),
           icon1: Icons.arrow_back,
-          route1: 'home',
+          onTapButtonBack: () {
+            Navigator.pop(context, 'profile');
+          },
           icon2: null,
           route2: null),
       body: Column(children: [

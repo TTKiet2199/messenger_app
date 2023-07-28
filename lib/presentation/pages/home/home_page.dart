@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../calls/calls_page.dart';
 import '../contacts/contacts_page.dart';
-import '../messages/messages_page.dart';
+import '../messages/messenger/messages_page.dart';
 import '../profile/profile_page.dart';
 
 class HomePage extends StatefulWidget {

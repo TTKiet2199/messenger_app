@@ -28,6 +28,8 @@ class _OptionButtonState extends State<OptionButton> {
             width: widget.widthSide, color: const Color.fromARGB(22, 0, 0, 0)),
       )),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.max,
           children: List.generate(
               widget.nameOption.length,
               (index) => InkWell(

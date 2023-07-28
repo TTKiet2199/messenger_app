@@ -14,7 +14,7 @@ import 'package:messenger_app/presentation/pages/messages/channel_page.dart';
 import 'package:messenger_app/presentation/pages/messages/chat/chat_page.dart';
 import 'package:messenger_app/presentation/pages/messages/group/group_setting_page.dart';
 import 'package:messenger_app/presentation/pages/messages/group/new_group_page.dart';
-import 'package:messenger_app/presentation/pages/messages/new_mess_page.dart';
+import 'package:messenger_app/presentation/pages/messages/messenger/new_messenger/new_mess_page.dart';
 import 'package:messenger_app/presentation/pages/otp/otp_page.dart';
 import 'package:messenger_app/presentation/pages/profile/my_profile_page.dart';
 import 'package:messenger_app/presentation/pages/profile/user_profile.dart';
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
-      initialRoute: 'home',
+      initialRoute: 'start',
       routes: {
         'start': (context) => const StartPage(),
         'login': (context) => const LoginPage(),

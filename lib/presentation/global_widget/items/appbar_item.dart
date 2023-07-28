@@ -6,15 +6,16 @@ class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
       {Key? key,
       required this.name,
       required this.icon1,
-      required this.route1,
+      required this.onTapButtonBack,
       required this.icon2,
       required this.route2})
       : super(key: key);
   final IconData icon1;
   final IconData? icon2;
   final Widget name;
-  final String route1;
   final String? route2;
+
+  final Function() onTapButtonBack;
 
   @override
   Size get preferredSize => const Size.fromHeight(70);
@@ -39,7 +40,8 @@ class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
                       icon: Icon(icon1),
                       iconSize: 32,
                       onPressed: (() {
-                        Navigator.popAndPushNamed(context, route1);
+                        onTapButtonBack.call();
+                       
                       }),
                     ),
                   ),

@@ -24,10 +24,6 @@ class _UserItemState extends State<UserItem> {
             padding: const EdgeInsets.only(left: 20),
             child: _userText(),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(10.0),
-          //   child: widget.user.isSelected == true ? _checkSelected() : Container(),
-          // ),
         ],
       ),
     );

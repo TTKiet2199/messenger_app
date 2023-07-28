@@ -17,13 +17,13 @@ class _SelectCallPageState extends State<SelectCallPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  const AppBarAll(
-          name: Text('Select Contact',style: TextStyle(
+      appBar:   AppBarAll(
+          name: const Text('Select Contact',style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w500,
                             color: Colors.black)),
           icon1: Icons.arrow_back,
-          route1: 'home',
+          onTapButtonBack: (){ Navigator.pop(context, 'home');},
           icon2: Icons.search,
           route2: 'search'),
       body: _selectCallList(),
