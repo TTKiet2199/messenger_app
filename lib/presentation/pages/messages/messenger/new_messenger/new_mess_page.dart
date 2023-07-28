@@ -58,7 +58,7 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
                   route: ['newGroup', 'channel'],
                   widthSide: 10,
                 ),
-                Expanded(child: listUsers()),
+                Expanded(child: listUsers(state)),
               ],
             );
           },

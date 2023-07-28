@@ -16,8 +16,6 @@ class NewMessengerBloc extends Bloc<NewMessEvent, NewMessengerState> {
   }
   final FirebaseService? firebaseService;
   handleGetUserEvent(GetUserEvent event, Emitter<NewMessengerState> emit) {
-    var currentListUser = state.listUsers ?? [];
     final result = firebaseService!.getUser();
-    emit(state.coppyWith(listUsers: result));
   }
 }
