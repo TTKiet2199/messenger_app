@@ -39,14 +39,14 @@ class _CreateNamePageState extends State<CreateNamePage> {
           backgroundColor: const Color.fromARGB(0, 0, 0, 0),
           title: Container(
             alignment: Alignment.centerRight,
-            child: const Text('1 of 2',
+            child: const Text('1 of 3',
                 style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F))),
           ),
         ),
         body: BlocConsumer<CreateNameBloc, CreateNameState>(
           listener: (context, state) {
             if (state.registerResult ?? false) {
-              Navigator.pushNamed(context, 'image');
+              Navigator.pushNamed(context, 'phone');
             }
           },
           builder: (context, state) {

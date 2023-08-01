@@ -22,7 +22,7 @@ class _MessListState extends State<MessList> {
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: ((context) => ChatPages(
-                        name: mess[index],
+                        name: '',
                       ))));
             },
             child: MessItem(

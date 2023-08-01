@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/global_widget/items/country.dart';
 import 'package:messenger_app/presentation/global_widget/items/dropdown_item.dart';
 
-import '../otp/otp_page.dart';
 import 'bloc/enter_phone_number_bloc.dart';
-
-
 
 class EnterPhoneNumberPage extends StatefulWidget {
   const EnterPhoneNumberPage({Key? key}) : super(key: key);
@@ -20,10 +18,23 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => EnterPhoneNumberBloc(),
+      create: (context) => getIt<EnterPhoneNumberBloc>(),
       child: Scaffold(
+        appBar: AppBar(
+          shadowColor: const Color.fromARGB(0, 0, 0, 0),
+          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+          title: Container(
+            alignment: Alignment.centerRight,
+            child: const Text('2 of 3',
+                style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F))),
+          ),
+        ),
         body: BlocConsumer<EnterPhoneNumberBloc, EnterPhoneNumberState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state.uploadPhoneNumberAndCountyResult ?? false) {
+              Navigator.pushNamed(context, 'image');
+            }
+          },
           builder: (context, state) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -40,7 +51,7 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
                     ),
                   ],
                 ),
-                _continueButton(state)
+                _continueButton(state, context)
               ],
             );
           },
@@ -113,7 +124,7 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
           fontSize: 20,
         ),
         decoration: InputDecoration(
-          hintText: 'Phone Number',
+            hintText: 'Phone Number',
             prefixIcon: const Padding(
               padding: EdgeInsets.only(left: 0.0),
               child: Icon(Icons.call_outlined),
@@ -124,7 +135,7 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
     );
   }
 
-  Widget _continueButton(EnterPhoneNumberState state) {
+  Widget _continueButton(EnterPhoneNumberState state, BuildContext context) {
     return Container(
       height: 60,
       width: 360,
@@ -134,10 +145,11 @@ class _EnterPhoneNumberPageState extends State<EnterPhoneNumberPage> {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: ((context) =>
-                  PhoneNumberVerify(phoneNum: state.phoneNumber, dialCode: state.countriesPhone==null?'+93':state.countriesPhone!.dialCode.toString(),))));
-          
+          if (state.phoneNumber != null) {
+            context
+                .read<EnterPhoneNumberBloc>()
+                .add(UploadPhoneNumberAndCountryEvent());
+          }
         },
         child: const Center(
             child: Text(

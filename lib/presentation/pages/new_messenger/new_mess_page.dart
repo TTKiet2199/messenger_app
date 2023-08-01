@@ -1,13 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
 import 'package:messenger_app/presentation/global_widget/items/option_button.dart';
-import 'package:messenger_app/presentation/pages/messages/messenger/new_messenger/bloc/new_mess_bloc.dart';
 
 import '../../../../../core/services/firebase_service.dart';
+
+import '../chat/chat_page.dart';
+import 'bloc/new_mess_bloc.dart';
 
 class NewMessagesPage extends StatefulWidget {
   const NewMessagesPage({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<NewMessengerBloc>(),
+      create: (context) => getIt<NewMessengerBloc>()..add(GetUserEvent()),
       child: Scaffold(
         appBar: AppBarAll(
             name: const Text('New message',
@@ -42,9 +43,7 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
             icon2: Icons.search,
             route2: 'search'),
         body: BlocConsumer<NewMessengerBloc, NewMessengerState>(
-          listener: (context, state) {
-            // TODO: implement listener
-          },
+          listener: (context, state) {},
           builder: (context, state) {
             return Column(
               children: [
@@ -58,7 +57,7 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
                   route: ['newGroup', 'channel'],
                   widthSide: 10,
                 ),
-                Expanded(child: listUsers(state)),
+                Expanded(child: listTalkUsers(state, context)),
               ],
             );
           },
@@ -66,49 +65,46 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
       ),
     );
   }
-  Widget listUsers(NewMessengerState state) {
-    return StreamBuilder<QuerySnapshot>(
-      stream: firebaseService!.getUser(),
-      builder: ((context, snapshot) {
-        if (snapshot.hasData) {
-          List posts = snapshot.data!.docs.map((e) => e.data()).toList();
-          return ListView.builder(
-            itemCount: posts.length,
-            itemBuilder: (context, index) {
-              Map post = posts[index];
-              return InkWell(
-                onTap: () {},
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(70),
-                          border: const Border(
-                            top: BorderSide(width: 1),
-                            bottom: BorderSide(width: 1),
-                            left: BorderSide(width: 1),
-                            right: BorderSide(width: 1),
-                          ),
-                          image: DecorationImage(
-                              image: NetworkImage(post["image"]))),
+
+  Widget listTalkUsers(NewMessengerState state, BuildContext context) {
+    return ListView.builder(
+      itemCount: (state.listTalk ?? []).length,
+      itemBuilder: (BuildContext context, int index) {
+        final talk = (state.listTalk ?? [])[index];
+        return InkWell(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: ((context) => ChatPages(
+                      name: talk.name,
+                      image: talk.image,
+                      id: state.id,
+                    ))));
+            context.read<NewMessengerBloc>().add(UploadToTalkEvent(
+                image: talk.image!, name: talk.name!, id: talk.id!));
+          },
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.all(10),
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(70),
+                    border: const Border(
+                      top: BorderSide(width: 1),
+                      bottom: BorderSide(width: 1),
+                      left: BorderSide(width: 1),
+                      right: BorderSide(width: 1),
                     ),
-                    Text(post['name'],
-                        style: const TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.w400))
-                  ],
-                ),
-              );
-            },
-          );
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      }),
+                    image: DecorationImage(image: NetworkImage(talk.image!))),
+              ),
+              Text(talk.name!,
+                  style: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.w400))
+            ],
+          ),
+        );
+      },
     );
   }
 }

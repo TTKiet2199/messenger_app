@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/data/models/mess_model.dart';
 
 class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
   const AppBarAll(
@@ -41,7 +40,6 @@ class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
                       iconSize: 32,
                       onPressed: (() {
                         onTapButtonBack.call();
-                       
                       }),
                     ),
                   ),
@@ -69,9 +67,11 @@ class AppBarMess extends StatelessWidget implements PreferredSizeWidget {
     required this.icon1,
     required this.nameAppbar,
     required this.icon2,
+    required this.image,
   }) : super(key: key);
   final IconButton icon1;
-  final MessObject nameAppbar;
+  final String nameAppbar;
+  final String image;
   final IconButton icon2;
   @override
   Size get preferredSize => const Size.fromHeight(70);
@@ -99,8 +99,7 @@ class AppBarMess extends StatelessWidget implements PreferredSizeWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(40),
                             image: DecorationImage(
-                                image: AssetImage(nameAppbar.image!),
-                                fit: BoxFit.cover))),
+                                image: NetworkImage(image), fit: BoxFit.cover))),
                     Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: SizedBox(
@@ -110,25 +109,17 @@ class AppBarMess extends StatelessWidget implements PreferredSizeWidget {
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(nameAppbar.name!,
+                                Text(nameAppbar,
                                     style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w400)),
-                                SizedBox(
-                                  height: 20,
-                                  child: nameAppbar.isOnline == IsOnline.onLine
-                                      ? const Text(
-                                          'online',
-                                          style: TextStyle(
-                                              fontSize: 17, color: Colors.lime),
-                                        )
-                                      : const Text(
-                                          'offline',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              color: Color(0xFF9E9F9F)),
-                                        ),
-                                ),
+                                const SizedBox(
+                                    height: 20,
+                                    child: Text(
+                                      'online',
+                                      style: TextStyle(
+                                          fontSize: 17, color: Colors.lime),
+                                    )),
                               ],
                             ))),
                   ]),

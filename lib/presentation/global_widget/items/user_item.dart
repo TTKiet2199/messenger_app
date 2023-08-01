@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../data/models/user_model.dart';
 
 class UserItem extends StatefulWidget {
-  const UserItem({Key? key, required this.user,required this.width }) : super(key: key);
- final UserObject user;
- final double width;
+  const UserItem({Key? key, required this.user, required this.width})
+      : super(key: key);
+  final UserModel user;
+  final double width;
   @override
   State<UserItem> createState() => _UserItemState();
 }

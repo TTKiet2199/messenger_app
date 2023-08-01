@@ -8,13 +8,15 @@ import 'package:messenger_app/presentation/pages/contacts/fine_people_nearby_pag
 import 'package:messenger_app/presentation/pages/contacts/invite_friends_page.dart';
 import 'package:messenger_app/presentation/pages/creat_name/create_name_page.dart';
 import 'package:messenger_app/presentation/pages/enter_phone_numb/enter_phonenumber_page.dart';
+import 'package:messenger_app/presentation/pages/group/group_setting_page.dart';
+import 'package:messenger_app/presentation/pages/group/new_group_page.dart';
 import 'package:messenger_app/presentation/pages/home/home_page.dart';
 import 'package:messenger_app/presentation/pages/login/login_page.dart';
 import 'package:messenger_app/presentation/pages/messages/channel_page.dart';
 import 'package:messenger_app/presentation/pages/messages/chat/chat_page.dart';
-import 'package:messenger_app/presentation/pages/messages/group/group_setting_page.dart';
-import 'package:messenger_app/presentation/pages/messages/group/new_group_page.dart';
-import 'package:messenger_app/presentation/pages/messages/messenger/new_messenger/new_mess_page.dart';
+import 'package:messenger_app/presentation/pages/new_messenger/new_mess_page.dart';
+
+
 import 'package:messenger_app/presentation/pages/otp/otp_page.dart';
 import 'package:messenger_app/presentation/pages/profile/my_profile_page.dart';
 import 'package:messenger_app/presentation/pages/profile/user_profile.dart';
@@ -24,7 +26,6 @@ import 'package:messenger_app/presentation/pages/set_image/set_image_page.dart';
 import 'presentation/pages/start/start_page.dart';
 
 void main() async {
-  
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'start': (context) => const StartPage(),
         'login': (context) => const LoginPage(),
+        
         'phone': (context) => const EnterPhoneNumberPage(),
         'otp': (context) => const PhoneNumberVerify(),
         'name': (context) => const CreateNamePage(),

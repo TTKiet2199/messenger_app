@@ -4,12 +4,19 @@ part of 'chat_bloc.dart';
 abstract class ChatEvent {}
 
 class EnterTextEvent extends ChatEvent {
-  final String enterText;
+  final ChatModel enterText;
   EnterTextEvent({required this.enterText});
 }
 
 class SendMesageEvent extends ChatEvent {
-  final ChatObject newContent;
+  final ChatModel newContent;
 
   SendMesageEvent({required this.newContent});
+}
+
+class UploadContentToTalk extends ChatEvent {
+  final ChatModel contentUpload;
+  final String id;
+
+  UploadContentToTalk({required this.contentUpload, required this.id});
 }

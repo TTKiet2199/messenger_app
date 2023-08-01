@@ -36,7 +36,7 @@ class _SetImagePageState extends State<SetImagePage> {
                   ),
                 ),
               ),
-              const Text('2 of 2',
+              const Text('3 of 3',
                   style: TextStyle(fontSize: 17, color: Color(0xFF0E9F9F))),
             ],
           ),

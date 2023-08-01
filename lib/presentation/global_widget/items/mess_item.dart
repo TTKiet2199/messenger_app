@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/data/models/mess_model.dart';
+import 'package:messenger_app/data/models/talk_model.dart';
 
 class MessItem extends StatefulWidget {
- const MessItem({Key? key, required this.meassage}) : super(key: key);
- final MessObject meassage;
+  const MessItem({Key? key, required this.meassage}) : super(key: key);
+  final TalkModel meassage;
   @override
-  State<MessItem> createState() => _MessItemState();
+  State<MessItem> createState() => _TalkItemState();
 }
 
-class _MessItemState extends State<MessItem> {
+class _TalkItemState extends State<MessItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,9 +29,7 @@ class _MessItemState extends State<MessItem> {
   }
 
   Widget _avataImage() {
-    return Stack(
-      alignment: Alignment.bottomRight,
-      children: [
+    return Stack(alignment: Alignment.bottomRight, children: [
       Container(
           height: 70,
           width: 70,
@@ -40,14 +38,15 @@ class _MessItemState extends State<MessItem> {
               image: DecorationImage(
                   image: AssetImage(widget.meassage.image!),
                   fit: BoxFit.cover))),
-      widget.meassage.isOnline==IsOnline.onLine?
-      Container(
-          height: 15,
-          width: 15,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.green,
-          )):Container()
+      widget.meassage.isOnline == IsOnline.onLine
+          ? Container(
+              height: 15,
+              width: 15,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.green,
+              ))
+          : Container()
     ]);
   }
 
@@ -123,7 +122,7 @@ class _MessItemState extends State<MessItem> {
                     style: const TextStyle(
                         fontSize: 17, color: Color(0xFF0E9F9F))),
                 Container(
-                  alignment: Alignment.center,
+                    alignment: Alignment.center,
                     height: 20,
                     width: 20,
                     decoration: BoxDecoration(

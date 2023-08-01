@@ -1,11 +1,10 @@
-
-class CallObject {
+class CallModel {
   String? name;
   String? ava;
   bool? isIncomming;
   String? time;
   CallType? callType;
-  CallObject({
+  CallModel({
     required this.name,
     required this.ava,
     required this.isIncomming,

@@ -4,8 +4,6 @@ import 'package:messenger_app/presentation/global_widget/items/country.dart';
 
 import '../../pages/enter_phone_numb/bloc/enter_phone_number_bloc.dart';
 
-
-
 class DropDownButtonCustom extends StatefulWidget {
   const DropDownButtonCustom({Key? key, this.currentValue}) : super(key: key);
   final CountriesPhone? currentValue;
@@ -21,14 +19,15 @@ class _DropDownButtonCustomState extends State<DropDownButtonCustom> {
       isExpanded: true,
       value: widget.currentValue ?? countries.first,
       onChanged: (CountriesPhone? value) {
-        context.read<EnterPhoneNumberBloc>().add(ChangeCountryPhoneEvent(newCountriesPhone: value ?? countries.first));
+        context.read<EnterPhoneNumberBloc>().add(ChangeCountryPhoneEvent(
+            newCountriesPhone: value ?? countries.first));
       },
       items: countries.map<DropdownMenuItem<CountriesPhone>>(
         (CountriesPhone value) {
           return DropdownMenuItem<CountriesPhone>(
             value: value,
             child: Text(
-              "(+${value.dialCode.toString()})${value.name.toString()}",
+              "(${value.dialCode.toString()})${value.name.toString()}",
               overflow: TextOverflow.ellipsis,
             ),
           );
@@ -40,8 +39,9 @@ class _DropDownButtonCustomState extends State<DropDownButtonCustom> {
     );
   }
 }
+
 class DropDownButtonCustom1 extends StatefulWidget {
-   const DropDownButtonCustom1({Key? key, this.currentValue}) : super(key: key);
+  const DropDownButtonCustom1({Key? key, this.currentValue}) : super(key: key);
   final CountriesPhone? currentValue;
 
   @override
@@ -56,7 +56,7 @@ class _DropDownButtonCustom1State extends State<DropDownButtonCustom1> {
       value: widget.currentValue ?? countries.first,
       onChanged: (CountriesPhone? value) {
         setState(() {
-          widget.currentValue!=value!;
+          widget.currentValue != value!;
         });
       },
       items: countries.map<DropdownMenuItem<CountriesPhone>>(

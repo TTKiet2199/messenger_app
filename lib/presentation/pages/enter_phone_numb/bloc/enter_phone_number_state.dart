@@ -4,13 +4,21 @@ part of 'enter_phone_number_bloc.dart';
 class EnterPhoneNumberState {
   final String? phoneNumber;
   final CountriesPhone? countriesPhone;
+  final bool? uploadPhoneNumberAndCountyResult;
 
-  const EnterPhoneNumberState({this.phoneNumber, this.countriesPhone});
+  const EnterPhoneNumberState({
+    this.uploadPhoneNumberAndCountyResult,
+    this.phoneNumber,
+    this.countriesPhone,
+  });
 
   EnterPhoneNumberState copyWith(
-          {String? phoneNumber, CountriesPhone? countriesPhone}) =>
+          {String? phoneNumber,
+          CountriesPhone? countriesPhone,
+          bool? uploadPhoneNumberAndCountyResult}) =>
       EnterPhoneNumberState(
           countriesPhone: countriesPhone ?? this.countriesPhone,
-          phoneNumber: phoneNumber ?? this.phoneNumber);
+          phoneNumber: phoneNumber ?? this.phoneNumber,
+          uploadPhoneNumberAndCountyResult: uploadPhoneNumberAndCountyResult ??
+              this.uploadPhoneNumberAndCountyResult);
 }
-

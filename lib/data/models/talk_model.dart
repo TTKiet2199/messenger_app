@@ -1,4 +1,5 @@
-class MessObject {
+class TalkModel {
+  String? id;
   String? name;
   String? image;
   String? messContent;
@@ -8,16 +9,17 @@ class MessObject {
   String? time;
   bool? seen;
   Inbox? inbox;
-  MessObject(
-      {required this.name,
-      required this.image,
-      required this.isOnline,
+  TalkModel(
+      {this.id,
+      this.name,
+      this.image,
+      this.isOnline,
       this.isReed,
       this.numMesUnReed,
-      required this.messContent,
-      required this.time,
+      this.messContent,
+      this.time,
       this.seen,
-      required this.inbox});
+      this.inbox});
 }
 
 enum Inbox { sent, recive }

@@ -14,3 +14,4 @@ class ChangePhoneNumberEvent extends EnterPhoneNumberEvent {
 
   ChangePhoneNumberEvent({required this.newPhoneNumber});
 }
+class UploadPhoneNumberAndCountryEvent extends EnterPhoneNumberEvent{}

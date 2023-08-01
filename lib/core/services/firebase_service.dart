@@ -1,4 +1,8 @@
 import 'dart:io';
+import 'package:intl/intl.dart';
+import 'package:messenger_app/data/models/chat_model.dart';
+import 'package:messenger_app/data/models/talk_model.dart';
+import 'package:messenger_app/presentation/global_widget/items/country.dart';
 import 'package:path/path.dart' as p;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -81,36 +85,76 @@ class FirebaseService {
     }
   }
 
-  Future<bool> uploadTalk({
-    required String name,
-    required File image,
-    required String content,
-  }) async {
+  Future<bool> uploadPhoneNumber(
+      {required String phoneNumber, required CountriesPhone country}) async {
     try {
       String userId = auth.currentUser!.uid;
-      String fileName = Timestamp.now().millisecondsSinceEpoch.toString() +
-          p.extension(image.path);
-      UploadTask task = storage.ref('image/$userId/$fileName').putFile(image);
-      return task.then((snapshot) async {
-        String downloadURL = await snapshot.ref.getDownloadURL();
-        await db.collection(talkColection).doc(userId).set({
-          "name": name,
-          "content": content,
-          "image": downloadURL,
-        });
-        return true;
+      await db.collection(userColection).doc(userId).update({
+        "phone number": phoneNumber,
+        "country": "(${country.dialCode}) ${country.name}"
       });
+      return true;
     } catch (e) {
       print(e);
       return false;
     }
   }
 
-  Stream<QuerySnapshot> getUser() {
-    return db.collection(userColection).snapshots();
+  Future<bool> uploadTalk(
+      {required String name,
+      required String imageUrl,
+      required String id}) async {
+    try {
+      await db.collection(talkColection).doc(id).set({
+        "name": name,
+        "image": imageUrl,
+      });
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
   }
-  // Future<Map> getUsers() async {
-  //   DocumentSnapshot user = (await db.collection(userColection).get()) as DocumentSnapshot;
-  //   return user.data() as Map;
-  // }
+
+  Future<List<TalkModel>?> getUserTalk() async {
+    final user = (await db.collection(userColection).get());
+    final listTalk = user.docs
+        .map((e) => TalkModel(
+              name: e.data()["name"],
+              image: e.data()["image"],
+              id: e.id,
+            ))
+        .toList();
+    return listTalk;
+  }
+
+  Future<List<TalkModel>?> getTalkMessage() async {
+    final user = (await db.collection(talkColection).get());
+    final listTalk = user.docs
+        .map((e) => TalkModel(
+              name: e.data()["name"],
+              image: e.data()["image"],
+              id: e.id,
+              time: e.data()["time"],
+              messContent: e.data()["content"],
+            ))
+        .toList();
+    return listTalk;
+  }
+
+  Future<bool> uploadContentToTalk({
+    required ChatModel chatContent,
+    required String id,
+  }) async {
+    try {
+      await db.collection(talkColection).doc(id).update({
+        "content": chatContent.content,
+        "time": DateFormat.Hm().format(DateTime.now()),
+      });
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
 }

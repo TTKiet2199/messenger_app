@@ -1,10 +1,9 @@
-
-class UserObject {
+class UserModel {
   String user;
   String ava;
   bool activeStatus;
   bool? isSelected = false;
-  UserObject(
+  UserModel(
       {required this.user,
       this.isSelected,
       required this.activeStatus,

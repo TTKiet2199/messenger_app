@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
 import 'package:messenger_app/data/models/chat_model.dart';
 import 'package:messenger_app/presentation/pages/profile/user_profile.dart';
 
-import '../../chat/bloc/chat_bloc.dart';
+import 'bloc/chat_bloc.dart';
 
 class ChatPages extends StatefulWidget {
-  const ChatPages({Key? key, this.name, this.image}) : super(key: key);
+  const ChatPages({Key? key, this.name, this.image, this.id}) : super(key: key);
   final String? name;
   final String? image;
+  final String? id;
 
   @override
   State<ChatPages> createState() => _ChatPagesState();
@@ -82,27 +84,32 @@ class _ChatPagesState extends State<ChatPages> {
               alignment: data.typeChat != TypeChat.send
                   ? Alignment.topRight
                   : Alignment.topLeft,
-              child: Column(children: [
-                Container(
-                  margin: data.typeChat != TypeChat.send
-                      ? const EdgeInsets.only(left: 100)
-                      : const EdgeInsets.only(right: 100),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xFFEEEEEE)),
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    data.content!,
-                    style: const TextStyle(fontSize: 20, color: Colors.black),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 2,
-                  ),
-                  child: Text(data.time ?? '${DateTime.now().hour}'),
-                ),
-              ]),
+              child: Column(
+                  crossAxisAlignment: data.typeChat != TypeChat.send
+                      ? CrossAxisAlignment.end
+                      : CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: data.typeChat != TypeChat.send
+                          ? const EdgeInsets.only(left: 100)
+                          : const EdgeInsets.only(right: 100),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color(0xFFEEEEEE)),
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        data.content!,
+                        style:
+                            const TextStyle(fontSize: 20, color: Colors.black),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 2,
+                      ),
+                      child: Text(data.time ?? '${DateTime.now().hour}'),
+                    ),
+                  ]),
             ),
           );
         }));
@@ -163,12 +170,16 @@ class _ChatPagesState extends State<ChatPages> {
                                 newContent = ChatModel(
                                     content: chatController.text,
                                     time:
-                                        '${DateTime.now().hour}:${DateTime.now().minute}');
+                                        DateFormat.Hm().format(DateTime.now()));
                                 chatController.text.isEmpty
                                     ? null
                                     : context.read<ChatBloc>().add(
                                         SendMesageEvent(
                                             newContent: newContent));
+                                context.read<ChatBloc>().add(
+                                    UploadContentToTalk(
+                                        contentUpload: newContent,
+                                        id: widget.id!));
                                 chatController.text = '';
                               },
                               icon: const Icon(Icons.send_outlined)),

@@ -2,270 +2,269 @@ import 'package:intl/intl.dart';
 import 'package:messenger_app/core/app_image/app_image.dart';
 import 'package:messenger_app/data/models/call_model.dart';
 import 'package:messenger_app/data/models/chat_model.dart';
-import 'package:messenger_app/data/models/mess_model.dart';
+import 'package:messenger_app/data/models/talk_model.dart';
 
 import '../models/user_model.dart';
 
-List<UserObject> userItem = [
-  UserObject(
+List<UserModel> userItem = [
+  UserModel(
       user: 'Hehehehe',
       activeStatus: true,
       ava: AppImage.profileImage,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'ahihi',
       activeStatus: true,
       ava: AppImage.userImage1,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi',
     activeStatus: false,
     ava: AppImage.userImage2,
   ),
-  UserObject(
+  UserModel(
     user: 'hihi123',
     activeStatus: false,
     ava: AppImage.userImage4,
   ),
-  UserObject(
+  UserModel(
     user: 'hih3333',
     activeStatus: false,
     ava: AppImage.userImage6,
   ),
-  UserObject(
+  UserModel(
       user: 'hihih33344',
       activeStatus: false,
       ava: AppImage.userImage7,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'hihihihi223',
       activeStatus: false,
       ava: AppImage.userImage9,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi111',
     activeStatus: false,
     ava: AppImage.userImage5,
   ),
-  UserObject(
+  UserModel(
       user: 'VitaminJ',
       activeStatus: false,
       ava: AppImage.userImage10,
       isSelected: true),
-      UserObject(
+  UserModel(
       user: 'Hehehehe',
       activeStatus: true,
       ava: AppImage.profileImage,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'ahihi',
       activeStatus: true,
       ava: AppImage.userImage1,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi',
     activeStatus: false,
     ava: AppImage.userImage2,
   ),
-  UserObject(
+  UserModel(
     user: 'hihi123',
     activeStatus: false,
     ava: AppImage.userImage4,
   ),
-  UserObject(
+  UserModel(
     user: 'hih3333',
     activeStatus: false,
     ava: AppImage.userImage6,
   ),
-  UserObject(
+  UserModel(
       user: 'hihih33344',
       activeStatus: false,
       ava: AppImage.userImage7,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'hihihihi223',
       activeStatus: false,
       ava: AppImage.userImage9,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi111',
     activeStatus: false,
     ava: AppImage.userImage5,
   ),
-  UserObject(
+  UserModel(
       user: 'VitaminJ',
       activeStatus: false,
       ava: AppImage.userImage10,
       isSelected: true),
-      UserObject(
+  UserModel(
       user: 'Hehehehe',
       activeStatus: true,
       ava: AppImage.profileImage,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'ahihi',
       activeStatus: true,
       ava: AppImage.userImage1,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi',
     activeStatus: false,
     ava: AppImage.userImage2,
   ),
-  UserObject(
+  UserModel(
     user: 'hihi123',
     activeStatus: false,
     ava: AppImage.userImage4,
   ),
-  UserObject(
+  UserModel(
     user: 'hih3333',
     activeStatus: false,
     ava: AppImage.userImage6,
   ),
-  UserObject(
+  UserModel(
       user: 'hihih33344',
       activeStatus: false,
       ava: AppImage.userImage7,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'hihihihi223',
       activeStatus: false,
       ava: AppImage.userImage9,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi111',
     activeStatus: false,
     ava: AppImage.userImage5,
   ),
-  UserObject(
+  UserModel(
       user: 'VitaminJ',
       activeStatus: false,
       ava: AppImage.userImage10,
       isSelected: true),
-      UserObject(
+  UserModel(
       user: 'Hehehehe',
       activeStatus: true,
       ava: AppImage.profileImage,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'ahihi',
       activeStatus: true,
       ava: AppImage.userImage1,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi',
     activeStatus: false,
     ava: AppImage.userImage2,
   ),
-  UserObject(
+  UserModel(
     user: 'hihi123',
     activeStatus: false,
     ava: AppImage.userImage4,
   ),
-  UserObject(
+  UserModel(
     user: 'hih3333',
     activeStatus: false,
     ava: AppImage.userImage6,
   ),
-  UserObject(
+  UserModel(
       user: 'hihih33344',
       activeStatus: false,
       ava: AppImage.userImage7,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'hihihihi223',
       activeStatus: false,
       ava: AppImage.userImage9,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi111',
     activeStatus: false,
     ava: AppImage.userImage5,
   ),
-  UserObject(
+  UserModel(
       user: 'VitaminJ',
       activeStatus: false,
       ava: AppImage.userImage10,
       isSelected: true),
-      UserObject(
+  UserModel(
       user: 'Hehehehe',
       activeStatus: true,
       ava: AppImage.profileImage,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'ahihi',
       activeStatus: true,
       ava: AppImage.userImage1,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi',
     activeStatus: false,
     ava: AppImage.userImage2,
   ),
-  UserObject(
+  UserModel(
     user: 'hihi123',
     activeStatus: false,
     ava: AppImage.userImage4,
   ),
-  UserObject(
+  UserModel(
     user: 'hih3333',
     activeStatus: false,
     ava: AppImage.userImage6,
   ),
-  UserObject(
+  UserModel(
       user: 'hihih33344',
       activeStatus: false,
       ava: AppImage.userImage7,
       isSelected: true),
-  UserObject(
+  UserModel(
       user: 'hihihihi223',
       activeStatus: false,
       ava: AppImage.userImage9,
       isSelected: true),
-  UserObject(
+  UserModel(
     user: 'hihihihi111',
     activeStatus: false,
     ava: AppImage.userImage5,
   ),
-  UserObject(
+  UserModel(
       user: 'VitaminJ',
       activeStatus: false,
       ava: AppImage.userImage10,
       isSelected: true),
 ];
-List<CallObject> calls = [
-  CallObject(
+List<CallModel> calls = [
+  CallModel(
       name: 'ahihi',
       ava: AppImage.userImage1,
       isIncomming: false,
       time:
           '${DateFormat.MMMMd().format(DateTime.now())},${DateTime.now().hour}:${DateTime.now().minute}',
       callType: CallType.voice),
-  CallObject(
+  CallModel(
       name: 'hihihihi',
       ava: AppImage.userImage2,
       isIncomming: true,
       time:
           '${DateFormat.MMMMd().format(DateTime.now())},${DateTime.now().hour}:${DateTime.now().minute}',
       callType: CallType.video),
-  CallObject(
+  CallModel(
       name: 'hahaha',
       ava: AppImage.userImage3,
       isIncomming: false,
       time:
           '${DateFormat.MMMMd().format(DateTime.now())},${DateTime.now().hour}:${DateTime.now().minute}',
       callType: CallType.video),
-  CallObject(
+  CallModel(
       name: 'lêu lêu',
       ava: AppImage.userImage5,
       isIncomming: true,
       time:
           '${DateFormat.MMMMd().format(DateTime.now())},${DateTime.now().hour}:${DateTime.now().minute}',
       callType: CallType.voice),
-      
 ];
-List<MessObject> mess = [
-  MessObject(
+List<TalkModel> mess = [
+  TalkModel(
       name: 'ahihi',
       image: AppImage.userImage8,
       isOnline: IsOnline.onLine,
@@ -273,7 +272,7 @@ List<MessObject> mess = [
       time: '${DateTime.now().hour}:${DateTime.now().minute}',
       inbox: Inbox.recive,
       isReed: true),
-  MessObject(
+  TalkModel(
       name: 'hihihihi',
       image: AppImage.userImage4,
       isOnline: IsOnline.offLine,
@@ -282,7 +281,7 @@ List<MessObject> mess = [
       seen: false,
       isReed: true,
       inbox: Inbox.sent),
-  MessObject(
+  TalkModel(
       name: 'hahaha',
       image: AppImage.userImage6,
       isOnline: IsOnline.onLine,
@@ -291,7 +290,7 @@ List<MessObject> mess = [
       isReed: false,
       numMesUnReed: 5,
       inbox: Inbox.recive),
-  MessObject(
+  TalkModel(
       name: 'lêu lêu',
       image: AppImage.userImage3,
       isOnline: IsOnline.offLine,
@@ -300,13 +299,13 @@ List<MessObject> mess = [
       inbox: Inbox.sent,
       seen: true)
 ];
-List<ChatObject> messages = [
-  ChatObject(typeChat: TypeChat.recived),
-  ChatObject(typeChat: TypeChat.send),
-  ChatObject(typeChat: TypeChat.recived),
-  ChatObject(typeChat: TypeChat.send),
-  ChatObject(typeChat: TypeChat.recived),
+List<ChatModel> messages = [
+  ChatModel(typeChat: TypeChat.recived),
+  ChatModel(typeChat: TypeChat.send),
+  ChatModel(typeChat: TypeChat.recived),
+  ChatModel(typeChat: TypeChat.send),
+  ChatModel(typeChat: TypeChat.recived),
 ];
-addMessages(ChatObject content) {
+addMessages(ChatModel content) {
   messages.add(content);
 }

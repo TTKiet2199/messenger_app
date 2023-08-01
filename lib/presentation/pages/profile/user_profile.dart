@@ -2,14 +2,12 @@ import 'package:custom_sliding_segmented_control/custom_sliding_segmented_contro
 import 'package:flutter/material.dart';
 import 'package:messenger_app/data/fake_data/fake_data.dart';
 import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
-import 'package:messenger_app/data/models/mess_model.dart';
-
-
-import '../messages/chat/chat_page.dart';
 
 class UserProfilePage extends StatefulWidget {
-  const UserProfilePage({Key? key, this.nameUser}) : super(key: key);
-  final MessObject? nameUser;
+  const UserProfilePage({Key? key, this.nameUser, this.imageUser})
+      : super(key: key);
+  final String? nameUser;
+  final String? imageUser;
   @override
   State<UserProfilePage> createState() => _UserProfilePageState();
 }
@@ -20,19 +18,16 @@ class _UserProfilePageState extends State<UserProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarMess(
-        icon1: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: ((context) => ChatPages(name: widget.nameUser))));
-          },
-        ),
-        icon2: IconButton(
-          icon: const Icon(Icons.more_vert),
-          onPressed: () {},
-        ),
-        nameAppbar: mess[0],
-      ),
+          icon1: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context, 'chat');
+            },
+          ),
+          nameAppbar: widget.nameUser!,
+          icon2:
+              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
+          image: widget.imageUser!),
       body: Column(
         children: [
           muteSlider(),

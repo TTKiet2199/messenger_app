@@ -1,9 +1,8 @@
-
-class ChatObject {
-  String? content='';
+class ChatModel {
+  String? content = '';
   TypeChat? typeChat;
   String? time;
-  ChatObject({this.content, this.time, this.typeChat});
+  ChatModel({this.content, this.time, this.typeChat});
 }
 
 enum TypeChat { send, recived }
