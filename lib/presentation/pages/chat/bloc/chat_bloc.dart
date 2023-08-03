@@ -15,6 +15,8 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     on<SendMesageEvent>((event, emit) => handleSendMesageEvent(event, emit));
     on<UploadContentToTalk>(
         (event, emit) => handleUploadContentToTalk(event, emit));
+    on<UploadRealtimeDbEvent>(
+        (event, emit) => handleUploadRealtimeDbEvent(event, emit));
   }
   final FirebaseService? firebaseService;
   handleEnterTextEvent(EnterTextEvent event, Emitter<ChatState> emit) {
@@ -35,6 +37,14 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     final bool result = await firebaseService!
         .uploadContentToTalk(chatContent: event.contentUpload, id: event.id);
     final newState = state.coppyWith(uploadContentToTalkResult: result);
+    emit(newState);
+  }
+
+  handleUploadRealtimeDbEvent(
+      UploadRealtimeDbEvent event, Emitter<ChatState> emit) async {
+    final bool reseult = await firebaseService!.uploadContentToRealtimeDB(
+        chatModel: event.contentRealtime, id: event.idRealtime);
+    final newState = state.coppyWith(uploadRealtimeDbResult: reseult);
     emit(newState);
   }
 }

@@ -77,7 +77,7 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
                 builder: ((context) => ChatPages(
                       name: talk.name,
                       image: talk.image,
-                      id: state.id,
+                      id: talk.id,
                     ))));
             context.read<NewMessengerBloc>().add(UploadToTalkEvent(
                 image: talk.image!, name: talk.name!, id: talk.id!));

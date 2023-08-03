@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
 import 'package:messenger_app/data/models/chat_model.dart';
 import 'package:messenger_app/data/models/talk_model.dart';
@@ -13,7 +14,8 @@ import 'package:injectable/injectable.dart';
 class FirebaseService {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseStorage storage = FirebaseStorage.instance;
-  final FirebaseFirestore db = FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseDatabase database = FirebaseDatabase.instance;
   String userColection = "users";
   String talkColection = "talk";
 
@@ -30,7 +32,7 @@ class FirebaseService {
           email: email, password: password);
 
       String userID = userCredential.user!.uid;
-      await db.collection(userColection).doc(userID).set({
+      await firestore.collection(userColection).doc(userID).set({
         "name": name,
         "email": email,
       });
@@ -62,7 +64,8 @@ class FirebaseService {
   }
 
   Future<Map> getUserData({required String uid}) async {
-    DocumentSnapshot _doc = await db.collection(userColection).doc(uid).get();
+    DocumentSnapshot _doc =
+        await firestore.collection(userColection).doc(uid).get();
     return _doc.data() as Map;
   }
 
@@ -74,7 +77,7 @@ class FirebaseService {
       UploadTask task = storage.ref('image/$userId/$fileName').putFile(image);
       return task.then((snapshot) async {
         String downloadURL = await snapshot.ref.getDownloadURL();
-        await db.collection(userColection).doc(userId).update({
+        await firestore.collection(userColection).doc(userId).update({
           "image": downloadURL,
         });
         return true;
@@ -89,7 +92,7 @@ class FirebaseService {
       {required String phoneNumber, required CountriesPhone country}) async {
     try {
       String userId = auth.currentUser!.uid;
-      await db.collection(userColection).doc(userId).update({
+      await firestore.collection(userColection).doc(userId).update({
         "phone number": phoneNumber,
         "country": "(${country.dialCode}) ${country.name}"
       });
@@ -105,7 +108,7 @@ class FirebaseService {
       required String imageUrl,
       required String id}) async {
     try {
-      await db.collection(talkColection).doc(id).set({
+      await firestore.collection(talkColection).doc(id).set({
         "name": name,
         "image": imageUrl,
       });
@@ -117,7 +120,7 @@ class FirebaseService {
   }
 
   Future<List<TalkModel>?> getUserTalk() async {
-    final user = (await db.collection(userColection).get());
+    final user = (await firestore.collection(userColection).get());
     final listTalk = user.docs
         .map((e) => TalkModel(
               name: e.data()["name"],
@@ -129,7 +132,7 @@ class FirebaseService {
   }
 
   Future<List<TalkModel>?> getTalkMessage() async {
-    final user = (await db.collection(talkColection).get());
+    final user = (await firestore.collection(talkColection).get());
     final listTalk = user.docs
         .map((e) => TalkModel(
               name: e.data()["name"],
@@ -147,10 +150,26 @@ class FirebaseService {
     required String id,
   }) async {
     try {
-      await db.collection(talkColection).doc(id).update({
+      await firestore.collection(talkColection).doc(id).update({
         "content": chatContent.content,
         "time": DateFormat.Hm().format(DateTime.now()),
       });
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  Future<bool> uploadContentToRealtimeDB(
+      {required ChatModel chatModel, required String id}) async {
+    try {
+      final DatabaseReference ref = database.ref("$id/content");
+      await ref.set({
+        "messages": chatModel.content,
+        "time": DateFormat.Hm().format(DateTime.now()),
+      });
+
       return true;
     } catch (e) {
       print(e);

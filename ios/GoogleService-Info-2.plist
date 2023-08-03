@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>628341249394-jkr1326rqh9c9bq9ftt2505m8bfgnt19.apps.googleusercontent.com</string>
+	<string>586240190733-nauefajf7nfng8q1nahtdm8nafrlhfv5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.628341249394-jkr1326rqh9c9bq9ftt2505m8bfgnt19</string>
+	<string>com.googleusercontent.apps.586240190733-nauefajf7nfng8q1nahtdm8nafrlhfv5</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC8_XN0kaeurBjgh4Mu0wkJLgUNmG2YlVU</string>
+	<string>AIzaSyCDiXuAI1jZflp_T_7JKqUJ9U4W8LkK458</string>
 	<key>GCM_SENDER_ID</key>
-	<string>628341249394</string>
+	<string>586240190733</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.messengerApp</string>
 	<key>PROJECT_ID</key>
-	<string>mesenger-app-b4cdb</string>
+	<string>what-s-up-app-902dc</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mesenger-app-b4cdb.appspot.com</string>
+	<string>what-s-up-app-902dc.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:628341249394:ios:ad765a378e578747a279eb</string>
+	<string>1:586240190733:ios:cac39880f4c3efb292e844</string>
 </dict>
 </plist>

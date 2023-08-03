@@ -180,6 +180,10 @@ class _ChatPagesState extends State<ChatPages> {
                                     UploadContentToTalk(
                                         contentUpload: newContent,
                                         id: widget.id!));
+                                context.read<ChatBloc>().add(
+                                    UploadRealtimeDbEvent(
+                                        contentRealtime: newContent,
+                                        idRealtime: widget.id!));
                                 chatController.text = '';
                               },
                               icon: const Icon(Icons.send_outlined)),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/global_widget/items/floating_button.dart';
 import 'package:messenger_app/presentation/pages/messages/messenger/bloc/messages_bloc.dart';
@@ -86,7 +87,7 @@ class _MessagesPageState extends State<MessagesPage> {
                           Text(talkMessages.name!,
                               style: const TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.w400)),
-                          Text(talkMessages.time!,
+                          Text(talkMessages.time??DateFormat.Hm().format(DateTime.now()),
                               style: const TextStyle(
                                   fontSize: 17, color: Color(0xFF0E9F9F))),
                         ],
@@ -95,7 +96,7 @@ class _MessagesPageState extends State<MessagesPage> {
                      SizedBox(
                         height: 30,
                         child: Text(
-                          talkMessages.messContent!,
+                          talkMessages.messContent??"content",
                           style:
                               const TextStyle(fontSize: 17, color: Color(0xFF0E9F9F)),
                         )),

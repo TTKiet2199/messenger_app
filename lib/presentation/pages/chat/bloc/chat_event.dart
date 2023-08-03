@@ -20,3 +20,9 @@ class UploadContentToTalk extends ChatEvent {
 
   UploadContentToTalk({required this.contentUpload, required this.id});
 }
+class UploadRealtimeDbEvent extends ChatEvent {
+  final ChatModel contentRealtime;
+  final String idRealtime;
+
+  UploadRealtimeDbEvent({required this.contentRealtime, required this.idRealtime});
+}
