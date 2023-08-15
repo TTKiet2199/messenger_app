@@ -4,7 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
 import 'package:messenger_app/data/models/chat_model.dart';
-import 'package:messenger_app/presentation/pages/profile/user_profile.dart';
+import 'package:messenger_app/presentation/pages/home/home_page.dart';
+import 'package:messenger_app/presentation/pages/user_profile/user_profile.dart';
 
 import 'bloc/chat_bloc.dart';
 
@@ -32,8 +33,9 @@ class _ChatPagesState extends State<ChatPages> {
         appBar: AppBarMess(
             icon1: IconButton(
               icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context, 'home');
+              onPressed: () async {
+                await Navigator.of(context).push(MaterialPageRoute(
+                    builder: ((context) => const HomePage())));
               },
             ),
             nameAppbar: widget.name!,
@@ -183,7 +185,8 @@ class _ChatPagesState extends State<ChatPages> {
                                 context.read<ChatBloc>().add(
                                     UploadRealtimeDbEvent(
                                         contentRealtime: newContent,
-                                        idRealtime: widget.id!));
+                                        idRealtime: widget.id!,
+                                        realtimeName: widget.name!));
                                 chatController.text = '';
                               },
                               icon: const Icon(Icons.send_outlined)),

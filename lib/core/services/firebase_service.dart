@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
 import 'package:messenger_app/data/models/chat_model.dart';
+import 'package:messenger_app/data/models/profile_model.dart';
 import 'package:messenger_app/data/models/talk_model.dart';
 import 'package:messenger_app/presentation/global_widget/items/country.dart';
 import 'package:path/path.dart' as p;
@@ -161,19 +162,40 @@ class FirebaseService {
     }
   }
 
-  Future<bool> uploadContentToRealtimeDB(
-      {required ChatModel chatModel, required String id}) async {
+  Future<bool> uploadContentToRealtimeDB({
+    required ChatModel chatModel,
+    required String id,
+    required String name,
+  }) async {
     try {
-      final DatabaseReference ref = database.ref("$id/content");
-      await ref.set({
-        "messages": chatModel.content,
-        "time": DateFormat.Hm().format(DateTime.now()),
-      });
-
+      final userId = auth.currentUser!.uid;
+      final author =
+          await (firestore.collection(userColection).doc(userId).get());
+      final authorName = author["name"];
+      final postData = {
+        'receive': name,
+        'uid': id,
+        'content': chatModel.content,
+      };
+      final newPostKey = FirebaseDatabase.instance.ref().push().child(name).key;
+      final Map<String, Map> updates = {};
+      updates['$authorName/$newPostKey'] = postData;
+      database.ref().update(updates);
       return true;
     } catch (e) {
       print(e);
       return false;
     }
+  }
+
+  Future<ProfileModel> getProfile() async {
+    final profileId = auth.currentUser!.uid;
+    final mainProfile =
+        await (firestore.collection(userColection).doc(profileId).get());
+    final profile = mainProfile.data();
+    return ProfileModel(
+        name: profile!["name"],
+        image: profile["image"],
+        phoneNum: profile["phone number"]);
   }
 }

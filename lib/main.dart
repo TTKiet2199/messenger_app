@@ -16,10 +16,9 @@ import 'package:messenger_app/presentation/pages/messages/channel_page.dart';
 import 'package:messenger_app/presentation/pages/messages/chat/chat_page.dart';
 import 'package:messenger_app/presentation/pages/new_messenger/new_mess_page.dart';
 
-
 import 'package:messenger_app/presentation/pages/otp/otp_page.dart';
-import 'package:messenger_app/presentation/pages/profile/my_profile_page.dart';
-import 'package:messenger_app/presentation/pages/profile/user_profile.dart';
+import 'package:messenger_app/presentation/pages/my_profile/my_profile_page.dart';
+import 'package:messenger_app/presentation/pages/user_profile/user_profile.dart';
 import 'package:messenger_app/presentation/pages/search/search_page.dart';
 import 'package:messenger_app/presentation/pages/set_image/set_image_page.dart';
 
@@ -47,7 +46,6 @@ class MyApp extends StatelessWidget {
       routes: {
         'start': (context) => const StartPage(),
         'login': (context) => const LoginPage(),
-        
         'phone': (context) => const EnterPhoneNumberPage(),
         'otp': (context) => const PhoneNumberVerify(),
         'name': (context) => const CreateNamePage(),

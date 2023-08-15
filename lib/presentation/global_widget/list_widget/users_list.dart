@@ -7,7 +7,7 @@ import 'package:messenger_app/presentation/global_widget/items/user_item.dart';
 
 class UsersList extends StatefulWidget {
   const UsersList({Key? key, required this.width}) : super(key: key);
- final double width;
+  final double width;
 
   @override
   State<UsersList> createState() => _UsersListState();
@@ -33,9 +33,10 @@ class _UsersListState extends State<UsersList> {
 }
 
 class MProfile extends StatefulWidget {
-  const MProfile({Key? key, required this.route, required this.width}) : super(key: key);
- final List<String> route ;
- final double width;
+  const MProfile({Key? key, required this.route, required this.width})
+      : super(key: key);
+  final List<String> route;
+  final double width;
   @override
   State<MProfile> createState() => _MProfileState();
 }
@@ -50,7 +51,10 @@ class _MProfileState extends State<MProfile> {
             onTap: (() => Navigator.pushNamed(context, 'profile')),
             child: Container(
               padding: const EdgeInsets.only(top: 10, left: 20),
-              child: UserItem(user: userItem[0], width: widget.width,),
+              child: UserItem(
+                user: userItem[0],
+                width: widget.width,
+              ),
             ),
           );
         }));
@@ -58,8 +62,8 @@ class _MProfileState extends State<MProfile> {
 }
 
 class MyProfileImage extends StatefulWidget {
-  const MyProfileImage({Key? key}) : super(key: key);
-
+  const MyProfileImage({Key? key, required this.image}) : super(key: key);
+  final String image;
   @override
   State<MyProfileImage> createState() => _MyProfileImageState();
 }
@@ -69,7 +73,7 @@ class _MyProfileImageState extends State<MyProfileImage> {
   @override
   Widget build(BuildContext context) {
     var imageProvider =
-        image != null ? FileImage(image!) : AssetImage(userItem[0].ava);
+        image != null ? FileImage(image!) : NetworkImage(widget.image);
     return Container(
       padding: const EdgeInsets.all(20),
       child: Column(

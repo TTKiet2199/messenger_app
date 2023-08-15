@@ -12,21 +12,23 @@ class NewGroupPage extends StatefulWidget {
 }
 
 class _NewGroupPageState extends State<NewGroupPage> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBarAll(
+      appBar: AppBarItem(
         icon1: Icons.arrow_back,
         icon2: Icons.search,
-        name: const Text('New group',style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black)),
-       onTapButtonBack: () {
-         Navigator.pop(context, 'newMes');
-       },
-        route2: 'search',
+        name: const Text('New group',
+            style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+                color: Colors.black)),
+        onTapButtonIcon1: () {
+          Navigator.pop(context, 'newMes');
+        },
+        onTapButtonIcon2: () {
+          Navigator.pushNamed(context, "search");
+        },
       ),
       body: Stack(children: [
         Column(
@@ -59,11 +61,9 @@ class _NewGroupPageState extends State<NewGroupPage> {
           runSpacing: 5,
           children: List.generate(
             userItem.length,
-            (index) => 
-            userItem[index].isSelected==true?
-            ItemChipUser(name: userItem[index].user)
-            :Container()
-            ,
+            (index) => userItem[index].isSelected == true
+                ? ItemChipUser(name: userItem[index].user)
+                : Container(),
           ),
         ),
       ]),

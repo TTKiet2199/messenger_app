@@ -12,4 +12,5 @@ class AppImage {
   static const userImage8 = 'assets/images/beefstake.png';
   static const userImage9 = 'assets/images/hamburger.png';
   static const userImage10 = 'assets/images/banhcanh.png';
+  static const defaultImage = 'https://firebasestorage.googleapis.com/v0/b/mesenger-app-b4cdb.appspot.com/o/image%2FIMG_1574.jpeg?alt=media&token=83ae4ac0-7623-4985-9b72-47cfa7139df3';
 }

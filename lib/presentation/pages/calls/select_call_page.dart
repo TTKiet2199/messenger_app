@@ -3,9 +3,6 @@ import 'package:messenger_app/data/fake_data/fake_data.dart';
 import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
 import 'package:messenger_app/presentation/global_widget/items/user_item.dart';
 
-
-
-
 class SelectCallPage extends StatefulWidget {
   const SelectCallPage({Key? key}) : super(key: key);
 
@@ -17,15 +14,20 @@ class _SelectCallPageState extends State<SelectCallPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:   AppBarAll(
-          name: const Text('Select Contact',style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black)),
+      appBar: AppBarItem(
+          name: const Text('Select Contact',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black)),
           icon1: Icons.arrow_back,
-          onTapButtonBack: (){ Navigator.pop(context, 'home');},
+          onTapButtonIcon1: () {
+            Navigator.pop(context, 'home');
+          },
           icon2: Icons.search,
-          route2: 'search'),
+          onTapButtonIcon2: () {
+            Navigator.pushNamed(context, 'search');
+          }),
       body: _selectCallList(),
     );
   }

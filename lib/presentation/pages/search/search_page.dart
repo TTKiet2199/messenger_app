@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
 
 import 'bloc/search_page_bloc.dart';
 
@@ -38,40 +38,48 @@ class _SearchPageState extends State<SearchPage> {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
-              appBar: AppBar(
-                  backgroundColor: Colors.white,
-                  shadowColor: Colors.white60,
-                  title: Row(
+              appBar: AppBarPages(
+                size: 70,
+                name: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: const BoxDecoration(
+                border:
+                    Border(bottom: BorderSide(width: 1, color: Color(0xFFDCDCDC)))),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  
+                  Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Row(
                     children: [
-                      GestureDetector(
-                        onTap: (() {
-                          Navigator.popAndPushNamed(context, 'home');
-                        }),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: SizedBox(
-                          width: 200,
-                          child: TextField(
-                              controller: textEditingController,
-                              onChanged: (value) {
-                                context.read<SearchPageBloc>().add(
-                                    ResultSearchEvent(resultSearch: value));
-                              },
-                              decoration: const InputDecoration(
-                                hintText: 'Search...',
-                                hintStyle: TextStyle(
-                                    fontSize: 20, color: Color(0xFF0E9F9F)),
-                                border: InputBorder.none,
-                              )),
-                        ),
+                      SizedBox(
+                        width: 200,
+                        child: TextField(
+                            controller: textEditingController,
+                            onChanged: (value) {
+                              context
+                                  .read<SearchPageBloc>()
+                                  .add(ResultSearchEvent(resultSearch: value));
+                            },
+                            decoration: const InputDecoration(
+                              hintText: 'Search...',
+                              hintStyle:
+                                  TextStyle(fontSize: 20, color: Color(0xFF0E9F9F)),
+                              border: InputBorder.none,
+                            )),
                       ),
                     ],
-                  )),
+                  ),
+                ),
+                ],
+              ),
+            ),
+          ),
+                
+              ),
               body: Column(
                 children: [
                   _listButton(),

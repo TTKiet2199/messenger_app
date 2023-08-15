@@ -6,9 +6,6 @@ import 'package:messenger_app/core/app_image/app_image.dart';
 import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
 import 'package:messenger_app/presentation/global_widget/items/dropdown_item.dart';
 
-
-
-
 class AddContactPage extends StatefulWidget {
   const AddContactPage({Key? key}) : super(key: key);
 
@@ -21,17 +18,18 @@ class _AddContactPageState extends State<AddContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBarAll(
-          name: const Text('Add contact',style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black)),
+      appBar: AppBarItem(
+          name: const Text('Add contact',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black)),
           icon1: Icons.arrow_back,
-          onTapButtonBack: () {
+          onTapButtonIcon1: () {
             Navigator.pop(context, 'home');
           },
           icon2: Icons.check,
-          route2: null),
+          ),
       body: Container(
           padding: const EdgeInsets.only(top: 20),
           alignment: Alignment.center,
@@ -102,9 +100,8 @@ class _AddContactPageState extends State<AddContactPage> {
       height: 60,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(60),
-          
-          border: Border.all(width: 1, color: const Color.fromARGB(120, 26, 3, 3))
-          ),
+          border:
+              Border.all(width: 1, color: const Color.fromARGB(120, 26, 3, 3))),
       child: const Row(
         children: [
           Padding(
@@ -136,10 +133,9 @@ class _AddContactPageState extends State<AddContactPage> {
               padding: EdgeInsets.only(left: 0.0),
               child: Icon(Icons.call_outlined),
             ),
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(50),
-                
-                )),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(50),
+            )),
       ),
     );
   }

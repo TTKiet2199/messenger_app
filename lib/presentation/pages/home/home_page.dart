@@ -14,7 +14,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
-  final List<String> namePages = ['Messages', 'Contacts', 'Calls', 'Profile'];
   final List<Widget> pages = [
     const MessagesPage(),
     const ContactsPage(),
@@ -24,55 +23,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.white60,
-        title: Container(
-          alignment: Alignment.centerLeft,
-          child: Text(namePages[currentPage],
-              style: const TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black)),
-        ),
-        actions: [
-          currentPage < 3
-              ? (currentPage < 2
-                  ? GestureDetector(
-                      onTap: (() => Navigator.pushNamed(context, 'search')),
-                      child: const Padding(
-                        padding: EdgeInsets.only(left: 8, right: 8),
-                        child: Icon(
-                          Icons.search_rounded,
-                          color: Colors.black,
-                          size: 35,
-                        ),
-                      ),
-                    )
-                  : Row(children: [
-                      GestureDetector(
-                        onTap: (() => Navigator.pushNamed(context, 'search')),
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 8, right: 8),
-                          child: Icon(
-                            Icons.search_rounded,
-                            color: Colors.black,
-                            size: 35,
-                          ),
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Icon(
-                          Icons.more_vert,
-                          color: Colors.black,
-                          size: 35,
-                        ),
-                      )
-                    ]))
-              : Container(),
-        ],
-      ),
       bottomNavigationBar: _bottomNavigationBar(),
       body: pages[currentPage],
     );

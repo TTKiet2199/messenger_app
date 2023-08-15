@@ -43,7 +43,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   handleUploadRealtimeDbEvent(
       UploadRealtimeDbEvent event, Emitter<ChatState> emit) async {
     final bool reseult = await firebaseService!.uploadContentToRealtimeDB(
-        chatModel: event.contentRealtime, id: event.idRealtime);
+        chatModel: event.contentRealtime, id: event.idRealtime, name: event.realtimeName);
     final newState = state.coppyWith(uploadRealtimeDbResult: reseult);
     emit(newState);
   }

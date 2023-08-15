@@ -30,18 +30,18 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
     return BlocProvider(
       create: (context) => getIt<NewMessengerBloc>()..add(GetUserEvent()),
       child: Scaffold(
-        appBar: AppBarAll(
+        appBar: AppBarItem(
             name: const Text('New message',
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w500,
                     color: Colors.black)),
             icon1: Icons.arrow_back,
-            onTapButtonBack: () {
+            onTapButtonIcon1: () {
               Navigator.pop(context, 'home');
             },
             icon2: Icons.search,
-            route2: 'search'),
+            ),
         body: BlocConsumer<NewMessengerBloc, NewMessengerState>(
           listener: (context, state) {},
           builder: (context, state) {

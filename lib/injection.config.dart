@@ -20,7 +20,8 @@ import 'presentation/pages/enter_phone_numb/bloc/enter_phone_number_bloc.dart'
 import 'presentation/pages/login/bloc/login_bloc.dart' as _i7;
 import 'presentation/pages/messages/messenger/bloc/messages_bloc.dart' as _i8;
 import 'presentation/pages/new_messenger/bloc/new_mess_bloc.dart' as _i9;
-import 'presentation/pages/set_image/bloc/set_image_bloc.dart' as _i10;
+import 'presentation/pages/profile/bloc/profile_bloc.dart' as _i10;
+import 'presentation/pages/set_image/bloc/set_image_bloc.dart' as _i11;
 
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -44,8 +45,10 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i8.MessagesBloc(gh<_i4.FirebaseService>()));
     gh.factory<_i9.NewMessengerBloc>(
         () => _i9.NewMessengerBloc(gh<_i4.FirebaseService>()));
-    gh.factory<_i10.SetImageBloc>(
-        () => _i10.SetImageBloc(gh<_i4.FirebaseService>()));
+    gh.factory<_i10.ProfileBloc>(
+        () => _i10.ProfileBloc(gh<_i4.FirebaseService>()));
+    gh.factory<_i11.SetImageBloc>(
+        () => _i11.SetImageBloc(gh<_i4.FirebaseService>()));
     return this;
   }
 }

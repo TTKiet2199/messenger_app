@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:messenger_app/injection.dart';
+import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
 import 'package:messenger_app/presentation/global_widget/items/floating_button.dart';
 import 'package:messenger_app/presentation/pages/messages/messenger/bloc/messages_bloc.dart';
 
@@ -19,24 +20,54 @@ class _MessagesPageState extends State<MessagesPage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<MessagesBloc>()..add(GetTalkMessagesEvent()),
-      child: Scaffold(
-        body: BlocConsumer<MessagesBloc, MessagesState>(
-          listener: (context, state) {},
-          builder: (context, state) {
-            return Stack(children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: listTalkUsers(state),
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBarPages(
+            size: 70,
+            name: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: const BoxDecoration(
+                  border:
+                      Border(bottom: BorderSide(width: 1, color: Color(0xFFDCDCDC)))),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text("Messages",style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black)),
+                    IconButton(
+                      icon: const Icon(Icons.search),
+                      iconSize: 32,
+                      onPressed: (() {
+                        Navigator.pushNamed(context, "search");
+                      }),
+                    ),
+                  ],
+                ),
               ),
-              Container(
-                  padding: const EdgeInsets.all(20),
-                  alignment: Alignment.bottomRight,
-                  child: const FloatingButton(
-                    icon: Icons.create,
-                    route: 'newMess',
-                  ))
-            ]);
-          },
+            ),
+          ),
+          body: BlocConsumer<MessagesBloc, MessagesState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return Stack(children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: listTalkUsers(state),
+                ),
+                Container(
+                    padding: const EdgeInsets.all(20),
+                    alignment: Alignment.bottomRight,
+                    child: const FloatingButton(
+                      icon: Icons.create,
+                      route: 'newMess',
+                    ))
+              ]);
+            },
+          ),
         ),
       ),
     );
@@ -87,18 +118,20 @@ class _MessagesPageState extends State<MessagesPage> {
                           Text(talkMessages.name!,
                               style: const TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.w400)),
-                          Text(talkMessages.time??DateFormat.Hm().format(DateTime.now()),
+                          Text(
+                              talkMessages.time ??
+                                  DateFormat.Hm().format(DateTime.now()),
                               style: const TextStyle(
                                   fontSize: 17, color: Color(0xFF0E9F9F))),
                         ],
                       ),
                     ),
-                     SizedBox(
+                    SizedBox(
                         height: 30,
                         child: Text(
-                          talkMessages.messContent??"content",
-                          style:
-                              const TextStyle(fontSize: 17, color: Color(0xFF0E9F9F)),
+                          talkMessages.messContent ?? "content",
+                          style: const TextStyle(
+                              fontSize: 17, color: Color(0xFF0E9F9F)),
                         )),
                   ],
                 ),

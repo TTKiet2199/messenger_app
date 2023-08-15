@@ -18,17 +18,18 @@ class _GroupSettingPageState extends State<GroupSettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBarAll(
-          name: const Text('New group',style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black)),
+      appBar: AppBarItem(
+          name: const Text('New group',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black)),
           icon1: Icons.arrow_back,
-          onTapButtonBack: () {
+          onTapButtonIcon1: () {
             Navigator.pop(context, 'newGroup');
           },
           icon2: Icons.check,
-          route2: null),
+      ),
       body: Column(
         children: [
           const SetImageAndName(

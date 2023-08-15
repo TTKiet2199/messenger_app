@@ -62,6 +62,7 @@ class DefaultFirebaseOptions {
     storageBucket: 'mesenger-app-b4cdb.appspot.com',
     iosClientId: '628341249394-jkr1326rqh9c9bq9ftt2505m8bfgnt19.apps.googleusercontent.com',
     iosBundleId: 'com.example.messengerApp',
+    databaseURL: 'https://mesenger-app-b4cdb-default-rtdb.asia-southeast1.firebasedatabase.app'
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

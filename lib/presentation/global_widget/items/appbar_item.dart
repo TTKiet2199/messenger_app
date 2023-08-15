@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarAll(
+class AppBarItem extends StatelessWidget implements PreferredSizeWidget {
+  const AppBarItem(
       {Key? key,
       required this.name,
-      required this.icon1,
-      required this.onTapButtonBack,
-      required this.icon2,
-      required this.route2})
+      this.icon1,
+      this.onTapButtonIcon1,
+      this.icon2,
+      this.onTapButtonIcon2})
       : super(key: key);
-  final IconData icon1;
+  final IconData? icon1;
   final IconData? icon2;
   final Widget name;
-  final String? route2;
 
-  final Function() onTapButtonBack;
+  final Function()? onTapButtonIcon1;
+  final Function()? onTapButtonIcon2;
 
   @override
   Size get preferredSize => const Size.fromHeight(70);
@@ -39,7 +39,7 @@ class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
                       icon: Icon(icon1),
                       iconSize: 32,
                       onPressed: (() {
-                        onTapButtonBack.call();
+                        onTapButtonIcon1!.call();
                       }),
                     ),
                   ),
@@ -50,7 +50,7 @@ class AppBarAll extends StatelessWidget implements PreferredSizeWidget {
                 icon: Icon(icon2),
                 iconSize: 32,
                 onPressed: (() {
-                  Navigator.popAndPushNamed(context, route2!);
+                  onTapButtonIcon2!.call();
                 }),
               ),
             ],
@@ -99,7 +99,8 @@ class AppBarMess extends StatelessWidget implements PreferredSizeWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(40),
                             image: DecorationImage(
-                                image: NetworkImage(image), fit: BoxFit.cover))),
+                                image: NetworkImage(image),
+                                fit: BoxFit.cover))),
                     Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: SizedBox(
@@ -129,5 +130,20 @@ class AppBarMess extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
     );
+  }
+}
+
+class AppBarPages extends StatelessWidget implements PreferredSizeWidget {
+  const AppBarPages({Key? key, required this.name, required this.size})
+      : super(key: key);
+
+  final Widget name;
+  final double size;
+
+  @override
+  Size get preferredSize => Size.fromHeight(size);
+  @override
+  Widget build(BuildContext context) {
+    return name;
   }
 }

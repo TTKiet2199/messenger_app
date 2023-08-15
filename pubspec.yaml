@@ -51,6 +51,8 @@ dependencies:
   injectable: ^2.1.2
   path: ^1.8.3
   firebase_database: ^10.2.4
+  meta: ^1.9.1
+  bloc: ^8.1.2
   
   
 

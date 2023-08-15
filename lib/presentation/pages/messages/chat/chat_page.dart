@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/global_widget/items/appbar_item.dart';
 import 'package:messenger_app/data/models/chat_model.dart';
-import 'package:messenger_app/presentation/pages/profile/user_profile.dart';
+import 'package:messenger_app/presentation/pages/user_profile/user_profile.dart';
 
 import '../../chat/bloc/chat_bloc.dart';
 

@@ -10,7 +10,7 @@ part 'new_mess_state.dart';
 
 @injectable
 class NewMessengerBloc extends Bloc<NewMessEvent, NewMessengerState> {
-  NewMessengerBloc(this.firebaseService) : super(NewMessengerState()) {
+  NewMessengerBloc(this.firebaseService) : super(const NewMessengerState()) {
     on<NewMessEvent>((event, emit) {});
     on<GetUserEvent>((event, emit) => handleGetUserEvent(event, emit));
     on<UploadToTalkEvent>(
