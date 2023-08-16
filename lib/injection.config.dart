@@ -14,6 +14,7 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import 'core/services/firebase_service.dart' as _i4;
 import 'presentation/pages/chat/bloc/chat_bloc.dart' as _i3;
+import 'presentation/pages/contacts/bloc/contact_bloc.dart' as _i12;
 import 'presentation/pages/creat_name/bloc/create_name_bloc.dart' as _i5;
 import 'presentation/pages/enter_phone_numb/bloc/enter_phone_number_bloc.dart'
     as _i6;
@@ -49,6 +50,8 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i10.ProfileBloc(gh<_i4.FirebaseService>()));
     gh.factory<_i11.SetImageBloc>(
         () => _i11.SetImageBloc(gh<_i4.FirebaseService>()));
+    gh.factory<_i12.ContactBloc>(
+        () => _i12.ContactBloc(gh<_i4.FirebaseService>()));
     return this;
   }
 }

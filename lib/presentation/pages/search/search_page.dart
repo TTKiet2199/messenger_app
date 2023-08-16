@@ -29,66 +29,61 @@ List<Icon> iconButton = const [
 ];
 
 class _SearchPageState extends State<SearchPage> {
-  TextEditingController textEditingController = TextEditingController();
+TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SearchPageBloc(),
-      child: BlocConsumer<SearchPageBloc, SearchPageState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return Scaffold(
-              appBar: AppBarPages(
-                size: 70,
-                name: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: const BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(width: 1, color: Color(0xFFDCDCDC)))),
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  
-                  Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 200,
-                        child: TextField(
-                            controller: textEditingController,
-                            onChanged: (value) {
-                              context
-                                  .read<SearchPageBloc>()
-                                  .add(ResultSearchEvent(resultSearch: value));
+      child: Scaffold(
+          appBar: AppBarPages(
+            size: 70,
+            name: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(width: 1, color: Color(0xFFDCDCDC)))),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
                             },
-                            decoration: const InputDecoration(
-                              hintText: 'Search...',
-                              hintStyle:
-                                  TextStyle(fontSize: 20, color: Color(0xFF0E9F9F)),
-                              border: InputBorder.none,
-                            )),
-                      ),
-                    ],
-                  ),
+                            icon: const Icon(Icons.arrow_back)),
+                        SizedBox(
+                          width: 200,
+                          child: TextField(
+                            controller: textEditingController,
+                              decoration: const InputDecoration(
+                                hintText: 'Search...',
+                                hintStyle: TextStyle(
+                                    fontSize: 20, color: Color(0xFF0E9F9F)),
+                                border: InputBorder.none,
+                              )),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                ],
               ),
             ),
           ),
-                
-              ),
-              body: Column(
+          body: BlocConsumer<SearchPageBloc, SearchPageState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return Column(
                 children: [
                   _listButton(),
                   _recentSearchWidget(),
                   _listRecentSearch(state)
                 ],
-              ));
-        },
-      ),
+              );
+            },
+          )),
     );
   }
 

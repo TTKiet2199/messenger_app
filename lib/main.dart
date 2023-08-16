@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:messenger_app/core/services/firebase_options.dart';
 import 'package:messenger_app/injection.dart';
 import 'package:messenger_app/presentation/pages/calls/select_call_page.dart';
-import 'package:messenger_app/presentation/pages/contacts/add_contact_page.dart';
+import 'package:messenger_app/presentation/pages/contacts/add_contact/add_contact_page.dart';
 import 'package:messenger_app/presentation/pages/contacts/fine_people_nearby_page.dart';
 import 'package:messenger_app/presentation/pages/contacts/invite_friends_page.dart';
 import 'package:messenger_app/presentation/pages/creat_name/create_name_page.dart';
@@ -15,13 +15,11 @@ import 'package:messenger_app/presentation/pages/login/login_page.dart';
 import 'package:messenger_app/presentation/pages/messages/channel_page.dart';
 import 'package:messenger_app/presentation/pages/messages/chat/chat_page.dart';
 import 'package:messenger_app/presentation/pages/new_messenger/new_mess_page.dart';
-
 import 'package:messenger_app/presentation/pages/otp/otp_page.dart';
 import 'package:messenger_app/presentation/pages/my_profile/my_profile_page.dart';
 import 'package:messenger_app/presentation/pages/user_profile/user_profile.dart';
 import 'package:messenger_app/presentation/pages/search/search_page.dart';
 import 'package:messenger_app/presentation/pages/set_image/set_image_page.dart';
-
 import 'presentation/pages/start/start_page.dart';
 
 void main() async {

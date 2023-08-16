@@ -20,54 +20,52 @@ class _MessagesPageState extends State<MessagesPage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<MessagesBloc>()..add(GetTalkMessagesEvent()),
-      child: SafeArea(
-        child: Scaffold(
-          appBar: AppBarPages(
-            size: 70,
-            name: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: const BoxDecoration(
-                  border:
-                      Border(bottom: BorderSide(width: 1, color: Color(0xFFDCDCDC)))),
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text("Messages",style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black)),
-                    IconButton(
-                      icon: const Icon(Icons.search),
-                      iconSize: 32,
-                      onPressed: (() {
-                        Navigator.pushNamed(context, "search");
-                      }),
-                    ),
-                  ],
-                ),
+      child: Scaffold(
+        appBar: AppBarPages(
+          size: 70,
+          name: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: const BoxDecoration(
+                border:
+                    Border(bottom: BorderSide(width: 1, color: Color(0xFFDCDCDC)))),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Messages",style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black)),
+                  IconButton(
+                    icon: const Icon(Icons.search),
+                    iconSize: 32,
+                    onPressed: (() {
+                      Navigator.pushNamed(context, "search");
+                    }),
+                  ),
+                ],
               ),
             ),
           ),
-          body: BlocConsumer<MessagesBloc, MessagesState>(
-            listener: (context, state) {},
-            builder: (context, state) {
-              return Stack(children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: listTalkUsers(state),
-                ),
-                Container(
-                    padding: const EdgeInsets.all(20),
-                    alignment: Alignment.bottomRight,
-                    child: const FloatingButton(
-                      icon: Icons.create,
-                      route: 'newMess',
-                    ))
-              ]);
-            },
-          ),
+        ),
+        body: BlocConsumer<MessagesBloc, MessagesState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            return Stack(children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: listTalkUsers(state),
+              ),
+              Container(
+                  padding: const EdgeInsets.all(20),
+                  alignment: Alignment.bottomRight,
+                  child: const FloatingButton(
+                    icon: Icons.create,
+                    route: 'newMess',
+                  ))
+            ]);
+          },
         ),
       ),
     );

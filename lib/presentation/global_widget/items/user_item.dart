@@ -37,7 +37,7 @@ class _UserItemState extends State<UserItem> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             image: DecorationImage(
-                image: AssetImage(widget.user.ava), fit: BoxFit.cover)));
+                image: AssetImage(widget.user.ava!), fit: BoxFit.cover)));
   }
 
   Widget _userText() {
@@ -48,7 +48,7 @@ class _UserItemState extends State<UserItem> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.user.user,
+            Text(widget.user.userName!,
                 style:
                     const TextStyle(fontSize: 25, fontWeight: FontWeight.w400)),
             SizedBox(
@@ -67,12 +67,4 @@ class _UserItemState extends State<UserItem> {
           ],
         ));
   }
-
-  // Widget _checkSelected() {
-  //   return const Icon(
-  //     Icons.check_circle,
-  //     size: 30,
-  //     color: Colors.black,
-  //   );
-  // }
 }

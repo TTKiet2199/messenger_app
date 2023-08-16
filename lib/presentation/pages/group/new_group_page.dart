@@ -62,7 +62,7 @@ class _NewGroupPageState extends State<NewGroupPage> {
           children: List.generate(
             userItem.length,
             (index) => userItem[index].isSelected == true
-                ? ItemChipUser(name: userItem[index].user)
+                ? ItemChipUser(name: userItem[index].userName!)
                 : Container(),
           ),
         ),

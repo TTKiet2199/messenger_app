@@ -9,7 +9,7 @@ class MessItem extends StatefulWidget {
 }
 
 class _TalkItemState extends State<MessItem> {
-  @override
+
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),

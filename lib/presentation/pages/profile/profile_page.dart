@@ -21,32 +21,30 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<ProfileBloc>()..add(GetProfileEvent()),
-      child: SafeArea(
-        child: Scaffold(
-            appBar: AppBarPages(
-              size: 160,
-              name: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: const Text("Profile",
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black)),
-              ),
+      child: Scaffold(
+          appBar: AppBarPages(
+            size: 160,
+            name: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: const Text("Profile",
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black)),
             ),
-            body: BlocConsumer<ProfileBloc, ProfileState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return Column(
-                  children: [
-                    _profileItem(context, state),
-                    _settingsButton(),
-                    _helpButton()
-                  ],
-                );
-              },
-            )),
-      ),
+          ),
+          body: BlocConsumer<ProfileBloc, ProfileState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return Column(
+                children: [
+                  _profileItem(context, state),
+                  _settingsButton(),
+                  _helpButton()
+                ],
+              );
+            },
+          )),
     );
   }
 

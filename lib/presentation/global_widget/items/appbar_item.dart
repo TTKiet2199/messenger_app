@@ -144,6 +144,6 @@ class AppBarPages extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(size);
   @override
   Widget build(BuildContext context) {
-    return name;
+    return SafeArea(child: name);
   }
 }

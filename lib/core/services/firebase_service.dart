@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:messenger_app/data/models/chat_model.dart';
 import 'package:messenger_app/data/models/profile_model.dart';
 import 'package:messenger_app/data/models/talk_model.dart';
+import 'package:messenger_app/data/models/user_model.dart';
 import 'package:messenger_app/presentation/global_widget/items/country.dart';
 import 'package:path/path.dart' as p;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -197,5 +198,16 @@ class FirebaseService {
         name: profile!["name"],
         image: profile["image"],
         phoneNum: profile["phone number"]);
+  }
+  Future<List<UserModel>>getContact() async{
+    final user = (await firestore.collection(talkColection).get());
+    final listContacts = user.docs
+        .map((e) => UserModel(
+              userName: e.data()["name"],
+              ava: e.data()["image"],
+              timeSeen: e.data()["time"],
+            ))
+        .toList();
+    return listContacts ;
   }
 }

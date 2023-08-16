@@ -105,7 +105,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
         itemBuilder: ((context, index) {
           return Container(
             decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(userItem[index].ava))),
+                image: DecorationImage(image: AssetImage(userItem[index].ava!))),
           );
         }));
   }

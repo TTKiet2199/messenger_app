@@ -1,11 +1,14 @@
 class UserModel {
-  String user;
-  String ava;
-  bool activeStatus;
+  String? userName;
+  String? ava;
+  bool? activeStatus;
   bool? isSelected = false;
-  UserModel(
-      {required this.user,
-      this.isSelected,
-      required this.activeStatus,
-      required this.ava});
+  String? timeSeen;
+  UserModel({
+    this.userName,
+    this.timeSeen,
+    this.isSelected,
+    this.activeStatus,
+    this.ava,
+  });
 }

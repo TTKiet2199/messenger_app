@@ -31,17 +31,20 @@ class _NewMessagesPageState extends State<NewMessagesPage> {
       create: (context) => getIt<NewMessengerBloc>()..add(GetUserEvent()),
       child: Scaffold(
         appBar: AppBarItem(
-            name: const Text('New message',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black)),
-            icon1: Icons.arrow_back,
-            onTapButtonIcon1: () {
-              Navigator.pop(context, 'home');
-            },
-            icon2: Icons.search,
-            ),
+          name: const Text('New message',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black)),
+          icon1: Icons.arrow_back,
+          onTapButtonIcon1: () {
+            Navigator.pop(context, 'home');
+          },
+          icon2: Icons.search,
+          onTapButtonIcon2: () {
+            Navigator.pushNamed(context, 'search');
+          },
+        ),
         body: BlocConsumer<NewMessengerBloc, NewMessengerState>(
           listener: (context, state) {},
           builder: (context, state) {
