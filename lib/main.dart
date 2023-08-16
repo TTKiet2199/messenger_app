@@ -2,13 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/core/services/firebase_options.dart';
 import 'package:messenger_app/injection.dart';
-import 'package:messenger_app/presentation/pages/calls/select_call_page.dart';
+import 'package:messenger_app/presentation/pages/calls/select_contact/select_contact_page.dart';
 import 'package:messenger_app/presentation/pages/contacts/add_contact/add_contact_page.dart';
-import 'package:messenger_app/presentation/pages/contacts/fine_people_nearby_page.dart';
-import 'package:messenger_app/presentation/pages/contacts/invite_friends_page.dart';
+import 'package:messenger_app/presentation/pages/contacts/add_contact/fine_and_invite/fine_people_nearby_page.dart';
+import 'package:messenger_app/presentation/pages/contacts/add_contact/fine_and_invite/invite_friends_page.dart';
 import 'package:messenger_app/presentation/pages/creat_name/create_name_page.dart';
 import 'package:messenger_app/presentation/pages/enter_phone_numb/enter_phonenumber_page.dart';
-import 'package:messenger_app/presentation/pages/group/group_setting_page.dart';
+import 'package:messenger_app/presentation/pages/group/group_setting/group_setting_page.dart';
 import 'package:messenger_app/presentation/pages/group/new_group_page.dart';
 import 'package:messenger_app/presentation/pages/home/home_page.dart';
 import 'package:messenger_app/presentation/pages/login/login_page.dart';
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
         'channel': (context) => const ChannelPage(),
         'find': (context) => const FindPeopleNearbyPage(),
         'profile': (context) => const MyProfile(),
-        'selectCall': (context) => const SelectCallPage(),
+        'selectCall': (context) => const SelectContactPage(),
         'addContact': (context) => const AddContactPage(),
         'userProfile': (context) => const UserProfilePage(),
         'chat': (context) => const ChatPages(),

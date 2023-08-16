@@ -34,7 +34,7 @@ class _MessagesPageState extends State<MessagesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text("Messages",style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                   fontWeight: FontWeight.w500,
                   color: Colors.black)),
                   IconButton(

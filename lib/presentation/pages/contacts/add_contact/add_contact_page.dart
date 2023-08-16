@@ -21,7 +21,7 @@ class _AddContactPageState extends State<AddContactPage> {
       appBar: AppBarItem(
           name: const Text('Add contact',
               style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                   fontWeight: FontWeight.w500,
                   color: Colors.black)),
           icon1: Icons.arrow_back,

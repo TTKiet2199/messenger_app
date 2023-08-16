@@ -35,7 +35,7 @@ class _ContactsPageState extends State<ContactsPage> {
                   children: [
                     const Text("Contacts",
                         style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 25,
                             fontWeight: FontWeight.w500,
                             color: Colors.black)),
                     IconButton(
